@@ -1,18 +1,24 @@
 import Backbone from 'backbone';
 import ReactDOM from 'react-dom'
 import React from 'react'
+import {ViewController} from './view-controller.js'
 
-const SomeComponent = React.createClass({
-	render: function(){
-		return (
-			<div>
-				<h1> WHOOAAAA!</h1>
-				<p><small>
-					you make my hair so soft and i know you will never make me cry.
-				</small></p>
-			</div>
-		)
+const AppRouter = Backbone.Router.extend({
+	initialize: function(){
+		Backbone.history.start()
+	},
+
+	routes: {
+		'recipe/create' : 'showNewRecipeComponent',
+		'' : 'showAccountComponent'
+	},
+
+	showAccountComponent: function(){
+		ReactDOM.render(<ViewController fromRoute={'ACCOUNT'}/>, document.querySelector('#app-container'))
+	},
+
+	showNewRecipeComponent: function(){
+		ReactDOM.render(<ViewController fromRoute={'NEWRECIPE'}/>, document.querySelector('#app-container'))
 	}
-})
 
-ReactDOM.render(<SomeComponent/>, document.querySelector('#app-container'))
+})
