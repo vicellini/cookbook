@@ -1,6 +1,6 @@
 import React from 'react';
 import Backbone from 'backbone';
-import {RecipeModel} from '../scripts/models/model-recipe.js'
+import {RecipeModel} from '../models/model-recipe.js'
 import {ACTIONS} from '../actions.js';
 
 export const RecipeForm = React.createClass({
