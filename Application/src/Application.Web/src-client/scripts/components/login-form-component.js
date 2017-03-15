@@ -18,6 +18,7 @@ export const LoginForm  = React.createClass({
         var self = this;
         return (
               <div>
+
                   <div id="buttons">
                       <p id="signupButton" onClick={self.switch.bind(null,"signup")} className={self.state.signup ? "yellow":"blue"}>Sign In</p>
                       <p id="loginButton" onClick={self.switch.bind(null,"login")} className={self.state.login ? "yellow":"blue"}> Login</p>
@@ -25,6 +26,7 @@ export const LoginForm  = React.createClass({
 
                    {self.state.signup?<Signup/> : null}
                    {self.state.login? <Login /> : null}
+
               </div>
 
         )
@@ -40,14 +42,14 @@ var Signup = React.createClass({
 
             return (
             <div>
-                  <div id="signup">
+                  <form id="signup">
                         <input type="text" id="username" placeholder="Username"/>
                         <input type="email" id="email" placeholder="Email"/>
                     <input type="password" id="password" placeholder="Password"/>
                     <input type="password" id="confirm" placeholder="Confirm Password"/>
                     <button id="send">Send</button>
+                  </form>
             </div>
-                </div>
 
             )
       }
@@ -70,7 +72,3 @@ var Login = React.createClass({
 })
 
 ReactDOM.render(<LoginForm/>,document.getElementById("signup"))
-
-
-
-ReactDOM.render(<Parent/>,document.getElementById("space"))
