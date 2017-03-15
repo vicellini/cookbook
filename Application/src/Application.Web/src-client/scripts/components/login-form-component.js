@@ -70,5 +70,3 @@ var Login = React.createClass({
             )
       }
 })
-
-ReactDOM.render(<LoginForm/>,document.getElementById("signup"))

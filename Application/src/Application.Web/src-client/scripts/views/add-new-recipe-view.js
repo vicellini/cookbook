@@ -4,8 +4,6 @@ import {STORE} from '../store.js';
 import {ACTIONS} from '../actions.js';
 
 export const NewRecipeView = React.createClass({
-
-
   render: function(){
     return (
       <div>

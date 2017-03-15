@@ -3,7 +3,7 @@ import {STORE} from './store.js'
 
 export const ACTIONS = {
 
-  changeNav: function(selectedAppRoute, urlRoute){
+  navChange: function(selectedAppRoute, urlRoute){
     STORE.setStore('currentNavRoute', selectedAppRoute)
     window.location.hash = urlRoute
   }
