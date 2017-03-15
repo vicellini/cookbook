@@ -10,7 +10,7 @@ export const NewRecipeView = React.createClass({
     return (
       <div>
         {RecipeForm}
-      </div>
+      <div>
     )
   }
 })
