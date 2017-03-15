@@ -1,6 +1,7 @@
 import React from 'react';
 import Backbone from 'backbone';
 import {RecipeModel} from '../models/model-recipe.js'
+import {PreviewLists} from './form-preview-component.js'
 import {ACTIONS} from '../actions.js';
 
 export const RecipeForm = React.createClass({
@@ -11,6 +12,34 @@ export const RecipeForm = React.createClass({
       imgPreviewLink: ''
     }
   },
+
+  _updateIngredientList: function(ingredientName){
+    let copyOfItems = this.state.ingredientList.map(function(copy){return copy})
+      let copyOfItemsMinus = copyOfItems.filter(function(someObj){
+            if(ingredientName !== ingredientObj.name){
+              return true
+            } else {
+              return false
+            }
+          })
+          this.setState({
+            ingredientList: copyOfItemsMinus
+          })
+     },
+
+  _updateDirectionList: function(directionStr){
+   let copyOfItems = this.state.directionList.map(function(copy){return copy})
+     let copyOfItemsMinus = copyOfItems.filter(function(someStr){
+           if(directionStr !== someStr){
+             return true
+           } else {
+             return false
+           }
+         })
+         this.setState({
+           directionList: copyOfItemsMinus
+         })
+    },
 
   render: function(){
     <div className="new-recipe_container">
@@ -42,22 +71,11 @@ export const RecipeForm = React.createClass({
           <button onClick={this._handleImgPreviewClick} >&#43;</button>
         </div>
       </form>
-      <div className="preview-container">
-        <div className="preview_ingredients">
-        </div>
-        <div className="preview_directions">
-        </div>
-      </div>
+      <PreviewList
+        {...this.state}
+        _updateIngredientListCB={this._updateIngredientList}
+        _updateDirectionListCB={this._updateDirectionList}
+      />
     </div>
-  }
-})
-
-const SingleIngredient = React.createClass({
-  render: function(){
-  }
-})
-
-const SingleDirection = React.createClass({
-  render: function(){
   }
 })
