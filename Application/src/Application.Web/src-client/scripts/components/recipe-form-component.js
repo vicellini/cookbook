@@ -4,7 +4,7 @@ import {RecipeModel} from '../models/model-recipe.js'
 import {PreviewLists} from './form-preview-component.js'
 
 export const RecipeForm = React.createClass({
-  getInitalState: function(){
+  getInitialState: function(){
     return {
       ingredientList: [],
       directionList: [],
@@ -46,9 +46,11 @@ export const RecipeForm = React.createClass({
 
   _handleNewIngridient: function(evt){
     evt.preventDefault()
+    console.log(evt)
+    let formEl = evt.target
     let newIngredient = {
-      quantity: this.refs.ingredientQty.value,
-      critical: this.refs.ingredientName.value
+      qty: formEl.ingredientQty.value,
+      critical: formEl.ingredientName.value
     }
     let copyOfItems = this.state.ingredientList.map(function(copy){return copy})
     copyOfItems.push(userTask)
@@ -60,7 +62,7 @@ export const RecipeForm = React.createClass({
   _handleNewDirection: function(evt){
     evt.preventDefault()
     let newDirection = {
-      direction: this.refs.singleDirection.value
+      direction: this.name.singleDirection.value
     }
     let copyOfItems = this.state.directionList.map(function(copy){return copy})
     copyOfItems.push(newDirection)
@@ -74,32 +76,42 @@ export const RecipeForm = React.createClass({
   },
 
   render: function(){
+    console.log(this.state)
     return (
-    <div className="new-recipe_container">
+    <div className="new-recipe_input">
       <form className="new-recipe_form" onSubmit={this._handleFormSubmit}>
         <div className="form-group__field field_recipe-name">
           <label>Recipe Name</label>
+          <br/>
           <input type="text" name="recipeName" placeholder="Enter Name"/>
           <p className="flash-msg"></p>
         </div>
-        <div className="ingredient_form" onSubmit={this._handleNewIngridient}>
+          <br/>
+        <div className="ingredient_inputs">
           <label>Add Ingredient</label>
-          <span>Qty.</span><input type="text" ref="ingredientQty"/>
-          <input type="text" ref="ingredientName"/><button>&#43;</button>
+          <br/>
+          <span>Qty.</span><input type="text" name="ingredientQty" className="qty-input"/>
+          <input type="text" name="ingredientName"/><button onClick={this._handleNewIngridient}>&#43;</button>
           <p className="flash-msg"></p>
         </div>
+          <br/>
         <select name="category">
           <option value="Breakfast">Breakfast</option>
           <option value="Lunch">Lunch</option>
           <option value="Dinner">Dinner</option>
           <option value="Dessert">Dessert</option>
         </select>
-        <div className="direction_form" onSubmit={this._handleNewDirection}>
+          <br/>
+        <div className="direction_input">
           <label>Add Direction</label>
-          <input type="text" ref="singleDirection"/><button>&#43;</button>
+          <br/>
+          <input type="text" name="singleDirection"/><button onClick={this._handleNewDirection}>&#43;</button>
           <p className="flash-msg"></p>
         </div>
+          <br/>
         <div className="form-group__field field_recipe-image">
+          <label>Add An Image</label>
+          <br/>
           <input type="text" name="imgInputEl" ref="previewImgEl"/>
           <button onClick={this._handleImgPreviewClick}>&#43;</button>
         </div>
