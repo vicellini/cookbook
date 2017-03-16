@@ -1,5 +1,7 @@
 import React from 'react';
 import Backbone from 'backbone';
+import {ACTIONS} from '../actions.js';
+import {UserModel} from '../models/model-user.js';
 
 export const LoginForm  = React.createClass({
   getInitialState:function(){
@@ -87,6 +89,6 @@ var Login = React.createClass({
         let formEl = evt.target
         let userVal = formEl.emailField.value
         let passwordVal = formEl.passwordField.value
-        ACTIONS.loginUser(userVal, passwordVal)
+        ACTIONS.logInUser(userVal, passwordVal)
       },
 })
