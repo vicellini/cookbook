@@ -1,3 +1,17 @@
+.new-recipe_input {
+  font-size: 0; }
+
+.new-recipe_form,
+.new-recipe_preview {
+  display: inline-block;
+  font-size: medium;
+  vertical-align: top;
+  width: 50%; }
+
+.qty-input {
+  width: 40px;
+  margin-right: 10px; }
+
 * {
   box-sizing: border-box; }
 

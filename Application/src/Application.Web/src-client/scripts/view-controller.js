@@ -5,7 +5,7 @@ import {STORE} from './store.js';
 import {ACTIONS} from './actions.js';
 
 export const ViewController = React.createClass({
-  getInitalState: function(){
+  getInitialState: function(){
     ACTIONS.navChange(this.props.fromRoute, window.location.hash)
     let storeObject = STORE.getStoreData()
     return storeObject

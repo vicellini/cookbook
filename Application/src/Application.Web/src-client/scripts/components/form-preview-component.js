@@ -33,7 +33,7 @@ export const PreviewLists = React.createClass({
 
   render: function(){
     return(
-      <div className="preview-container">
+      <div className="new-recipe_preview">
         {this._createIngredientJSX(this.props.ingredientList)}
         {this._createDirectionJSX(this.props.directionList)}
       </div>
