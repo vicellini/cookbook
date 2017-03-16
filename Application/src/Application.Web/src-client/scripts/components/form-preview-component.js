@@ -87,7 +87,7 @@ const SingleDirection = React.createClass({
       render: function(){
       return (
         <div className="single-direction u_column-container">
-         <span className="direction-text u_column">{this.key}. {this.props.data.direction}</span>
+         <span className="direction-text u_column">{this.props.data.direction}</span>
          <div className="btn-delete u_column">
            <i onClick={this._handleDelete} className="fa fa-trash-o" aria-hidden="true"></i>
          </div>

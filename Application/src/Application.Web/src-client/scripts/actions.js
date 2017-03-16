@@ -4,7 +4,6 @@ import {RecipeModel, RecipeCollection} from './models/model-recipe.js'
 import {STORE} from './store.js';
 
 
-
 export const ACTIONS = {
   saveNewRecipe: function(recipeObject){
     let newRecipeInstance = new RecipeModel()

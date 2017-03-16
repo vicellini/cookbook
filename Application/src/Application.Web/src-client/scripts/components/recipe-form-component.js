@@ -2,13 +2,14 @@ import React from 'react';
 import Backbone from 'backbone';
 import {RecipeModel} from '../models/model-recipe.js'
 import {PreviewLists} from './form-preview-component.js'
+import ACTIONS from '../actions.js'
 
 export const RecipeForm = React.createClass({
   getInitialState: function(){
     return {
       ingredientList: [],
       directionList: [],
-      imgPreviewLink: ''
+      imgPreviewLink: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=No%20Image%20Listed&w=300&h=200'
     }
   },
 
@@ -43,14 +44,16 @@ export const RecipeForm = React.createClass({
   _handleFormSubmit: function(evt){
     evt.preventDefault()
     let formEl = evt.target
+    console.log(formEl)
     let newReceipeObj = {
       name: formEl.recipeName.value,
       category: formEl.category.value,
       ingredients: this.state.ingredientList,
-      steps: this.state.directionList
+      steps: this.state.directionList,
+      imageUrl: this.state.imgPreviewLink
     }
+    console.log(newReceipeObj)
     ACTIONS.saveNewRecipe(newReceipeObj)
-
   },
 
   _handleNewIngridient: function(evt){
@@ -84,11 +87,19 @@ export const RecipeForm = React.createClass({
      this.refs.singleDirection.value = ''
   },
 
-  _handleImgPreviewClick: function(evt){
-
+  _handleImgPreview: function(evt){
+    evt.preventDefault()
+    let imgDomEl = this.refs.previewImg
+    if (imgDomEl.value.length > 0){
+      this.setState({
+        imgPreviewLink: imgDomEl.value
+      })
+    }
   },
 
   render: function(){
+    let imgPreviewSrc = this.state.imgPreviewLink
+
     return (
     <div className="new-recipe_input">
       <form className="new-recipe_form" onSubmit={this._handleFormSubmit}>
@@ -124,10 +135,10 @@ export const RecipeForm = React.createClass({
         <div className="form-group__field field_recipe-image">
           <label>Add An Image</label>
           <br/>
-          <input type="text" name="imgInputEl" ref="previewImgEl"/>
-          <button onClick={this._handleImgPreviewClick}>&#43;</button>
+          <input type="text" ref="previewImg"/>
+          <button onClick={this._handleImgPreview}>&#43;</button>
           <label>Image Preview</label>
-          <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=No%20Image%20Listed&w=300&h=200"/>
+          <img src={imgPreviewSrc}/>
         </div>
         <br/>
         <button className="btn_submit" type="submit">Add This Recipe!</button>

@@ -7,7 +7,8 @@
   vertical-align: top; }
 
 .new-recipe_input {
-  font-size: 0; }
+  font-size: 0;
+  padding: 20px; }
 
 .new-recipe_form,
 .new-recipe_preview {
@@ -15,6 +16,9 @@
   font-size: medium;
   vertical-align: top;
   width: 50%; }
+  .new-recipe_form h2,
+  .new-recipe_preview h2 {
+    margin-top: 10px; }
 
 .qty-input {
   width: 80px;
@@ -24,7 +28,7 @@
 .direction-list {
   border: 1px solid #000;
   height: 250px;
-  margin: 5px; }
+  overflow-y: scroll; }
 
 .field_recipe-image {
   width: 200px; }

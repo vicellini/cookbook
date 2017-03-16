@@ -19,6 +19,9 @@
   font-size: medium;
   vertical-align: top;
   width: 50%;
+  & h2 {
+    margin-top: 10px;
+  }
 }
 
 .qty-input {
@@ -30,7 +33,6 @@
 .direction-list {
   border: 1px solid #000;
   height: 250px;
-  margin: 5px;
   overflow-y: scroll;
 }
 
