@@ -8,6 +8,15 @@
   vertical-align: top;
 }
 
+.new-recipe_form {
+  & input {
+    outline: none;
+  }
+  & button {
+    outline: none;
+  }
+}
+
 .new-recipe_input {
   font-size: 0;
   padding: 20px;

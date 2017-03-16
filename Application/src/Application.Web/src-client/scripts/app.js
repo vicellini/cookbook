@@ -4,6 +4,7 @@ import React from 'react'
 import {NewRecipeView} from './views/add-new-recipe-view.js';
 import {ViewController} from './view-controller.js'
 
+
 const AppRouter = Backbone.Router.extend({
 	initialize: function(){
 		Backbone.history.start()

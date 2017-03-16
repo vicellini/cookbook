@@ -1,4 +1,5 @@
 import React from 'react';
+import {Navbar} from './components/navbar-component.js'
 import {LoginFormView} from './views/register-view.js';
 import {NewRecipeView} from './views/add-new-recipe-view.js';
 import {STORE} from './store.js';
@@ -27,6 +28,7 @@ export const ViewController = React.createClass({
 
     return (
     <div>
+      <Navbar/>
       {componentToRender}
     </div>
     )

@@ -6,6 +6,12 @@
   font-size: medium;
   vertical-align: top; }
 
+.new-recipe_form input {
+  outline: none; }
+
+.new-recipe_form button {
+  outline: none; }
+
 .new-recipe_input {
   font-size: 0;
   padding: 20px; }
