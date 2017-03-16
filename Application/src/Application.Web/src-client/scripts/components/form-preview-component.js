@@ -34,8 +34,12 @@ export const PreviewLists = React.createClass({
   render: function(){
     return(
       <div className="new-recipe_preview">
-        {this._createIngredientJSX(this.props.ingredientList)}
-        {this._createDirectionJSX(this.props.directionList)}
+        <div className="ingredient-list">
+          {this._createIngredientJSX(this.props.ingredientList)}
+        </div>
+        <div className="direction-list">
+          {this._createDirectionJSX(this.props.directionList)}
+        </div>
       </div>
     )
   }
@@ -48,21 +52,21 @@ export const PreviewLists = React.createClass({
 const SingleIngredient = React.createClass({
 
   _handleDelete: function(){
-    let singleObj = this.props.data
-    this.props._updateIngredientList(singleObj)
+    let singleIngred = this.props.data.nameOfIngredient
+    this.props._updateIngredientList(singleIngred)
     },
 
 
     render: function(){
     return (
-      <div class="single-ingredient">
-         <div className="single_qty">
-           <span></span>
+      <div className="ingredient-single .u_column-container">
+         <div className="single_qty u_column">
+           <span>{this.props.data.qty}</span>
          </div>
-         <div className="single_name">
-           <span></span>
+         <div className="single_name u_column">
+           <span>{this.props.data.nameOfIngredient}</span>
          </div>
-         <div className="btn-delete">
+         <div className="btn-delete u_column">
            <i onClick={this._handleDelete} className="fa fa-trash-o" aria-hidden="true"></i>
          </div>
      </div>
@@ -80,9 +84,9 @@ const SingleDirection = React.createClass({
 
       render: function(){
       return (
-        <div class="single-direction">
-         <span>{this.props.key}. {this.props.data}</span>
-         <div className="btn-delete">
+        <div className="single-direction u_column-container">
+         <span className="direction-text u_column">{this.key}. {this.props.data.direction}</span>
+         <div className="btn-delete u_column">
            <i onClick={this._handleDelete} className="fa fa-trash-o" aria-hidden="true"></i>
          </div>
        </div>
