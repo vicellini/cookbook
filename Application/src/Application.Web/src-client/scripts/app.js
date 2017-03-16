@@ -11,7 +11,8 @@ const AppRouter = Backbone.Router.extend({
 
 	routes: {
 		'recipe/create' : 'showNewRecipeComponent',
-		'' : 'showAccountComponent'
+		'' : 'showAccountComponent' ,
+		'cookbook' : 'showCookbookComponent'
 	},
 
 	showAccountComponent: function(){
