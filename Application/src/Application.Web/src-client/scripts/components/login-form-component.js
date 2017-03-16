@@ -8,7 +8,7 @@ export const LoginForm  = React.createClass({
     return {signup:false,login:true}
   },
 
-  _switchTab: function(tab){
+  switchTab: function(tab){
     var signup,login;
     if(tab == "signup"){signup = true;login = false;}
     else{login = true; signup = false;}
@@ -21,13 +21,13 @@ export const LoginForm  = React.createClass({
         return (
               <div>
 
-                  <div id="buttons">
-                      <p id="signupButton" onClick={self.switch.bind(null,"signup")} className={self.state.signup ? "yellow":"blue"}>Sign In</p>
-                      <p id="loginButton" onClick={self.switch.bind(null,"login")} className={self.state.login ? "yellow":"blue"}> Login</p>
+                  <div className="buttons">
+                      <p id="signupButton" onClick={self.switchTab.bind(null,"signup")} className={self.state.signup ? "yellow":"blue"}>Register</p>
+                      <p id="loginButton" onClick={self.switchTab.bind(null,"login")} className={self.state.login ? "yellow":"blue"}>Login</p>
                   </div>
 
                    {self.state.signup?<Signup/> : null}
-                   {self.state.login? <Login /> : null}
+                   {self.state.login? <Login/> : null}
 
               </div>
 
@@ -43,13 +43,13 @@ var Signup = React.createClass({
       render:function(){
 
             return (
-            <div>
-              <form id="signup">
-                    <input type="text" id="username" name="usernameField"/>
-                    <input type="email" id="email" name="emailField"/>
-                    <input type="password" id="password" name="passwordField"/>
-                    <input type="password" id="confirm" name="confirmField"/>
-                    <button id="btn-signup">Sign Up</button>
+            <div className="signup_input">
+              <form className="signup" onSubmit={this._handleSignup}>
+                    <input type="text" className="form-control" name="usernameField" placeholder="Username"/>
+                    <input type="email" className="form-control" name="emailField" placeholder="Email"/>
+                    <input type="password" className="form-control" name="passwordField" placeholder="Password"/>
+                    <input type="password" className="form-control" name="confirmField" placeholder="Confirm Password"/>
+                    <button className="btn btn-signup" type="submit">Sign Up</button>
               </form>
             </div>
 
@@ -73,11 +73,11 @@ var Login = React.createClass({
       render:function(){
 
             return (
-              <div>
-                 <form id="login">
-                    <input type="email" id="email" emailField="Email"/>
-                    <input type="password" id="password" passwordField="Password"/>
-                    <button id="btn-login">Login</button>
+              <div className="login_input">
+                 <form className="login" onSubmit={this._handleSubmit}>
+                    <input type="text" className="form-control" name="emailField" placeholder="Email"/>
+                    <input type="password" className="form-control" name="passwordField" placeholder="Password"/>
+                    <button className="btn btn-login" type="submit">Login</button>
                  </form>
               </div>
 

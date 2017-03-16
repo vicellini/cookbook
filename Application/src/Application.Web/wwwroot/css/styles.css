@@ -53,6 +53,52 @@
   width: 10%;
   text-align: center; }
 
+#app-container > div {
+  width: 500px;
+  margin: auto;
+  margin-top: 10%;
+  font-family: 'Roboto', sans-serif; }
+
+.signup, .login {
+  width: 100%;
+  background: #2c3e50; }
+
+.signup {
+  height: 400px; }
+
+.login {
+  height: 400px; }
+
+.yellow {
+  background-color: gold; }
+
+.buttons {
+  height: 100px;
+  background: #2c3e50; }
+
+.buttons p {
+  width: 49.95%;
+  float: left;
+  color: white;
+  text-align: center;
+  padding-top: 25px;
+  height: 75%;
+  margin: 0; }
+
+.buttons p:hover {
+  background: #f1c40f;
+  color: #2c3e50;
+  cursor: pointer; }
+
+.form-control {
+  width: 250px;
+  margin-left: 125px;
+  margin-bottom: 5%; }
+
+.btn {
+  width: 100px;
+  margin-left: 40%; }
+
 * {
   box-sizing: border-box; }
 

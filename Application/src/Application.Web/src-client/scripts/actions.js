@@ -32,8 +32,8 @@ export const ACTIONS = {
     })
   },
 
-  loginUser: function(usr, pw){
-    UserModel.login(usr, pw).then(function(serverRes){
+  logInUser: function(usr, pw){
+    UserModel.logIn(usr, pw).then(function(serverRes){
       STORE.setStore('currentUser', serverRes)
       ACTION.navChange('COOKBOOK', 'cookbook')
     })
