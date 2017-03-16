@@ -42,12 +42,12 @@ var Signup = React.createClass({
 
             return (
             <div>
-                  <form id="signup">
-                        <input type="text" id="username" placeholder="Username"/>
-                        <input type="email" id="email" placeholder="Email"/>
+            <form id="signup">
+                    <input type="text" id="username" placeholder="Username"/>
+                    <input type="email" id="email" placeholder="Email"/>
                     <input type="password" id="password" placeholder="Password"/>
                     <input type="password" id="confirm" placeholder="Confirm Password"/>
-                    <button id="send">Send</button>
+                    <button id="btn-signup">Sign Up</button>
                   </form>
             </div>
 
@@ -60,11 +60,11 @@ var Login = React.createClass({
 
             return (
               <div>
-                 <div id="login">
+                 <form id="login">
                     <input type="email" id="email" placeholder="Email"/>
                     <input type="password" id="password" placeholder="Password"/>
-                    <button id="send">Send</button>
-                 </div>
+                    <button id="btn-login">Login</button>
+                 </form>
               </div>
 
             )
