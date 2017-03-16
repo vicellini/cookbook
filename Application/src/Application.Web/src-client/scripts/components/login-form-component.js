@@ -15,25 +15,19 @@ export const LoginForm  = React.createClass({
     return this.setState({login:login,signup:signup})
 
   },
-  render:function(){
 
+  render:function(){
         var self = this;
         return (
               <div>
-
                   <div className="buttons">
                       <p id="signupButton" onClick={self.switchTab.bind(null,"signup")} className={self.state.signup ? "yellow":"blue"}>Register</p>
                       <p id="loginButton" onClick={self.switchTab.bind(null,"login")} className={self.state.login ? "yellow":"blue"}>Login</p>
                   </div>
-
                    {self.state.signup?<Signup/> : null}
                    {self.state.login? <Login/> : null}
-
               </div>
-
         )
-
-
   }
 })
 
@@ -80,7 +74,6 @@ var Login = React.createClass({
                     <button className="btn btn-login" type="submit">Login</button>
                  </form>
               </div>
-
             )
       },
 
