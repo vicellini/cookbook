@@ -12,10 +12,10 @@ export const RecipeForm = React.createClass({
     }
   },
 
-  _updateIngredientList: function(ingredientName){
+  _updateIngredientList: function(singleIngred){
     let copyOfItems = this.state.ingredientList.map(function(copy){return copy})
-      let copyOfItemsMinus = copyOfItems.filter(function(someObj){
-            if(ingredientName !== ingredientObj.name){
+      let copyOfItemsMinus = copyOfItems.filter(function(ingredientObj){
+            if(singleIngred.nameOfIngredient !== ingredientObj.nameOfIngredient || singleIngred.qty !== ingredientObj.qty){
               return true
             } else {
               return false
@@ -42,33 +42,46 @@ export const RecipeForm = React.createClass({
 
   _handleFormSubmit: function(evt){
     evt.preventDefault()
+    let formEl = evt.target
+    let newReceipeObj = {
+      name: formEl.recipeName.value,
+      category: formEl.category.value,
+      ingredients: this.state.ingredientList,
+      steps: this.state.directionList
+    }
+    ACTIONS.saveNewRecipe(newReceipeObj)
+
   },
 
   _handleNewIngridient: function(evt){
     evt.preventDefault()
-    console.log(evt)
-    let formEl = evt.target
-    let newIngredient = {
-      qty: formEl.ingredientQty.value,
-      critical: formEl.ingredientName.value
+    let newQty = this.refs.ingredientQty
+    let newName = this.refs.ingredientName
+    let newIngredientObj = {
+      qty: newQty.value,
+      nameOfIngredient: newName.value
     }
     let copyOfItems = this.state.ingredientList.map(function(copy){return copy})
-    copyOfItems.push(userTask)
+    copyOfItems.push(newIngredientObj)
      this.setState({
        ingredientList : copyOfItems
      })
+     this.refs.ingredientQty.value = ''
+     this.refs.ingredientName.value = ''
   },
 
   _handleNewDirection: function(evt){
     evt.preventDefault()
+    let directionEl = this.refs.singleDirection
     let newDirection = {
-      direction: this.name.singleDirection.value
+      direction: directionEl.value
     }
     let copyOfItems = this.state.directionList.map(function(copy){return copy})
     copyOfItems.push(newDirection)
      this.setState({
        directionList : copyOfItems
      })
+     this.refs.singleDirection.value = ''
   },
 
   _handleImgPreviewClick: function(evt){
@@ -76,7 +89,6 @@ export const RecipeForm = React.createClass({
   },
 
   render: function(){
-    console.log(this.state)
     return (
     <div className="new-recipe_input">
       <form className="new-recipe_form" onSubmit={this._handleFormSubmit}>
@@ -86,15 +98,6 @@ export const RecipeForm = React.createClass({
           <input type="text" name="recipeName" placeholder="Enter Name"/>
           <p className="flash-msg"></p>
         </div>
-          <br/>
-        <div className="ingredient_inputs">
-          <label>Add Ingredient</label>
-          <br/>
-          <span>Qty.</span><input type="text" name="ingredientQty" className="qty-input"/>
-          <input type="text" name="ingredientName"/><button onClick={this._handleNewIngridient}>&#43;</button>
-          <p className="flash-msg"></p>
-        </div>
-          <br/>
         <select name="category">
           <option value="Breakfast">Breakfast</option>
           <option value="Lunch">Lunch</option>
@@ -102,10 +105,19 @@ export const RecipeForm = React.createClass({
           <option value="Dessert">Dessert</option>
         </select>
           <br/>
+          <br/>
+        <div className="ingredient_inputs">
+          <label>Add Ingredient</label>
+          <br/>
+          <span>Qty.</span><input type="text" ref="ingredientQty" className="qty-input"/>
+          <input type="text" ref="ingredientName"/><button onClick={this._handleNewIngridient}>&#43;</button>
+          <p className="flash-msg"></p>
+        </div>
+          <br/>
         <div className="direction_input">
           <label>Add Direction</label>
           <br/>
-          <input type="text" name="singleDirection"/><button onClick={this._handleNewDirection}>&#43;</button>
+          <input type="text" ref="singleDirection"/><button onClick={this._handleNewDirection}>&#43;</button>
           <p className="flash-msg"></p>
         </div>
           <br/>
@@ -114,7 +126,11 @@ export const RecipeForm = React.createClass({
           <br/>
           <input type="text" name="imgInputEl" ref="previewImgEl"/>
           <button onClick={this._handleImgPreviewClick}>&#43;</button>
+          <label>Image Preview</label>
+          <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=No%20Image%20Listed&w=300&h=200"/>
         </div>
+        <br/>
+        <button className="btn_submit" type="submit">Add This Recipe!</button>
       </form>
       <PreviewLists
         {...this.state}
