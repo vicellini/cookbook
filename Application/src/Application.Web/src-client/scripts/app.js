@@ -1,6 +1,7 @@
 import Backbone from 'backbone';
 import ReactDOM from 'react-dom'
 import React from 'react'
+import {NewRecipeView} from './views/add-new-recipe-view.js';
 import {ViewController} from './view-controller.js'
 
 const AppRouter = Backbone.Router.extend({
@@ -18,7 +19,9 @@ const AppRouter = Backbone.Router.extend({
 	},
 
 	showNewRecipeComponent: function(){
-		ReactDOM.render(<ViewController fromRoute={'NEWRECIPE'}/>, document.querySelector('#app-container'))
+		ReactDOM.render(<NewRecipeView fromRoute={'NEWRECIPE'}/>, document.querySelector('#app-container'))
 	}
 
 })
+
+new AppRouter()
