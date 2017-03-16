@@ -6,8 +6,6 @@ import {LoginForm} from '../components/login-form-component.js';
 
 export const LoginFormView = React.createClass({
   render: function(){
-    return {
-      <LoginForm/>
-    }
+    return <LoginForm/>
   }
 })

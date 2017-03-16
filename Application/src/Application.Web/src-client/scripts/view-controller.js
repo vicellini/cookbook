@@ -1,5 +1,5 @@
 import React from 'react';
-import {LoginForm} from './components/login-form-component.js';
+import {LoginFormView} from './views/register-view.js';
 import {NewRecipeView} from './views/add-new-recipe-view.js';
 import {STORE} from './store.js';
 import {ACTIONS} from './actions.js';
@@ -17,7 +17,7 @@ export const ViewController = React.createClass({
 
     switch(this.state.currentNavRoute){
       case "ACCOUNT":
-        componentToRender = <LoginForm/>
+        componentToRender = <LoginFormView/>
       break;
       case "NEWRECIPE":
         componentToRender = <NewRecipeView/>
