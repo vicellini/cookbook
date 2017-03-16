@@ -5,7 +5,7 @@ export const RecipeModel = Backbone.Model.extend({
 	idAttribute: '_id'
 })
 
-export const RecipeModelCollection = Backbone.Collection.extend({
+export const RecipeCollection = Backbone.Collection.extend({
 	model: RecipeModel,
 	url: '/api/recipes'
 })

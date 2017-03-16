@@ -34,9 +34,11 @@ export const PreviewLists = React.createClass({
   render: function(){
     return(
       <div className="new-recipe_preview">
+        <h2>Ingredient List</h2>
         <div className="ingredient-list">
           {this._createIngredientJSX(this.props.ingredientList)}
         </div>
+        <h2>Directions:</h2>
         <div className="direction-list">
           {this._createDirectionJSX(this.props.directionList)}
         </div>
@@ -52,7 +54,7 @@ export const PreviewLists = React.createClass({
 const SingleIngredient = React.createClass({
 
   _handleDelete: function(){
-    let singleIngred = this.props.data.nameOfIngredient
+    let singleIngred = this.props.data
     this.props._updateIngredientList(singleIngred)
     },
 

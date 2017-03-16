@@ -1,12 +1,14 @@
 import React from 'react';
 import Backbone from 'backbone';
+import {ACTIONS} from '../actions.js';
+import {UserModel} from '../models/model-user.js';
 
 export const LoginForm  = React.createClass({
   getInitialState:function(){
     return {signup:false,login:true}
   },
 
-  switch:function(tab){
+  _switchTab: function(tab){
     var signup,login;
     if(tab == "signup"){signup = true;login = false;}
     else{login = true; signup = false;}
@@ -42,16 +44,28 @@ var Signup = React.createClass({
 
             return (
             <div>
-                  <form id="signup">
-                        <input type="text" id="username" placeholder="Username"/>
-                        <input type="email" id="email" placeholder="Email"/>
-                    <input type="password" id="password" placeholder="Password"/>
-                    <input type="password" id="confirm" placeholder="Confirm Password"/>
-                    <button id="send">Send</button>
-                  </form>
+              <form id="signup">
+                    <input type="text" id="username" name="usernameField"/>
+                    <input type="email" id="email" name="emailField"/>
+                    <input type="password" id="password" name="passwordField"/>
+                    <input type="password" id="confirm" name="confirmField"/>
+                    <button id="btn-signup">Sign Up</button>
+              </form>
             </div>
 
             )
+      },
+
+      _handleSignup: function(evt){
+        evt.preventDefault();
+        let formEl = evt.target
+        let objToSave = {
+          username: formEl.usernameField.value ,
+          email: formEl.emailField.value ,
+          password: formEl.passwordField.value ,
+          confirmPassword: formEl.confirmField.value
+        }
+        ACTIONS.registerNewUser(objToSave)
       }
 })
 
@@ -60,13 +74,21 @@ var Login = React.createClass({
 
             return (
               <div>
-                 <div id="login">
-                    <input type="email" id="email" placeholder="Email"/>
-                    <input type="password" id="password" placeholder="Password"/>
-                    <button id="send">Send</button>
-                 </div>
+                 <form id="login">
+                    <input type="email" id="email" emailField="Email"/>
+                    <input type="password" id="password" passwordField="Password"/>
+                    <button id="btn-login">Login</button>
+                 </form>
               </div>
 
             )
-      }
+      },
+
+      _handleSubmit: function(evt){
+        evt.preventDefault()
+        let formEl = evt.target
+        let userVal = formEl.emailField.value
+        let passwordVal = formEl.passwordField.value
+        ACTIONS.logInUser(userVal, passwordVal)
+      },
 })

@@ -10,6 +10,7 @@
 
 .new-recipe_input {
   font-size: 0;
+  padding: 20px;
 }
 
 .new-recipe_form,
@@ -30,6 +31,7 @@
   border: 1px solid #000;
   height: 250px;
   margin: 5px;
+  overflow-y: scroll;
 }
 
 .field_recipe-image {

@@ -15,7 +15,7 @@ export const RecipeForm = React.createClass({
   _updateIngredientList: function(singleIngred){
     let copyOfItems = this.state.ingredientList.map(function(copy){return copy})
       let copyOfItemsMinus = copyOfItems.filter(function(ingredientObj){
-            if(singleIngred !== ingredientObj.nameOfIngredient){
+            if(singleIngred.nameOfIngredient !== ingredientObj.nameOfIngredient || singleIngred.qty !== ingredientObj.qty){
               return true
             } else {
               return false
@@ -42,6 +42,15 @@ export const RecipeForm = React.createClass({
 
   _handleFormSubmit: function(evt){
     evt.preventDefault()
+    let formEl = evt.target
+    let newReceipeObj = {
+      name: formEl.recipeName.value,
+      category: formEl.category.value,
+      ingredients: this.state.ingredientList,
+      steps: this.state.directionList
+    }
+    ACTIONS.saveNewRecipe(newReceipeObj)
+
   },
 
   _handleNewIngridient: function(evt){
@@ -57,6 +66,8 @@ export const RecipeForm = React.createClass({
      this.setState({
        ingredientList : copyOfItems
      })
+     this.refs.ingredientQty.value = ''
+     this.refs.ingredientName.value = ''
   },
 
   _handleNewDirection: function(evt){
@@ -70,6 +81,7 @@ export const RecipeForm = React.createClass({
      this.setState({
        directionList : copyOfItems
      })
+     this.refs.singleDirection.value = ''
   },
 
   _handleImgPreviewClick: function(evt){
@@ -86,6 +98,13 @@ export const RecipeForm = React.createClass({
           <input type="text" name="recipeName" placeholder="Enter Name"/>
           <p className="flash-msg"></p>
         </div>
+        <select name="category">
+          <option value="Breakfast">Breakfast</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Dinner">Dinner</option>
+          <option value="Dessert">Dessert</option>
+        </select>
+          <br/>
           <br/>
         <div className="ingredient_inputs">
           <label>Add Ingredient</label>
@@ -94,14 +113,6 @@ export const RecipeForm = React.createClass({
           <input type="text" ref="ingredientName"/><button onClick={this._handleNewIngridient}>&#43;</button>
           <p className="flash-msg"></p>
         </div>
-          <br/>
-        <select name="category">
-          <option value="Breakfast">Breakfast</option>
-          <option value="Lunch">Lunch</option>
-          <option value="Dinner">Dinner</option>
-          <option value="Dessert">Dessert</option>
-        </select>
-          <br/>
           <br/>
         <div className="direction_input">
           <label>Add Direction</label>
