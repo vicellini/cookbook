@@ -2,7 +2,7 @@ import React from 'react';
 import Backbone from 'backbone';
 import {RecipeModel} from '../models/model-recipe.js'
 import {PreviewLists} from './form-preview-component.js'
-import ACTIONS from '../actions.js'
+import {ACTIONS} from '../actions.js'
 
 export const RecipeForm = React.createClass({
   getInitialState: function(){
@@ -60,42 +60,51 @@ export const RecipeForm = React.createClass({
     evt.preventDefault()
     let newQty = this.refs.ingredientQty
     let newName = this.refs.ingredientName
-    let newIngredientObj = {
-      qty: newQty.value,
-      nameOfIngredient: newName.value
-    }
-    let copyOfItems = this.state.ingredientList.map(function(copy){return copy})
-    copyOfItems.push(newIngredientObj)
-     this.setState({
-       ingredientList : copyOfItems
-     })
-     this.refs.ingredientQty.value = ''
-     this.refs.ingredientName.value = ''
+    if(newQty.value.length !== 0 && newName.value.length !== 0){
+      let newIngredientObj = {
+        qty: newQty.value,
+        nameOfIngredient: newName.value
+      }
+      let copyOfItems = this.state.ingredientList.map(function(copy){return copy})
+      copyOfItems.push(newIngredientObj)
+       this.setState({
+         ingredientList : copyOfItems
+       })
+       this.refs.ingredientQty.value = ''
+       this.refs.ingredientName.value = ''
+     }
   },
 
   _handleNewDirection: function(evt){
     evt.preventDefault()
     let directionEl = this.refs.singleDirection
-    let newDirection = {
-      direction: directionEl.value
-    }
-    let copyOfItems = this.state.directionList.map(function(copy){return copy})
-    copyOfItems.push(newDirection)
-     this.setState({
-       directionList : copyOfItems
-     })
-     this.refs.singleDirection.value = ''
+    if(directionEl.value.length !== 0){
+      let newDirection = {
+        direction: directionEl.value
+      }
+      let copyOfItems = this.state.directionList.map(function(copy){return copy})
+      copyOfItems.push(newDirection)
+       this.setState({
+         directionList : copyOfItems
+       })
+       this.refs.singleDirection.value = ''
+     }
   },
 
   _handleImgPreview: function(evt){
     evt.preventDefault()
     let imgDomEl = this.refs.previewImg
-    if (imgDomEl.value.length > 0){
-      this.setState({
-        imgPreviewLink: imgDomEl.value
-      })
-    }
-  },
+      if(imgDomEl.value.length > 0){
+        this.setState({
+          imgPreviewLink: imgDomEl.value
+        })
+      }
+      if(imgDomEl.value.length === 0){
+        this.setState({
+          imgPreviewLink: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=No%20Image%20Listed&w=300&h=200'
+        })
+      }
+    },
 
   render: function(){
     let imgPreviewSrc = this.state.imgPreviewLink

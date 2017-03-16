@@ -27,9 +27,11 @@ export const ViewController = React.createClass({
     }
 
     return (
-    <div>
+    <div className="app-components u_column-container">
       <Navbar/>
-      {componentToRender}
+      <div className="u_column page-content">
+        {componentToRender}
+      </div>
     </div>
     )
   }

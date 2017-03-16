@@ -21,7 +21,7 @@ export const Navbar = React.createClass({
 
   render: function(){
     return(
-      <nav className="navbar">
+      <nav className="navbar u_column">
         <img className="logo" src="../../images/cookbook-logo.png"/>
         {this._createNavJSX(this.props.currentNavRoute)}
       </nav>

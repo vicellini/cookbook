@@ -1,16 +1,12 @@
-.u_column-container {
-  font-size: 0; }
-
-.u_column {
-  display: inline-block;
-  font-size: medium;
-  vertical-align: top; }
-
 .new-recipe_form input {
   outline: none; }
 
 .new-recipe_form button {
-  outline: none; }
+  outline: none;
+  border-radius: 2px; }
+
+.new-recipe_form input {
+  border-radius: 2px; }
 
 .new-recipe_input {
   font-size: 0;
@@ -99,6 +95,26 @@
   width: 100px;
   margin-left: 40%; }
 
+.navbar {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 80px; }
+  .navbar img {
+    padding: 0;
+    width: 120px;
+    display: inline-block; }
+
+.nav-button {
+  background: #fff;
+  padding: 15px;
+  color: #2C8343;
+  border: 1px solid #2C8343;
+  width: 100px; }
+
+.nav-button:hover {
+  cursor: pointer; }
+
 * {
   box-sizing: border-box; }
 
@@ -106,11 +122,20 @@ img {
   width: 100%;
   display: block; }
 
-h1 {
-  color: lightblue;
-  font-size: 13vw;
-  text-align: center;
-  font-family: 'Helvetica'; }
+h2 {
+  font-size: 24px; }
+
+.u_column-container {
+  font-size: 0; }
+
+.u_column {
+  display: inline-block;
+  font-size: medium;
+  vertical-align: top; }
+
+.page-content {
+  width: 80%;
+  padding-left: 25px; }
 
 p {
   text-align: center;

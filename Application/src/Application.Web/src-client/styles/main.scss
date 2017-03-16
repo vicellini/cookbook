@@ -6,16 +6,29 @@
 	box-sizing: border-box;
 }
 
+
 img {
 	width: 100%;
 	display: block;
 }
 
-h1 {
-	color: lightblue;
-	font-size: 13vw;
-	text-align: center;
-	font-family: 'Helvetica';
+h2 {
+	font-size: 24px;
+}
+
+.u_column-container {
+  font-size: 0;
+}
+
+.u_column {
+  display: inline-block;
+  font-size: medium;
+  vertical-align: top;
+}
+
+.page-content {
+	width: 80%;
+	padding-left: 25px;
 }
 
 p {
