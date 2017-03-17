@@ -5,7 +5,7 @@ import {UserModel} from '../models/model-user.js';
 
 
 export const LoginForm  = React.createClass({
-  getInitialState:function(){
+  getInitialState : function(){
     return {
         signup : false,
         login : true
@@ -20,7 +20,7 @@ export const LoginForm  = React.createClass({
 
   },
 
-  render:function(){
+  render : function(){
         var self = this;
         return (
               <div className="signupTab-component">
@@ -38,7 +38,7 @@ export const LoginForm  = React.createClass({
 
 let Signup = React.createClass({
 
-      render:function(){
+      render : function(){
 
             return (
             <div className="signup_input">
