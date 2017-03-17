@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace CookBook.Controllers.Authentication
 {
     [Produces("application/json")]
-    [Route("~/authentication")]
+    [Route("~/x")]
     [Authorize]
     public class AuthenticationController : Controller
     {
