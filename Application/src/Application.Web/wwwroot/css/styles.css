@@ -68,11 +68,11 @@
 .yellow {
   background-color: gold; }
 
-.buttons {
+.tabs {
   height: 100px;
   background: #2c3e50; }
 
-.buttons p {
+.tabs p {
   width: 49.95%;
   float: left;
   color: white;
@@ -81,7 +81,7 @@
   height: 75%;
   margin: 0; }
 
-.buttons p:hover {
+.tabs p:hover {
   background: #f1c40f;
   color: #2c3e50;
   cursor: pointer; }
