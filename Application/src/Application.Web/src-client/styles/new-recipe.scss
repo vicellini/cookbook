@@ -1,12 +1,3 @@
-.u_column-container {
-  font-size: 0;
-}
-
-.u_column {
-  display: inline-block;
-  font-size: medium;
-  vertical-align: top;
-}
 
 .new-recipe_form {
   & input {
@@ -14,6 +5,10 @@
   }
   & button {
     outline: none;
+    border-radius: 2px;
+  }
+  & input {
+    border-radius: 2px;
   }
 }
 

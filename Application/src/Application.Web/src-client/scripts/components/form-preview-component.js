@@ -34,11 +34,11 @@ export const PreviewLists = React.createClass({
   render: function(){
     return(
       <div className="new-recipe_preview">
-        <h2>Ingredient List</h2>
+        <h2>Ingredient List Preview:</h2>
         <div className="ingredient-list">
           {this._createIngredientJSX(this.props.ingredientList)}
         </div>
-        <h2>Directions:</h2>
+        <h2>Directions Preview:</h2>
         <div className="direction-list">
           {this._createDirectionJSX(this.props.directionList)}
         </div>
