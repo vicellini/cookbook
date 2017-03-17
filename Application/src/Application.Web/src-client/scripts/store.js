@@ -1,7 +1,8 @@
 export const STORE = {
  _data: {
     recipeList: [],
-    currentNavRoute: ''
+    currentNavRoute: '',
+    shownMealType: 'ALL'
  },
 
  getStoreData: function(){

@@ -21,6 +21,11 @@ export const ACTIONS = {
   })
   },
 
+  changeShownMeal: function(mealType){
+    STORE.setStore('shownMealType', mealType)
+  },
+
+
   navChange: function(selectedAppRoute, urlRoute){
     STORE.setStore('currentNavRoute', selectedAppRoute)
     window.location.hash = urlRoute
