@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const SingleRecipeComponent = createClass({
+export const SingleRecipeComponent = React.createClass({
 
   _createIngredientJSX: function(ingredientArr){
       let finalJSX = ingredientArr.map(function(singleIngredObj, i){
