@@ -6,7 +6,10 @@ import {UserModel} from '../models/model-user.js';
 
 export const LoginForm  = React.createClass({
   getInitialState:function(){
-    return {signup:false,login:true}
+    return {
+        signup : false,
+        login : true
+      }
   },
 
   switchTab: function(tab){
