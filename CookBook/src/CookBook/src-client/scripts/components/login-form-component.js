@@ -5,6 +5,7 @@ import {UserModel} from '../models/model-user.js';
 
 
 export const LoginForm  = React.createClass({
+
   getInitialState: function(){
     return {
         signup : false,
@@ -89,5 +90,5 @@ let Login = React.createClass({
         let userVal = formEl.emailField.value
         let passwordVal = formEl.passwordField.value
         ACTIONS.logInUser(userVal, passwordVal)
-      },
+      }
 })
