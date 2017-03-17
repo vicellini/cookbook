@@ -23,14 +23,19 @@ export const ViewController = React.createClass({
       case "NEWRECIPE":
         componentToRender = <NewRecipeView/>
       break;
+      case "SINGLERECIPE":
+        conponentToRender = <SingleRecipeView/>
       default:
     }
 
     return (
-    <div className="app-components u_column-container">
-      <Navbar/>
-      <div className="u_column page-content">
-        {componentToRender}
+    <div className="app-window">
+
+      <div className="app-components u_column-container">
+        <Navbar/>
+        <div className="u_column page-content">
+          {componentToRender}
+        </div>
       </div>
     </div>
     )
