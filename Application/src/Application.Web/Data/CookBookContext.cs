@@ -8,14 +8,13 @@ using System.Threading.Tasks;
 
 namespace CookBook.Models
 {
-    public class CookBookContext : IdentityDbContext
-
+    public class CookBookContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<Step> Steps { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Tag> Tags { get; set; }
-     
+
 
         public CookBookContext()
             : base()
@@ -51,4 +50,3 @@ namespace CookBook.Models
         }
     }
 }
-

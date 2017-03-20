@@ -45,8 +45,7 @@ namespace CookBook
         public void ConfigureServices(IServiceCollection services)
         {
             //// Add framework services.
-            services.AddDbContext<CookBookContext>(
-                );
+            services.AddDbContext<CookBookContext>();
 
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
@@ -83,12 +82,12 @@ namespace CookBook
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseIdentity();
+
             app.UseDefaultFiles();
 
             app.UseStaticFiles();
-            app.UseIdentity();
-
-            app.UseIdentity();
 
             app.UseMvc(routes =>
             {
@@ -96,6 +95,7 @@ namespace CookBook
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            
             var context = new CookBookContext();
             context.Database.Migrate();
         }
