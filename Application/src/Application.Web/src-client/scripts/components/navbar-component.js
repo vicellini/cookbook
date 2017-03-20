@@ -23,7 +23,7 @@ export const Navbar = React.createClass({
     return(
       <nav className="navbar u_column">
         <img className="logo" src="../../images/cookbook-logo.png"/>
-        {this._createNavJSX(this.props.currentNavRoute)}
+        {this._createNavJSX(this.props.navRoute)}
       </nav>
     )
   }

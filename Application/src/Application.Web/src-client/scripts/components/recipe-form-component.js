@@ -13,6 +13,19 @@ export const RecipeForm = React.createClass({
     }
   },
 
+  _clearPreviewList: function(someStr){
+    if(someStr === 'ingredients'){
+      this.setState({
+        ingredientList: []
+      })
+    }
+    if(someStr === 'directions'){
+      this.setState({
+        directionList: []
+      })
+    }
+  },
+
   _updateIngredientList: function(singleIngred){
     let copyOfItems = this.state.ingredientList.map(function(copy){return copy})
       let copyOfItemsMinus = copyOfItems.filter(function(ingredientObj){
@@ -156,6 +169,7 @@ export const RecipeForm = React.createClass({
         {...this.state}
         _updateIngredientListCB={this._updateIngredientList}
         _updateDirectionListCB={this._updateDirectionList}
+        _clearPreviewListCB={this._clearPreviewList}
       />
     </div>
     )

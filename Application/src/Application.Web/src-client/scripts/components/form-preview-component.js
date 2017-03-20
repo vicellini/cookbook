@@ -30,8 +30,9 @@ export const PreviewLists = React.createClass({
         return finalJSX
       },
 
-  _handleIngClear: function(){
-    
+  _handleClear: function(evt){
+    let previewEl = evt.target
+    this.props._clearPreviewListCB(previewEl.name)
   },
 
 
@@ -42,12 +43,12 @@ export const PreviewLists = React.createClass({
         <div className="ingredient-list">
           {this._createIngredientJSX(this.props.ingredientList)}
         </div>
-        <button className="preview-delete" onClick={this._handleIngClear}>Clear All</button>
+        <button className="preview-delete" name="ingredients" onClick={this._handleClear}>Clear All</button>
         <h2>Directions Preview:</h2>
         <div className="direction-list">
           {this._createDirectionJSX(this.props.directionList)}
         </div>
-        <button className="preview-delete" onClick={this._handleIngClear}>Clear All</button>
+        <button className="preview-delete" name="directions" onClick={this._handleClear}>Clear All</button>
       </div>
     )
   }
