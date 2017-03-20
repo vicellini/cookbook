@@ -29,9 +29,6 @@ export const ViewController = React.createClass({
       case "NEWRECIPE":
         componentToRender = <NewRecipeView/>
       break;
-      case "SINGLERECIPE":
-        conponentToRender = <SingleRecipeView/>
-      default:
     }
 
     return (
