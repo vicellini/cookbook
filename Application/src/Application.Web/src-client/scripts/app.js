@@ -1,7 +1,6 @@
 import Backbone from 'backbone';
 import ReactDOM from 'react-dom'
 import React from 'react'
-import {NewRecipeView} from './views/add-new-recipe-view.js';
 import {ViewController} from './view-controller.js'
 
 if(window.location.hostname === 'localhost'){
@@ -31,7 +30,11 @@ const AppRouter = Backbone.Router.extend({
 	},
 
   showSingleRecipeComponent: function(id){
-    ReactDOM.render(<ViewController fromRoute={'SINGLERECIPE'}/>), document.querySelector('#app-container')
+    ReactDOM.render(<ViewController fromRoute={'SINGLERECIPE'}/>, document.querySelector('#app-container'))
+  },
+
+  showCookbookComponent: function(){
+    ReactDOM.render(<ViewController fromRoute={'COOKBOOK'}/>, document.querySelector('#app-container'))
   }
 
 })
