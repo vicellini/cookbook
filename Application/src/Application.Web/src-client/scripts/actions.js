@@ -10,7 +10,8 @@ export const ACTIONS = {
     newRecipeInstance.set(recipeObject)
     newRecipeInstance.save().then(function(){
       console.log('recipie saved!!!!')
-      this.fetchAllRecipies()
+      ACTIONS.fetchAllRecipies()
+      ACTIONS.navChange('COOKBOOK', 'cookbook')
     })
   },
 
@@ -33,6 +34,7 @@ export const ACTIONS = {
 
   registerNewUser: function(newUserInfoObj){
     UserModel.register(newUserInfoObj).then(function(serverRes){
+      console.log(serverRes)
       ACTIONS.navChange('COOKBOOK', 'cookbook')
     })
   },

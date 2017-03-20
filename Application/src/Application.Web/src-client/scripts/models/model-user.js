@@ -24,8 +24,9 @@ UserModel.logIn =  function(username, password){
 
 UserModel.register =  function(dataObj){
 	if(typeof dataObj !== 'object' ){ throw new Error(`UserModel.register() must receive an object`) }
-	if(typeof dataObj.username === 'undefined' || typeof dataObj.password === 'undefined'  ){ throw new Error(`UserModel.register() must receive an object w/ username + password`) }
-
+	if(typeof dataObj.email === 'undefined' || typeof dataObj.password === 'undefined'  ){ throw new Error(`UserModel.register() must receive an object w/ username + password`) }
+//dataObj.username was old field
+	console.log(dataObj)
 	return $.ajax({
 		method: 'POST',
 		data: JSON.stringify(dataObj),

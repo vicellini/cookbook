@@ -70,10 +70,10 @@ const SingleIngredient = React.createClass({
     return (
       <div className="ingredient-single .u_column-container">
          <div className="single_qty u_column">
-           <span>{this.props.data.qty}</span>
+           <span>{this.props.data.quantity}</span>
          </div>
          <div className="single_name u_column">
-           <span>{this.props.data.nameOfIngredient}</span>
+           <span>{this.props.data.name}</span>
          </div>
          <div className="btn-delete u_column">
            <i onClick={this._handleDelete} className="fa fa-trash-o" aria-hidden="true"></i>
@@ -94,7 +94,7 @@ const SingleDirection = React.createClass({
       render: function(){
       return (
         <div className="single-direction u_column-container">
-         <span className="direction-text u_column">{this.props.data.direction}</span>
+         <span className="direction-text u_column">{this.props.data.description}</span>
          <div className="btn-delete u_column">
            <i onClick={this._handleDelete} className="fa fa-trash-o" aria-hidden="true"></i>
          </div>

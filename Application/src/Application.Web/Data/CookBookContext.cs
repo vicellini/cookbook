@@ -15,7 +15,7 @@ namespace CookBook.Models
         public DbSet<Step> Steps { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Tag> Tags { get; set; }
-     
+
 
         public CookBookContext()
             : base()
@@ -51,4 +51,3 @@ namespace CookBook.Models
         }
     }
 }
-

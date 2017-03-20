@@ -63,9 +63,10 @@ let Signup = React.createClass({
         let objToSave = {
           // username: formEl.usernameField.value ,
           email: formEl.emailField.value ,
-          password: formEl.passwordField.value ,
+          password: formEl.passwordField.value
           // confirmPassword: formEl.confirmField.value
         }
+        console.log(objToSave)
         ACTIONS.registerNewUser(objToSave)
       }
 })

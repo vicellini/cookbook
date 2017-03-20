@@ -1,7 +1,7 @@
 import Backbone from 'backbone';
 
 export const RecipeModel = Backbone.Model.extend({
-	urlRoot: '/api/recipes',
+	urlRoot: '/api/recipe',
 	idAttribute: '_id'
 })
 

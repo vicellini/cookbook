@@ -63,7 +63,7 @@ export const RecipeForm = React.createClass({
       category: formEl.category.value,
       ingredients: this.state.ingredientList,
       steps: this.state.directionList,
-      imageUrl: this.state.imgPreviewLink
+      media1: this.state.imgPreviewLink
     }
     console.log(newReceipeObj)
     ACTIONS.saveNewRecipe(newReceipeObj)
@@ -75,8 +75,8 @@ export const RecipeForm = React.createClass({
     let newName = this.refs.ingredientName
     if(newQty.value.length !== 0 && newName.value.length !== 0){
       let newIngredientObj = {
-        qty: newQty.value,
-        nameOfIngredient: newName.value
+        quantity: newQty.value,
+        name: newName.value
       }
       let copyOfItems = this.state.ingredientList.map(function(copy){return copy})
       copyOfItems.push(newIngredientObj)
@@ -93,7 +93,7 @@ export const RecipeForm = React.createClass({
     let directionEl = this.refs.singleDirection
     if(directionEl.value.length !== 0){
       let newDirection = {
-        direction: directionEl.value
+        description: directionEl.value
       }
       let copyOfItems = this.state.directionList.map(function(copy){return copy})
       copyOfItems.push(newDirection)
