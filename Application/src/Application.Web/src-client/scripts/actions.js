@@ -40,9 +40,11 @@ export const ACTIONS = {
   },
 
   logInUser: function(usr, pw){
+    console.log(usr, pw)
     UserModel.logIn(usr, pw).then(function(serverRes){
-      STORE.setStore('currentUser', serverRes)
-      ACTION.navChange('COOKBOOK', 'cookbook')
+      // console.log(this.fetchCurrentUser())
+      // STORE.setStore('currentUser', serverRes)
+      ACTIONS.navChange('COOKBOOK', 'cookbook')
     })
   },
 
