@@ -61,10 +61,10 @@ let Signup = React.createClass({
         evt.preventDefault();
         let formEl = evt.target
         let objToSave = {
-          username: formEl.usernameField.value ,
+          // username: formEl.usernameField.value ,
           email: formEl.emailField.value ,
           password: formEl.passwordField.value ,
-          confirmPassword: formEl.confirmField.value
+          // confirmPassword: formEl.confirmField.value
         }
         ACTIONS.registerNewUser(objToSave)
       }
