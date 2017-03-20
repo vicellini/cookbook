@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CookBook.Models
 {
-    public class CookBookContext : IdentityDbContext
+    public class CookBookContext : IdentityDbContext<ApplicationUser>
 
     {
         public DbSet<Recipe> Recipes { get; set; }
