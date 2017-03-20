@@ -33,6 +33,7 @@ export const ACTIONS = {
 
   registerNewUser: function(newUserInfoObj){
     UserModel.register(newUserInfoObj).then(function(serverRes){
+      console.log(serverRes)
       ACTIONS.navChange('COOKBOOK', 'cookbook')
     })
   },
