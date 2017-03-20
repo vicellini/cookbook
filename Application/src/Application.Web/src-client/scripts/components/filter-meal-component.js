@@ -1,8 +1,11 @@
 import React from 'react'
 import {ACTIONS} from '../actions.js'
 
-export const MealFilterComponent = React.createClass({
-   _handleNavClick: function(evt){
+export const FilterMealComponent = React.createClass({
+    getInitialState: function(){
+      return {}
+  },
+   _handleFilterClick: function(evt){
    	let selectedMealType = evt.target.dataset.mealType
 
 		ACTIONS.changeShownMeal(selectedMealType)
@@ -16,6 +19,7 @@ export const MealFilterComponent = React.createClass({
 
       }
    },
+
 
    render: function(){
       let currentMealType = this.props.shownMealType
