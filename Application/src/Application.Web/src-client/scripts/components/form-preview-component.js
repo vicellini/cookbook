@@ -17,7 +17,7 @@ export const PreviewLists = React.createClass({
       return finalJSX
     },
 
-    _createDirectionJSX: function(directionArr){
+  _createDirectionJSX: function(directionArr){
       let component = this
       let finalJSX = directionArr.map(function(directionStr, i){
         return (
@@ -30,6 +30,10 @@ export const PreviewLists = React.createClass({
         return finalJSX
       },
 
+  _handleIngClear: function(){
+    
+  },
+
 
   render: function(){
     return(
@@ -38,10 +42,12 @@ export const PreviewLists = React.createClass({
         <div className="ingredient-list">
           {this._createIngredientJSX(this.props.ingredientList)}
         </div>
+        <button className="preview-delete" onClick={this._handleIngClear}>Clear All</button>
         <h2>Directions Preview:</h2>
         <div className="direction-list">
           {this._createDirectionJSX(this.props.directionList)}
         </div>
+        <button className="preview-delete" onClick={this._handleIngClear}>Clear All</button>
       </div>
     )
   }

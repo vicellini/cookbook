@@ -3,20 +3,27 @@ import Backbone from 'backbone';
 import {ACTIONS} from '../actions.js';
 import {UserModel} from '../models/model-user.js';
 
+
 export const LoginForm  = React.createClass({
-  getInitialState:function(){
-    return {signup:false,login:true}
+  getInitialState: function(){
+    return {
+        signup : false,
+        login : true
+      }
   },
 
   switchTab: function(tab){
     var signup,login;
     if(tab == "signup"){signup = true;login = false;}
     else{login = true; signup = false;}
-    return this.setState({login:login,signup:signup})
+    return this.setState({
+      login : login,
+      signup : signup
+    })
 
   },
 
-  render:function(){
+  render : function(){
         var self = this;
         return (
               <div className="signupTab-component">
@@ -34,7 +41,7 @@ export const LoginForm  = React.createClass({
 
 let Signup = React.createClass({
 
-      render:function(){
+      render : function(){
 
             return (
             <div className="signup_input">
@@ -64,8 +71,7 @@ let Signup = React.createClass({
 })
 
 let Login = React.createClass({
-      render:function(){
-
+      render: function(){
             return (
               <div className="login_input">
                  <form className="login" onSubmit={this._handleSubmit}>
