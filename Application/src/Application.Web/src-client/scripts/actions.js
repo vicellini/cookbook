@@ -9,7 +9,7 @@ export const ACTIONS = {
     let newRecipeInstance = new RecipeModel()
     newRecipeInstance.set(recipeObject)
     newRecipeInstance.save().then(function(){
-      console.log('recipie saved!!!!')
+      console.log('recipe saved!!!!')
       ACTIONS.fetchAllRecipies()
       ACTIONS.navChange('COOKBOOK', 'cookbook')
     })
@@ -45,6 +45,12 @@ export const ACTIONS = {
       // console.log(this.fetchCurrentUser())
       // STORE.setStore('currentUser', serverRes)
       ACTIONS.navChange('COOKBOOK', 'cookbook')
+    })
+  },
+
+  logOutUser: function(){
+    UserModel.logOut().then(function(){
+      ACTIONS.navChange('ACCOUNT', '')
     })
   },
 

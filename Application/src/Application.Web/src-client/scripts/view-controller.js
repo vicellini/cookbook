@@ -3,7 +3,7 @@ import {Navbar} from './components/navbar-component.js'
 import {LoginFormView} from './views/register-view.js';
 import {MyCookbookView} from './views/cookbook-view.js';
 import {NewRecipeView} from './views/add-new-recipe-view.js';
-import {UserButton} from './components/sign-in-button-component.js';
+import {UserButton} from './components/sign-out-button-component.js';
 import {STORE} from './store.js';
 import {ACTIONS} from './actions.js';
 

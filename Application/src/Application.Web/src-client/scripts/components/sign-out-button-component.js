@@ -3,14 +3,14 @@ import {ACTIONS} from '../actions.js';
 
 export const UserButton = React.createClass({
 
-  _handleLoginRoute: function(){
-    ACTIONS.navChange('ACCOUNT', '')
+  _handleLogOutRoute: function(){
+    ACTIONS.logOutUser()
   },
 
   render: function(){
     return (
       <div className="account-button">
-        <button onClick={this._handleLoginRoute}>Sign In</button>
+        <button onClick={this._handleLogOutRoute}>Log Out</button>
       </div>
     )
   }
