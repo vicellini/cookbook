@@ -96,6 +96,8 @@ namespace CookBook
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            var context = new CookBookContext();
+            context.Database.Migrate();
         }
     }
 }
