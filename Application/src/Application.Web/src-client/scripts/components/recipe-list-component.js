@@ -47,15 +47,15 @@ export const RecipeListComponent = React.createClass({
 })
   export const RecipeItem = React.createClass({
     render: function(){
-      let renderIngredients = this.props.recipeObj.ingredients.map((obj, i)=>{
-          return(
-            <div key={i}>
-              <h1>{obj.name}</h1>
-              <p>{obj.quantity}</p>
-            </div>
-
-          )
-      })
+      // let renderIngredients = this.props.recipeObj.ingredients.map((obj, i)=>{
+      //     return(
+      //       <div key={i}>
+      //         <h1>{obj.name}</h1>
+      //         <p>{obj.quantity}</p>
+      //       </div>
+      //
+      //     )
+      // })
       const { name, category, media1 } = this.props.recipeObj
       return (
         <div className="recipeList">
