@@ -1,7 +1,16 @@
 import React from 'react';
+import {ACTIONS} from '../actions.js';
 
 export const SingleRecipeComponent = React.createClass({
-
+  _handleDeleteAlert(evt){
+    let recipeId = ''
+    let result = confirm("Are you sure you want to delete this recipe?")
+      if(result === true){
+        ACTIONS.deleteCurrentRecipe(recipeId)
+      }else{
+        alert("close call")
+      }
+  },
 
   _createIngredientJSX: function(ingredientArr){
       let finalJSX = ingredientArr.map(function(singleIngredObj, i){
@@ -56,7 +65,7 @@ export const SingleRecipeComponent = React.createClass({
             {this._createDirectionJSX(testData.steps)}
           </ol>
         </div>
-
+        <button className="recipe-delete" onClick={this._handleDeleteAlert}>Delete This Recipe</button>
       </div>
     )
   }
@@ -65,8 +74,9 @@ export const SingleRecipeComponent = React.createClass({
 const SingleIngredient = React.createClass({
   render: function(){
     return(
-      <li>
-        <span className="ingredient-list-quantity">{this.props.data.quantity}</span><span className="ingredient-list-name">{this.props.data.name}</span>
+      <li className="u_column-container">
+        <p className="ingredient-list-quantity u_column">{this.props.data.quantity}</p>
+        <p className="ingredient-list-name u_column">{this.props.data.name}</p>
       </li>
     )
   }
@@ -98,7 +108,7 @@ const SingleDirection = React.createClass({
     }
     return (
       <li className={completeStatus}>
-        <input type="checkbox" onClick={this._handleComplete}/><span>{this.props.data.direction}</span>
+        <input type="checkbox" onClick={this._handleComplete}/><span className="direction-text">{this.props.data.direction}</span>
       </li>
     )
   }

@@ -11,7 +11,6 @@ export const ACTIONS = {
     newRecipeInstance.save().then(function(){
       console.log('recipe saved!!!!')
       ACTIONS.fetchAllRecipies()
-      ACTIONS.navChange('COOKBOOK', 'cookbook')
     })
   },
 
@@ -20,6 +19,14 @@ export const ACTIONS = {
     shoutsCollInstance.fetch().then(function(serverRes){
     STORE.setStore('recipeList', serverRes)
   })
+  },
+
+  deleteCurrentRecipe: function(id){
+    let newRecipeInstance = new RecipeModel
+    newRecipeInstance.set({_id: id})
+    newRecipeInstance.destroy().then(function(){
+      console.log('recipe deleted', newRecipeInstance)
+    })
   },
 
   changeShownMeal: function(mealType){

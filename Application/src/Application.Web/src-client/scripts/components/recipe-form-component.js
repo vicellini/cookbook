@@ -67,6 +67,7 @@ export const RecipeForm = React.createClass({
     }
     console.log(newReceipeObj)
     ACTIONS.saveNewRecipe(newReceipeObj)
+    ACTIONS.navChange('COOKBOOK', 'cookbook')
   },
 
   _handleNewIngridient: function(evt){
