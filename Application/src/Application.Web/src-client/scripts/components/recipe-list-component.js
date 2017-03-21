@@ -5,7 +5,8 @@ export const RecipeListComponent = React.createClass({
   _makeRecipeComponents: function(recipeList){
     let arrayofRecipeComponents = recipeList.map(function(recipeObj, i){
       return (
-          <RecipeItem recipeData={recipeObj} key={i}/>
+          <recipeData={recipeObj}
+          key={i}/>
       )
     })
 
@@ -15,7 +16,7 @@ export const RecipeListComponent = React.createClass({
   _filterRecipeByCategory: function(recipeList, mealType){
     let filteredList = recipeList.filter(function(recipeObj){
 
-      if(mealType === recipeObj.rating || mealType === "ALL"){
+      if(mealType === recipeObj.category || mealType === "ALL"){
         return true
       } else {
         return false
