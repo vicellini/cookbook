@@ -57,7 +57,7 @@ export const RecipeForm = React.createClass({
   _handleFormSubmit: function(evt){
     evt.preventDefault()
     let formEl = evt.target
-    console.log(formEl)
+    console.log(formEl, this.state.ingredientList, this.state.directionList)
     let newReceipeObj = {
       name: formEl.recipeName.value,
       category: formEl.category.value,
