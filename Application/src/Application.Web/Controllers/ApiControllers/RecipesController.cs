@@ -90,7 +90,7 @@ namespace CookBook.Controllers.ApiControllers
                     throw;
                 }
             }
-            return CreatedAtAction("GetRecipe", new { id = recipe.Id }, recipe);
+            return Ok();
         }
 
         // PUT api/recipes/5
