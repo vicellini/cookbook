@@ -2,6 +2,7 @@ import React from 'react';
 import {Navbar} from './components/navbar-component.js'
 import {LoginFormView} from './views/register-view.js';
 import {MyCookbookView} from './views/cookbook-view.js';
+import {SingleRecipeView} from './views/single-recipe-view.js';
 import {NewRecipeView} from './views/add-new-recipe-view.js';
 import {UserButton} from './components/sign-out-button-component.js';
 import {STORE} from './store.js';
@@ -18,6 +19,7 @@ export const ViewController = React.createClass({
   render: function(){
     let componentToRender
     console.log(this.state.currentNavRoute)
+    console.log(this.state.recipeList)
 
     switch(this.state.currentNavRoute){
       case "ACCOUNT":
@@ -28,6 +30,9 @@ export const ViewController = React.createClass({
       break;
       case "NEWRECIPE":
         componentToRender = <NewRecipeView/>
+      break;
+      case "SINGLERECIPE":
+        componentToRender = <SingleRecipeView selectedRecipe={this.props.recipeId}/>
       break;
     }
 

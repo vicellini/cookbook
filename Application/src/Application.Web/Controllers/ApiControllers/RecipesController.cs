@@ -44,12 +44,11 @@ namespace CookBook.Controllers.ApiControllers
             var userId = _userManager.GetUserId(User);
             return _context.Recipes.Where(q => q.ApplicationUser.Id == userId).ToList();
         }
-
         // GET api/recipes/5
         [HttpGet("~/api/recipe/{id}")]
         public async Task<IActionResult> GetRecipe(int id)
         {
-           
+
             var userId = _userManager.GetUserId(User);
             Recipe recipe = await _context.Recipes
                 .SingleOrDefaultAsync(m => m.ApplicationUser.Id == userId && m.Id == id);
@@ -72,8 +71,8 @@ namespace CookBook.Controllers.ApiControllers
             {
                 return BadRequest(ModelState);
             }
-            
-            recipe.ApplicationUser.Id = _userManager.GetUserId(User);
+            var user = _userManager.GetUserAsync(User);
+            recipe.ApplicationUser = await user;
             _context.Recipes.Add(recipe);
             try
             {
@@ -92,7 +91,6 @@ namespace CookBook.Controllers.ApiControllers
             }
             return Ok();
         }
-
         // PUT api/recipes/5
         [HttpPut("~/api/recipe/{id}")]
         public async Task<IActionResult> PutRecipe(int id, [FromBody] Recipe recipe)
@@ -106,8 +104,8 @@ namespace CookBook.Controllers.ApiControllers
             {
                 return BadRequest();
             }
-
-            recipe.ApplicationUser.Id = _userManager.GetUserId(User);
+            var user = _userManager.GetUserAsync(User);
+            recipe.ApplicationUser = await user;
             _context.Entry(recipe).State = EntityState.Modified;
 
             try

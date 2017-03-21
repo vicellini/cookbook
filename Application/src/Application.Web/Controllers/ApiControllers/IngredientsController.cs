@@ -7,7 +7,6 @@ using CookBook.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using CookBook.Data;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using CookBook.Controllers.ApiControllers;
@@ -54,12 +53,9 @@ namespace CookBook.Controllers.ApiControllers
             {
                 return NotFound();
             }
-
             return Ok(ingredient);
         }
-
-
-
+        
         [HttpPost("~/api/recipes/{recipeId}/ingredients")]
         public async Task<IActionResult> PostIngredient(int recipeId, [FromBody]Ingredient ingredient)
         {

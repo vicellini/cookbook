@@ -2,7 +2,7 @@
 const recipeData = [
     { id: 1,
       name: "cheese",
-     category: "dinner",
+     category: "Breakfast",
      ingredients: [
        {name: "cheese", quantity: "1 cup"},
        {name: "black pepper", quantity: "1 T"}
@@ -15,7 +15,7 @@ const recipeData = [
    },
    { id: 2,
      name: "cheese",
-    category: "dinner",
+    category: "Lunch",
     ingredients: [
       {name: "cheese", quantity: "1 cup"},
       {name: "black pepper", quantity: "1 T"}
@@ -41,7 +41,7 @@ const recipeData = [
  },
  { id: 4,
    name: "cheese",
-  category: "dinner",
+  category: "Dessert",
   ingredients: [
     {name: "cheese", quantity: "1 cup"},
     {name: "black pepper", quantity: "1 T"}
@@ -51,13 +51,11 @@ const recipeData = [
     {direction: "eat cheese"}
   ],
   media1: "http://madisoneasthotel.com/wp-content/uploads/2016/07/cheese-018.png"
-},
-
-]
+}]
 
 export const STORE = {
  _data: {
-    recipeList: {recipeData},
+    recipeList: recipeData,
     currentNavRoute: '',
     shownMealType: 'ALL',
     singleRecipe: {}

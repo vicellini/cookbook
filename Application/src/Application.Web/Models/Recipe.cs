@@ -23,7 +23,7 @@ namespace CookBook.Models
 
         public Recipe()
         {
-            ApplicationUser = new ApplicationUser();
+
             Ingredients = new List<Ingredient>();
             Steps = new List<Step>();
          

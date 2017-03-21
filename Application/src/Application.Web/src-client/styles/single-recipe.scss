@@ -1,0 +1,28 @@
+.single-recipe {
+  padding: 20px;
+}
+
+.recipe-card-top {
+  padding: 30px;
+  & img {
+    width: 50%;
+  }
+  & .single-recipe_ingredients {
+    width: 50%;
+    padding-left: 100px;
+  }
+}
+
+.recipe-card-bottom {
+  margin-top: 20px;
+}
+
+.single-recipe_directions {
+  & input {
+    margin-right: 20px;
+  }
+}
+
+.complete {
+  text-decoration: line-through;
+}
