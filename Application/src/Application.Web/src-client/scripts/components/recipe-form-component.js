@@ -107,17 +107,17 @@ export const RecipeForm = React.createClass({
   _handleImgPreview: function(evt){
     evt.preventDefault()
     let imgDomEl = this.refs.previewImg
-      if(imgDomEl.value.length > 0){
-        this.setState({
-          imgPreviewLink: imgDomEl.value
-        })
-      }
-      if(imgDomEl.value.length === 0){
-        this.setState({
-          imgPreviewLink: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=No%20Image%20Listed&w=300&h=200'
-        })
-      }
-    },
+    if(imgDomEl.value.length > 0){
+      this.setState({
+        imgPreviewLink: imgDomEl.value
+      })
+    }
+    if(imgDomEl.value.length === 0){
+      this.setState({
+        imgPreviewLink: 'https://placeholdit.imgix.net/~text?txtsize=33&txt=No%20Image%20Listed&w=300&h=200'
+      })
+    }
+  },
 
   render: function(){
     let imgPreviewSrc = this.state.imgPreviewLink
