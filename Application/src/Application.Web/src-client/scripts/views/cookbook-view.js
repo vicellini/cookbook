@@ -5,5 +5,6 @@ import {RecipeListComponent} from '../components/recipe-list-component.js'
 export const MyCookbookView = React.createClass({
   render: function(){
     return <RecipeListComponent/>
+    return <RecipeItem/>
   }
 })
