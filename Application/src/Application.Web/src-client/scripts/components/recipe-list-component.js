@@ -36,3 +36,11 @@ export const RecipeListComponent = React.createClass({
       </div>
     )
   })
+
+  export const RecipeItem = React.createClass({
+    render: function(){
+      return (
+        <h1>test</h1>
+      )
+    }
+  })
