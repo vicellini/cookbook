@@ -1,7 +1,7 @@
 import React from 'react';
 import {Navbar} from './components/navbar-component.js'
 import {LoginFormView} from './views/register-view.js';
-import {MyCookbookView} from './views/cookbook-view.js';
+import {RecipeListComponent} from './components/recipe-list-component.js';
 import {SingleRecipeView} from './views/single-recipe-view.js';
 import {NewRecipeView} from './views/add-new-recipe-view.js';
 import {UserButton} from './components/sign-out-button-component.js';
@@ -15,18 +15,23 @@ export const ViewController = React.createClass({
     return storeObject
   },
 
+  componentDidMount: function(){
+  let component = this;
+   STORE.onStoreChange(function(){
+    let newStoreObj = STORE.getStoreData()
+    component.setState(newStoreObj)
+    })
+  },
+
 
   render: function(){
     let componentToRender
-    console.log(this.state.currentNavRoute)
-    console.log(this.state.recipeList)
-
     switch(this.state.currentNavRoute){
       case "ACCOUNT":
         componentToRender = <LoginFormView/>
       break;
       case "COOKBOOK":
-        componentToRender = <MyCookbookView/>
+        componentToRender = <RecipeListComponent {...this.state}/>
       break;
       case "NEWRECIPE":
         componentToRender = <NewRecipeView/>

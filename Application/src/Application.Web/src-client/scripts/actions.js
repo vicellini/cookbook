@@ -11,6 +11,7 @@ export const ACTIONS = {
     newRecipeInstance.save().then(function(){
       console.log('recipe saved!!!!')
       ACTIONS.fetchAllRecipies()
+      ACTIONS.navChange('COOKBOOK', 'cookbook')
     })
   },
 
@@ -18,7 +19,7 @@ export const ACTIONS = {
     let newRecipeCollInstance = new RecipeCollection()
     shoutsCollInstance.fetch().then(function(serverRes){
     STORE.setStore('recipeList', serverRes)
-  })
+    })
   },
 
   deleteCurrentRecipe: function(id){
@@ -47,16 +48,15 @@ export const ACTIONS = {
   },
 
   logInUser: function(usr, pw){
-    console.log(usr, pw)
     UserModel.logIn(usr, pw).then(function(serverRes){
-      // console.log(this.fetchCurrentUser())
-      // STORE.setStore('currentUser', serverRes)
+      STORE.setStore('loggedIn', serverRes)
       ACTIONS.navChange('COOKBOOK', 'cookbook')
     })
   },
 
   logOutUser: function(){
     UserModel.logOut().then(function(){
+      STORE.setStore('loggedIn', false)
       ACTIONS.navChange('ACCOUNT', '')
     })
   },

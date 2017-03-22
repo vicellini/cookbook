@@ -3,7 +3,8 @@ import {ACTIONS} from '../actions.js';
 
 export const SingleRecipeComponent = React.createClass({
   _handleDeleteAlert(evt){
-    let recipeId = ''
+    let formEl = evt.target
+    let recipeId = parseInt(formEl.dataset.id)
     let result = confirm("Are you sure you want to delete this recipe?")
       if(result === true){
         ACTIONS.deleteCurrentRecipe(recipeId)
@@ -65,7 +66,7 @@ export const SingleRecipeComponent = React.createClass({
             {this._createDirectionJSX(testData.steps)}
           </ol>
         </div>
-        <button className="recipe-delete" onClick={this._handleDeleteAlert}>Delete This Recipe</button>
+        <button className="recipe-delete" data-id={testData.id} onClick={this._handleDeleteAlert}>Delete This Recipe</button>
       </div>
     )
   }
