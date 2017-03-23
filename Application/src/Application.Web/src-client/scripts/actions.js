@@ -15,7 +15,7 @@ export const ACTIONS = {
 
   fetchAllRecipies: function(){
     let newRecipeCollInstance = new RecipeCollection()
-    shoutsCollInstance.fetch().then(function(serverRes){
+    newRecipeCollInstance.fetch().then(function(serverRes){
     STORE.setStore('recipeList', serverRes)
     })
   },

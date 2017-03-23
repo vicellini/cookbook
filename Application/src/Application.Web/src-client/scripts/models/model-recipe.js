@@ -7,5 +7,5 @@ export const RecipeModel = Backbone.Model.extend({
 
 export const RecipeCollection = Backbone.Collection.extend({
 	model: RecipeModel,
-	url: '/api/recipes'
+	url: '/api/recipe'
 })

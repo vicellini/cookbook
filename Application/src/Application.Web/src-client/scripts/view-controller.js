@@ -11,6 +11,7 @@ import {ACTIONS} from './actions.js';
 export const ViewController = React.createClass({
   getInitialState: function(){
     ACTIONS.navChange(this.props.fromRoute, window.location.hash)
+    ACTIONS.fetchAllRecipies()
     let storeObject = STORE.getStoreData()
     return storeObject
   },
