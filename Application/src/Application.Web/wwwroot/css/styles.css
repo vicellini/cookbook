@@ -154,6 +154,15 @@
 .nav-button:hover {
   cursor: pointer; }
 
+.cookbook_details {
+  text-align: center; }
+
+.filter-recipe {
+  margin: 20px 0; }
+
+.single-thumbnail:hover {
+  cursor: pointer; }
+
 * {
   box-sizing: border-box; }
 
@@ -180,5 +189,11 @@ h2 {
   font-size: medium;
   vertical-align: top;
   text-align: right; }
+
+.btn-filter {
+  width: 20%; }
+
+.col-sm-6:nth-child(2n+1) {
+  clear: left; }
 
 /*# sourceMappingURL=styles.css.map*/

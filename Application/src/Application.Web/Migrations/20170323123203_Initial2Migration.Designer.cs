@@ -8,8 +8,8 @@ using CookBook.Models;
 namespace Application.Web.Migrations
 {
     [DbContext(typeof(CookBookContext))]
-    [Migration("20170320162423_InitialGroupMigration")]
-    partial class InitialGroupMigration
+    [Migration("20170323123203_Initial2Migration")]
+    partial class Initial2Migration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

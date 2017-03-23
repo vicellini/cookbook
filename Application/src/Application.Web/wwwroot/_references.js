@@ -17,7 +17,6 @@
 /// <reference path="../src-client/scripts/store.js" />
 /// <reference path="../src-client/scripts/view-controller.js" />
 /// <reference path="../src-client/scripts/views/add-new-recipe-view.js" />
-/// <reference path="../src-client/scripts/views/cookbook-view.js" />
 /// <reference path="../src-client/scripts/views/register-view.js" />
 /// <reference path="../src-client/scripts/views/single-recipe-view.js" />
 /// <reference path="../webpack.config.dev.js" />

@@ -1,50 +1,46 @@
-import React from 'react'
-import {STORE} from '../store.js'
+import React from 'react';
+import {FilterMealComponent} from './filter-meal-component.js';
+import {ACTIONS} from '../actions.js';
 
 export const RecipeListComponent = React.createClass({
- getInitialState: function (){
-   let storeObj = STORE.getStoreData()
-   return storeObj
- },
+
 
   _makeRecipeComponents: function(recipeList){
-    let arrayofRecipeComponents = recipeList.map(function(recipeObj, i){
-      console.log(recipeObj)
+    let recipeComponentsJSX = recipeList.map(function(recipeObj, i){
       return (
           <RecipeItem recipeObj={recipeObj} key={i}/>
       )
     })
-    // console.log(recipeList)
-    return arrayofRecipeComponents
-
+    return recipeComponentsJSX
   },
 
-  // _filterRecipeByCategory: function(recipeList, mealType){
-  //   let filteredList = recipeList.filter(function(recipeObj){
-  //
-  //     if(mealType === recipeObj.category || mealType === "ALL"){
-  //       return true
-  //     } else {
-  //       return false
-  //     }
-  //   })
-  //   return filteredList
-  // },
+  _filterRecipeByCategory: function(recipeArr, category ){
+     let filteredList = recipeArr.filter(function(recipeObj){
+        if(category === recipeObj.category || category === "ALL" ){
+           return true
+        } else {
+           return false
+        }
+     })
+     return filteredList
+  },
 
   render: function(){
-    let self = this
-    let allTheRecipes = this.props.recipeList
-    console.log(this.props.recipeList)
-    // let filteredRecipes = this._filterRecipeByCategory( allTheRecipes, this.props.shownMealType)
+    let allRecipes = this.props.recipeList
+    let theFilteredRecipes = this._filterRecipeByCategory(allRecipes, this.props.shownMealType)
 
     return (
       <div className="cookBook-recipes">
-        <h2>Recipes</h2>
-        {this._makeRecipeComponents(this.state.recipeList)}
+        <h2>My CookBook</h2>
+        <FilterMealComponent {...this.props}/>
+        <div className="row">
+          {this._makeRecipeComponents(theFilteredRecipes)}
+        </div>
       </div>
     )
   }
 })
+<<<<<<< HEAD
   export const RecipeItem = React.createClass({
     render: function(){
       const { name, category, media1 } = this.props.recipeObj
@@ -56,7 +52,30 @@ export const RecipeListComponent = React.createClass({
         <p>{category}</p>
         Image
         <img src={media1}></img>
+=======
+
+export const RecipeItem = React.createClass({
+
+  _handleSingleRecipe: function(evt){
+    let recipeIdEl = evt.currentTarget.dataset.recipe_id
+    let hashRoute = 'recipe/' + recipeIdEl
+    ACTIONS.navChange('SINGLERECIPE', hashRoute )
+  },
+
+  render: function(){
+
+    const { name, category, media1, id } = this.props.recipeObj
+    return (
+        <div className="col-sm-6 single-thumbnail" data-recipe_id={id} onClick={this._handleSingleRecipe}>
+          <div className="thumbnail">
+            <img src={media1}/>
+            <div className="cookbook_details caption">
+              <h3>{name}</h3>
+              <p>{category}</p>
+            </div>
+          </div>
+>>>>>>> c192809936f1bed076028b8573f39b3828b7901e
         </div>
-      )
-    }
-  })
+    )
+  }
+})

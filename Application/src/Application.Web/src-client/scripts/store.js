@@ -28,7 +28,7 @@ const recipeData = [
   },
   { id: 3,
     name: "cheese",
-   category: "dinner",
+   category: "Dinner",
    ingredients: [
      {name: "cheese", quantity: "1 cup"},
      {name: "black pepper", quantity: "1 T"}
@@ -58,6 +58,7 @@ export const STORE = {
     recipeList: recipeData,
     currentNavRoute: '',
     shownMealType: 'ALL',
+    loggedIn: false,
     singleRecipe: {}
  },
  getStoreData: function(){
@@ -74,6 +75,18 @@ export const STORE = {
      this._callBack()
    }
  },
+
+ onStoreChange: function(cbFunc){
+   if(typeof cbFunc !== 'function'){
+     throw new Error('argument passed to STORE.onStoreChange() must be a function')
+   }
+
+   if(typeof this._callMeLaterPls !== 'undefined'){
+     throw new Error('STORE.onStoreChange() already has a function to handle changes')
+   }
+
+   this._callBack = cbFunc
+ }
 
 
 

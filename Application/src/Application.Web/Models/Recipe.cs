@@ -24,10 +24,7 @@ namespace CookBook.Models
         public Recipe()
         {
 
-            Ingredients = new List<Ingredient>();
-            Steps = new List<Step>();
-         
-
+                
         }
 
 

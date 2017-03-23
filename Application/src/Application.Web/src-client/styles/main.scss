@@ -2,6 +2,7 @@
 @import 'single-recipe';
 @import 'register';
 @import 'navbar';
+@import 'cookbook-home';
 
 
 * {
@@ -37,4 +38,12 @@ h2 {
 	font-size: medium;
 	vertical-align: top;
 	text-align: right;
+}
+
+.btn-filter {
+	width: 20%;
+}
+
+.col-sm-6:nth-child(2n+1){
+    clear: left;
 }
