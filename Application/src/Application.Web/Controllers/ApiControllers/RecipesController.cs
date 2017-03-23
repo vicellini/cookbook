@@ -35,48 +35,35 @@ namespace CookBook.Controllers.ApiControllers
 
 
         [HttpGet("~/api/recipe")]
-        public IActionResult GetRecipes()
+        public IEnumerable<Recipe> GetRecipes()
         {
             var userId = _userManager.GetUserId(User);
             var recipes = _context.Recipes.Where(q => q.ApplicationUser.Id == userId)
-                .ToList();
 
-            var output = new List<RecipeResponse>();
+              .Include(q => q.Ingredients)
+              .Include(q => q.Steps)
+              .Include(q => q.Tags)
+              .ToList();
+     
+       
 
-            foreach (var recipe in recipes)
-            {
-
-                var temp = new RecipeResponse();
-             
-                var recipeSteps =  _context.Steps.Where(q => q.Recipe.Id == recipe.Id).ToList();
-                var  recipeIngredients = _context.Ingredients.Where(q => q.Recipe.Id == recipe.Id).ToList();
-                
-                temp.Steps = recipeSteps;
-                temp.Ingredients = recipeIngredients;
-                             
-                output.Add(temp); 
-                
-                 
-            }
-
-            return Ok(output);
-
+            return recipes;
         }
+
+
+
         // GET api/recipes/5
         [HttpGet("~/api/recipe/{id}")]
         public async Task<IActionResult> GetRecipe(int id)
         {
 
             var userId = _userManager.GetUserId(User);
-
-
             Recipe recipe = await _context.Recipes
-
-                .Include(q => q.Ingredients)
-                .Include(q => q.Steps)
-            .SingleOrDefaultAsync(q => q.ApplicationUser.Id == userId && q.Id == id)
-            ;
-
+                  .Include(q => q.Ingredients)
+                    .Include(q => q.Steps)
+                  .Include(q => q.Tags)
+                .SingleOrDefaultAsync(m => m.ApplicationUser.Id == userId && m.Id == id)
+                ;
 
             if (recipe == null)
             {
@@ -85,6 +72,8 @@ namespace CookBook.Controllers.ApiControllers
 
             return Ok(recipe);
         }
+
+
 
         // POST api/recipes
         [HttpPost("~/api/recipe")]
@@ -127,8 +116,8 @@ namespace CookBook.Controllers.ApiControllers
             {
                 return BadRequest();
             }
-
-            recipe.ApplicationUser.Id = _userManager.GetUserId(User);
+            var user = _userManager.GetUserAsync(User);
+            recipe.ApplicationUser = await user;
             _context.Entry(recipe).State = EntityState.Modified;
 
             try

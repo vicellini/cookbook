@@ -7,6 +7,7 @@ using CookBook.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using CookBook.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using CookBook.Controllers.ApiControllers;
@@ -32,30 +33,9 @@ namespace CookBook.Controllers.ApiControllers
 
 
 
-        [Route("~/api/recipes/{recipeId}/ingredients")]
-        public IEnumerable<Ingredient> GetAll()
-        {
-            var userId = _userManager.GetUserId(User);
-
-            return _context.Ingredients
-                .Where(q => q.Recipe.ApplicationUser.Id == userId).ToList();
-        }
 
 
-        [HttpGet("api/recipes/{recipesId}/ingredients/{ingredientId}")]
-        public async Task<IActionResult> GetIngredient(int recipeId, int ingredientId)
-        {
-            var userId = _userManager.GetUserId(User);
-            Ingredient ingredient = await _context.Ingredients
-                .SingleOrDefaultAsync(m => m.Recipe.ApplicationUser.Id == userId && m.Recipe.Id == m.Id);
 
-            if (ingredient == null)
-            {
-                return NotFound();
-            }
-            return Ok(ingredient);
-        }
-        
         [HttpPost("~/api/recipes/{recipeId}/ingredients")]
         public async Task<IActionResult> PostIngredient(int recipeId, [FromBody]Ingredient ingredient)
         {
@@ -65,7 +45,7 @@ namespace CookBook.Controllers.ApiControllers
                 return BadRequest(ModelState);
             }
             var recipe = _context.Recipes.FirstOrDefault(q => q.Id == recipeId);
-            ingredient.Recipe.Id = recipe.Id;
+
 
             recipe.Ingredients.Add(ingredient);
 
@@ -75,7 +55,7 @@ namespace CookBook.Controllers.ApiControllers
             }
             catch
             {
-                if (IngredientExists(ingredient.Id))
+                if (1 == 2)
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -101,7 +81,8 @@ namespace CookBook.Controllers.ApiControllers
                 return BadRequest();
             }
 
-            ingredient.Recipe = _context.Recipes.FirstOrDefault(q => q.Id == recipeId);
+            var recipe = _context.Recipes.FirstOrDefault(q => q.Id == recipeId);
+            ingredientId = ingredient.Id;
             _context.Entry(ingredient).State = EntityState.Modified;
 
             try
@@ -111,7 +92,7 @@ namespace CookBook.Controllers.ApiControllers
 
             catch (DbUpdateConcurrencyException)
             {
-                if (!IngredientExists(ingredientId))
+                if (!IngredientExists(recipeId, ingredientId))
                 {
                     return NotFound();
                 }
@@ -126,19 +107,23 @@ namespace CookBook.Controllers.ApiControllers
 
 
         [HttpDelete("~/api/recipes/{recipeId}/ingredients/{ingredientId}")]
-        public async Task<IActionResult> DeleteIngredient(int recipeId, int ingredientId)
+        public async Task<IActionResult> DeleteIngredient([FromBody] Recipe recipeId, [FromBody] Ingredient ingredientId)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var recipe = _context.Recipes.FirstOrDefault(q => q.Id == recipeId);
+            var recipe = recipeId;
+
             var userId = _userManager.GetUserId(User);
 
-            Ingredient ingredient = await _context.Ingredients
-                .Where(q => q.Recipe.ApplicationUser.Id == userId)
-                .SingleOrDefaultAsync(m => m.Recipe.Id == m.Id);
+            var Recipe = _context.Recipes.Select(q => q.Id);
+            var ingredient = ingredientId;
+
+
+
+
 
             if (ingredient == null)
             {
@@ -151,11 +136,13 @@ namespace CookBook.Controllers.ApiControllers
             return Ok(ingredient);
         }
 
-        private bool IngredientExists(int id)
+        private bool IngredientExists(int recipeId, int ingredientId)
         {
-            var recipeId = _context.Recipes.FirstOrDefault(q => q.Id == id);
+            var rId = _context.Recipes.FirstOrDefault(q => q.Id == recipeId);
             var userId = _userManager.GetUserId(User);
-            return _context.Ingredients.Any(e => e.Recipe.ApplicationUser.Id == userId && e.Id == id);
+            var iId = _context.Ingredients.FirstOrDefault(q => q.Id == ingredientId);
+
+            return _context.Ingredients.Any(e => e.Id == ingredientId);
         }
     }
 }

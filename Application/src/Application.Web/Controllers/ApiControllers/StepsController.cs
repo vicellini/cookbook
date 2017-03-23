@@ -33,30 +33,6 @@ namespace CookBook.Controllers.ApiControllers
 
 
 
-        [Route("~/api/recipes/{recipeId}/steps")]
-        public IEnumerable<Step> GetAll()
-        {
-            var userId = _userManager.GetUserId(User);
-
-            return _context.Steps
-                .Where(q => q.Recipe.ApplicationUser.Id == userId).ToList();
-        }
-
-
-        [HttpGet("api/recipes/{recipesId}/steps/{stepId}")]
-        public async Task<IActionResult> GetStep(int recipeId, int stepId)
-        {
-            var userId = _userManager.GetUserId(User);
-            Step step = await _context.Steps
-                .SingleOrDefaultAsync(m => m.Recipe.ApplicationUser.Id == userId && m.Recipe.Id == m.Id);
-
-            if (step == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(step);
-        }
 
 
 
@@ -69,7 +45,7 @@ namespace CookBook.Controllers.ApiControllers
                 return BadRequest(ModelState);
             }
             var recipe = _context.Recipes.FirstOrDefault(q => q.Id == recipeId);
-            step.Recipe.Id = recipe.Id;
+
 
             recipe.Steps.Add(step);
 
@@ -79,7 +55,7 @@ namespace CookBook.Controllers.ApiControllers
             }
             catch
             {
-                if (StepExists(step.Id))
+                if (1==2)
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -105,7 +81,8 @@ namespace CookBook.Controllers.ApiControllers
                 return BadRequest();
             }
 
-            step.Recipe = _context.Recipes.FirstOrDefault(q => q.Id == recipeId);
+            var recipe = _context.Recipes.FirstOrDefault(q => q.Id == recipeId);
+            stepId = step.Id;
             _context.Entry(step).State = EntityState.Modified;
 
             try
@@ -115,7 +92,7 @@ namespace CookBook.Controllers.ApiControllers
 
             catch (DbUpdateConcurrencyException)
             {
-                if (!StepExists(stepId))
+                if (!StepExists(recipeId, stepId))
                 {
                     return NotFound();
                 }
@@ -130,19 +107,23 @@ namespace CookBook.Controllers.ApiControllers
 
 
         [HttpDelete("~/api/recipes/{recipeId}/steps/{stepId}")]
-        public async Task<IActionResult> DeleteStep(int recipeId, int stepId)
+        public async Task<IActionResult> DeleteStep([FromBody] Recipe recipeId, [FromBody] Step stepId)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var recipe = _context.Recipes.FirstOrDefault(q => q.Id == recipeId);
-            var userId = _userManager.GetUserId(User);
+            var recipe = recipeId;
 
-            Step step = await _context.Steps
-                .Where(q => q.Recipe.ApplicationUser.Id == userId)
-                .SingleOrDefaultAsync(m => m.Recipe.Id == m.Id);
+            var userId = _userManager.GetUserId(User);
+       
+            var Recipe = _context.Recipes.Select(q => q.Id);
+            var step = stepId;
+            
+              
+              
+               
 
             if (step == null)
             {
@@ -155,11 +136,13 @@ namespace CookBook.Controllers.ApiControllers
             return Ok(step);
         }
 
-        private bool StepExists(int id)
+        private bool StepExists(int recipeId, int stepId)
         {
-            var recipeId = _context.Recipes.FirstOrDefault(q => q.Id == id);
+          var  rId = _context.Recipes.FirstOrDefault(q => q.Id == recipeId);
             var userId = _userManager.GetUserId(User);
-            return _context.Steps.Any(e => e.Recipe.ApplicationUser.Id == userId && e.Id == id);
+            var sId = _context.Steps.FirstOrDefault(q => q.Id == stepId);
+
+            return _context.Steps.Any(e => e.Id == stepId);
         }
     }
 }

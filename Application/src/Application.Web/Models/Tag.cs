@@ -11,11 +11,5 @@ namespace CookBook.Models
         public int Id { get; set; }
         public string Name { get; set; }
       
-        public Recipe Recipe { get; set; }
-
-        public Tag()
-        {
-
-        }
     }
 }

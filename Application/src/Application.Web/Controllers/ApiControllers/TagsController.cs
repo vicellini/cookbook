@@ -33,30 +33,6 @@ namespace CookBook.Controllers.ApiControllers
 
 
 
-        [Route("~/api/recipes/{recipeId}/tags")]
-        public IEnumerable<Tag> GetAll()
-        {
-            var userId = _userManager.GetUserId(User);
-
-            return _context.Tags
-                .Where(q => q.Recipe.ApplicationUser.Id == userId).ToList();
-        }
-
-
-        [HttpGet("api/recipes/{recipesId}/tags/{tagId}")]
-        public async Task<IActionResult> GetTag(int recipeId, int tagId)
-        {
-            var userId = _userManager.GetUserId(User);
-            Tag tag = await _context.Tags
-                .SingleOrDefaultAsync(m => m.Recipe.ApplicationUser.Id == userId && m.Recipe.Id == m.Id);
-
-            if (tag == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(tag);
-        }
 
 
 
@@ -69,7 +45,7 @@ namespace CookBook.Controllers.ApiControllers
                 return BadRequest(ModelState);
             }
             var recipe = _context.Recipes.FirstOrDefault(q => q.Id == recipeId);
-            tag.Recipe.Id = recipe.Id;
+
 
             recipe.Tags.Add(tag);
 
@@ -79,7 +55,7 @@ namespace CookBook.Controllers.ApiControllers
             }
             catch
             {
-                if (TagExists(tag.Id))
+                if (1 == 2)
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -105,7 +81,8 @@ namespace CookBook.Controllers.ApiControllers
                 return BadRequest();
             }
 
-            tag.Recipe = _context.Recipes.FirstOrDefault(q => q.Id == recipeId);
+            var recipe = _context.Recipes.FirstOrDefault(q => q.Id == recipeId);
+            tagId = tag.Id;
             _context.Entry(tag).State = EntityState.Modified;
 
             try
@@ -115,7 +92,7 @@ namespace CookBook.Controllers.ApiControllers
 
             catch (DbUpdateConcurrencyException)
             {
-                if (!TagExists(tagId))
+                if (!TagExists(recipeId, tagId))
                 {
                     return NotFound();
                 }
@@ -130,19 +107,23 @@ namespace CookBook.Controllers.ApiControllers
 
 
         [HttpDelete("~/api/recipes/{recipeId}/tags/{tagId}")]
-        public async Task<IActionResult> DeleteTag(int recipeId, int tagId)
+        public async Task<IActionResult> DeleteTag([FromBody] Recipe recipeId, [FromBody] Tag tagId)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var recipe = _context.Recipes.FirstOrDefault(q => q.Id == recipeId);
+            var recipe = recipeId;
+
             var userId = _userManager.GetUserId(User);
 
-            Tag tag = await _context.Tags
-                .Where(q => q.Recipe.ApplicationUser.Id == userId)
-                .SingleOrDefaultAsync(m => m.Recipe.Id == m.Id);
+            var Recipe = _context.Recipes.Select(q => q.Id);
+            var tag = tagId;
+
+
+
+
 
             if (tag == null)
             {
@@ -155,11 +136,13 @@ namespace CookBook.Controllers.ApiControllers
             return Ok(tag);
         }
 
-        private bool TagExists(int id)
+        private bool TagExists(int recipeId, int tagId)
         {
-            var recipeId = _context.Recipes.FirstOrDefault(q => q.Id == id);
+            var rId = _context.Recipes.FirstOrDefault(q => q.Id == recipeId);
             var userId = _userManager.GetUserId(User);
-            return _context.Tags.Any(e => e.Recipe.ApplicationUser.Id == userId && e.Id == id);
+            var tId = _context.Tags.FirstOrDefault(q => q.Id == tagId);
+
+            return _context.Tags.Any(e => e.Id == tagId);
         }
     }
 }

@@ -253,7 +253,7 @@ namespace Application.Web.Migrations
 
             modelBuilder.Entity("CookBook.Models.Ingredient", b =>
                 {
-                    b.HasOne("CookBook.Models.Recipe", "Recipe")
+                    b.HasOne("CookBook.Models.Recipe")
                         .WithMany("Ingredients")
                         .HasForeignKey("RecipeId");
                 });
@@ -267,14 +267,14 @@ namespace Application.Web.Migrations
 
             modelBuilder.Entity("CookBook.Models.Step", b =>
                 {
-                    b.HasOne("CookBook.Models.Recipe", "Recipe")
+                    b.HasOne("CookBook.Models.Recipe")
                         .WithMany("Steps")
                         .HasForeignKey("RecipeId");
                 });
 
             modelBuilder.Entity("CookBook.Models.Tag", b =>
                 {
-                    b.HasOne("CookBook.Models.Recipe", "Recipe")
+                    b.HasOne("CookBook.Models.Recipe")
                         .WithMany("Tags")
                         .HasForeignKey("RecipeId");
                 });
