@@ -32,6 +32,8 @@ h2 {
 .page-content {
 	width: 80%;
 	padding-left: 25px;
+	background: #E7E7E7;
+
 }
 
 .account-button {
@@ -42,8 +44,18 @@ h2 {
 
 .btn-filter {
 	width: 20%;
+	outline: none;
 }
 
 .col-sm-6:nth-child(2n+1){
     clear: left;
+}
+
+.btn-normal {
+	background: #2D6470;
+	color: #fff;
+}
+.btn-selected {
+	background: #2C8343;
+	color: #fff;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import {FilterMealComponent} from './filter-meal-component.js';
+import {RecipeSearch} from './search-bar-component.js';
 import {ACTIONS} from '../actions.js';
 
 export const RecipeListComponent = React.createClass({
@@ -33,6 +34,7 @@ export const RecipeListComponent = React.createClass({
       <div className="cookBook-recipes">
         <h2>My CookBook</h2>
         <FilterMealComponent {...this.props}/>
+        <RecipeSearch {...this.props}/>
         <div className="row">
           {this._makeRecipeComponents(theFilteredRecipes)}
         </div>
