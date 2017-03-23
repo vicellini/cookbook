@@ -11,9 +11,9 @@ export const FilterMealComponent = React.createClass({
 
    _getBtnClassName: function(viewType, currentView){
       if(viewType === currentView){
-         return 'btn-filter btn-danger btn-sm u_column'
+         return 'btn-filter btn-selected btn-sm u_column'
       } else {
-         return 'btn-filter btn-info btn-sm u_column'
+         return 'btn-filter btn-normal btn-sm u_column'
       }
    },
 
@@ -51,11 +51,7 @@ export const FilterMealComponent = React.createClass({
           onClick={this._handleFilterClick}
           data-category="Dessert">
             Dessert
-<<<<<<< HEAD
         </button>
-=======
-          </button>
->>>>>>> c192809936f1bed076028b8573f39b3828b7901e
          </div>
       )
    }

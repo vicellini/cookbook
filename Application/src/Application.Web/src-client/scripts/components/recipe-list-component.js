@@ -40,19 +40,6 @@ export const RecipeListComponent = React.createClass({
     )
   }
 })
-<<<<<<< HEAD
-  export const RecipeItem = React.createClass({
-    render: function(){
-      const { name, category, media1 } = this.props.recipeObj
-      return (
-        <div className="recipeList">
-        Recipe
-        <p>{name}</p>
-        Type
-        <p>{category}</p>
-        Image
-        <img src={media1}></img>
-=======
 
 export const RecipeItem = React.createClass({
 
@@ -74,7 +61,6 @@ export const RecipeItem = React.createClass({
               <p>{category}</p>
             </div>
           </div>
->>>>>>> c192809936f1bed076028b8573f39b3828b7901e
         </div>
     )
   }

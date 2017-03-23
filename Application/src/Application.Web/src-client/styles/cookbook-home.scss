@@ -9,3 +9,28 @@
 .single-thumbnail:hover {
   cursor: pointer;
 }
+
+.recipe-search {
+  text-align: center;
+  margin-bottom: 15px;
+  & .search_input{
+    position: relative;
+    outline: none;
+    width: 300px;
+    border: none;
+    background: #fff;
+    border-radius: 5px;
+    padding-left: 5px;
+  }
+  & .btn-search {
+    outline: none;
+    border: none;
+    font-size: 14px;
+    background: #fff;
+    position: absolute;
+    width: 20px;
+    height: 24px;
+    padding: none;
+    transform: translateX(-27px);
+  }
+}

@@ -163,6 +163,28 @@
 .single-thumbnail:hover {
   cursor: pointer; }
 
+.recipe-search {
+  text-align: center;
+  margin-bottom: 15px; }
+  .recipe-search .search_input {
+    position: relative;
+    outline: none;
+    width: 300px;
+    border: none;
+    background: #fff;
+    border-radius: 5px;
+    padding-left: 5px; }
+  .recipe-search .btn-search {
+    outline: none;
+    border: none;
+    font-size: 14px;
+    background: #fff;
+    position: absolute;
+    width: 20px;
+    height: 24px;
+    padding: none;
+    transform: translateX(-27px); }
+
 * {
   box-sizing: border-box; }
 
@@ -183,7 +205,8 @@ h2 {
 
 .page-content {
   width: 80%;
-  padding-left: 25px; }
+  padding-left: 25px;
+  background: #E7E7E7; }
 
 .account-button {
   font-size: medium;
@@ -191,9 +214,18 @@ h2 {
   text-align: right; }
 
 .btn-filter {
-  width: 20%; }
+  width: 20%;
+  outline: none; }
 
 .col-sm-6:nth-child(2n+1) {
   clear: left; }
+
+.btn-normal {
+  background: #2D6470;
+  color: #fff; }
+
+.btn-selected {
+  background: #2C8343;
+  color: #fff; }
 
 /*# sourceMappingURL=styles.css.map*/

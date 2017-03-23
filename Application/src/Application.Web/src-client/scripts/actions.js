@@ -9,9 +9,7 @@ export const ACTIONS = {
     let newRecipeInstance = new RecipeModel()
     newRecipeInstance.set(recipeObject)
     newRecipeInstance.save().then(function(){
-      console.log('recipe saved!!!!')
       ACTIONS.fetchAllRecipies()
-      ACTIONS.navChange('COOKBOOK', 'cookbook')
     })
   },
 
