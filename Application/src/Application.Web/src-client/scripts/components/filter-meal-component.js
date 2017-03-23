@@ -55,6 +55,7 @@ export const FilterMealComponent = React.createClass({
           onClick={this._handleNavClick}
           data-rated="Dessert">
             Dessert
+        </button>
          </div>
       )
    }
