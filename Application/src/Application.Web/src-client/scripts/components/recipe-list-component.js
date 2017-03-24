@@ -1,5 +1,6 @@
 import React from 'react';
 import {FilterMealComponent} from './filter-meal-component.js';
+import {RecipeSearchComponent} from './search-bar-component.js';
 import {ACTIONS} from '../actions.js';
 
 export const RecipeListComponent = React.createClass({
@@ -33,6 +34,7 @@ export const RecipeListComponent = React.createClass({
       <div className="cookBook-recipes">
         <h2>My CookBook</h2>
         <FilterMealComponent {...this.props}/>
+        <RecipeSearchComponent/>
         <div className="row">
           {this._makeRecipeComponents(theFilteredRecipes)}
         </div>
@@ -46,7 +48,7 @@ export const RecipeItem = React.createClass({
   _handleSingleRecipe: function(evt){
     let recipeIdEl = evt.currentTarget.dataset.recipe_id
     let hashRoute = 'recipe/' + recipeIdEl
-    ACTIONS.navChange('SINGLERECIPE', hashRoute )
+    ACTIONS.navChange('SINGLERECIPE', hashRoute)
   },
 
   render: function(){

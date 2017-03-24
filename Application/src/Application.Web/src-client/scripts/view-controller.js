@@ -38,7 +38,7 @@ export const ViewController = React.createClass({
         componentToRender = <NewRecipeView/>
       break;
       case "SINGLERECIPE":
-        componentToRender = <SingleRecipeView selectedRecipe={this.props.recipeId}/>
+        componentToRender = <SingleRecipeView/>
       break;
     }
 

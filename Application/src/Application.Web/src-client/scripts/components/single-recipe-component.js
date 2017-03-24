@@ -2,6 +2,7 @@ import React from 'react';
 import {ACTIONS} from '../actions.js';
 
 export const SingleRecipeComponent = React.createClass({
+
   _handleDeleteAlert(evt){
     let formEl = evt.target
     let recipeId = parseInt(formEl.dataset.id)
@@ -37,36 +38,20 @@ export const SingleRecipeComponent = React.createClass({
 
 
   render: function(){
-    let testData =    {
-        id: 2,
-        name: "cheese",
-        category: "Lunch",
-        ingredients: [
-          {name: "cheese", quantity: "1 cup"},
-          {name: "black pepper", quantity: "1 T"}
-        ],
-        steps: [
-          {direction: "put pepper in cheese"},
-          {direction: "eat cheese"}
-        ],
-        media1: "http://madisoneasthotel.com/wp-content/uploads/2016/07/cheese-018.png"
-      }
-      console.log(testData)
-
     return(
       <div className="single-recipe">
         <div className="recipe-card-top u_column-container">
-          <img className="u_column" src={testData.media1}/>
+          <img className="u_column" src={recipeObj.media1}/>
           <ul className="single-recipe_ingredients u_column">
-            {this._createIngredientJSX(testData.ingredients)}
+            {this._createIngredientJSX(recipeObj.ingredients)}
           </ul>
         </div>
         <div className="recipe-card-bottom">
           <ol className="single-recipe_directions">
-            {this._createDirectionJSX(testData.steps)}
+            {this._createDirectionJSX(recipeObj.steps)}
           </ol>
         </div>
-        <button className="recipe-delete" data-id={testData.id} onClick={this._handleDeleteAlert}>Delete This Recipe</button>
+        <button className="recipe-delete" data-id={recipeObj.id} onClick={this._handleDeleteAlert}>Delete This Recipe</button>
       </div>
     )
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const RecipeSearch = React.createClass({
+export const RecipeSearchComponent = React.createClass({
 
 
 

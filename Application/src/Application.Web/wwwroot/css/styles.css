@@ -163,6 +163,9 @@
 .single-thumbnail:hover {
   cursor: pointer; }
 
+.thumbnail img {
+  width: 200px; }
+
 .recipe-search {
   text-align: center;
   margin-bottom: 15px; }
