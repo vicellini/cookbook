@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Application.Web.Migrations
 {
-    public partial class _323InitialMigration : Migration
+    public partial class _324InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -60,6 +60,27 @@ namespace Application.Web.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BookMarkedLinks",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ApplicationUserId = table.Column<string>(nullable: true),
+                    BookMarkName = table.Column<string>(nullable: true),
+                    Link = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BookMarkedLinks", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_BookMarkedLinks_Users_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -236,6 +257,11 @@ namespace Application.Web.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_BookMarkedLinks_ApplicationUserId",
+                table: "BookMarkedLinks",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "EmailIndex",
                 table: "Users",
                 column: "NormalizedEmail");
@@ -294,6 +320,9 @@ namespace Application.Web.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "BookMarkedLinks");
+
             migrationBuilder.DropTable(
                 name: "Ingredients");
 
