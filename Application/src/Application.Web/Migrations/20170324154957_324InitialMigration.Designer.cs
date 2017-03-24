@@ -8,13 +8,31 @@ using CookBook.Models;
 namespace Application.Web.Migrations
 {
     [DbContext(typeof(CookBookContext))]
-    [Migration("20170323163900_323InitialMigration")]
-    partial class _323InitialMigration
+    [Migration("20170324154957_324InitialMigration")]
+    partial class _324InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1");
+
+            modelBuilder.Entity("Application.Web.Models.BookMarkedLink", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ApplicationUserId");
+
+                    b.Property<string>("BookMarkName");
+
+                    b.Property<string>("Link");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("BookMarkedLinks");
+                });
 
             modelBuilder.Entity("CookBook.Data.ApplicationUser", b =>
                 {
@@ -250,6 +268,13 @@ namespace Application.Web.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("UserTokens");
+                });
+
+            modelBuilder.Entity("Application.Web.Models.BookMarkedLink", b =>
+                {
+                    b.HasOne("CookBook.Data.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId");
                 });
 
             modelBuilder.Entity("CookBook.Models.Ingredient", b =>
