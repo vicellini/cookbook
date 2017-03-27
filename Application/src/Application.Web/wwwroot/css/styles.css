@@ -1,12 +1,13 @@
 .new-recipe_form input {
-  outline: none; }
-
-.new-recipe_form button {
   outline: none;
   border-radius: 2px; }
 
-.new-recipe_form input {
-  border-radius: 2px; }
+.new-recipe_form button {
+  outline: none;
+  border-radius: 2px;
+  background: #333333;
+  color: #fff;
+  border: 1px solid #424242; }
 
 .new-recipe_input {
   font-size: 0;
@@ -20,6 +21,7 @@
   width: 50%; }
   .new-recipe_form h2,
   .new-recipe_preview h2 {
+    color: #333333;
     margin-top: 10px; }
 
 .qty-input {
@@ -30,10 +32,13 @@
 .direction-list {
   border: 1px solid #000;
   height: 250px;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+  background: #fff; }
 
 .field_recipe-image {
   width: 200px; }
+  .field_recipe-image img {
+    border: 1px solid #000; }
 
 .ingredient-single .single_qty {
   width: 20%;
@@ -47,13 +52,22 @@
   width: 10%;
   text-align: center; }
 
-.single-direction .direction-text {
-  width: 90%;
-  padding-left: 10px; }
+.single-direction {
+  margin-bottom: 5px; }
+  .single-direction .direction-text {
+    width: 90%;
+    padding-left: 10px; }
+  .single-direction .btn-delete {
+    width: 10%;
+    text-align: center; }
 
-.single-direction .btn-delete {
-  width: 10%;
-  text-align: center; }
+.preview-delete {
+  margin-top: 5px;
+  border-radius: 3px;
+  background: #333333;
+  color: #fff;
+  border: 1px solid #424242;
+  outline: none; }
 
 .single-recipe {
   padding: 20px; }
@@ -94,40 +108,51 @@
   color: #E62117;
   list-style: none; }
 
+.signupTab-component {
+  border-radius: 10px;
+  margin-top: 80px; }
+
 .signup, .login {
-  width: 100%;
-  background: #2c3e50; }
+  margin: 0 auto;
+  background: #FAEDDC;
+  opacity: 0.92; }
 
 .signup {
-  height: 400px; }
+  height: 400px;
+  width: 420px; }
 
 .login {
+  width: 420px;
   height: 400px; }
 
 .yellow {
-  background-color: gold; }
+  background-color: #3E0001;
+  color: #fff; }
 
 .tabs {
+  width: 420px;
+  margin: 0 auto;
   height: 100px;
-  background: #2c3e50; }
+  background: #FAEDDC;
+  opacity: 0.92; }
 
 .tabs p {
   width: 49.95%;
   float: left;
-  color: white;
+  color: #A8A7A4;
   text-align: center;
   padding-top: 25px;
   height: 75%;
   margin: 0; }
 
 .tabs p:hover {
-  background: #f1c40f;
-  color: #2c3e50;
+  background: #3E0001;
+  color: #fff;
   cursor: pointer; }
 
 .form-control {
   width: 250px;
-  margin-left: 125px;
+  margin: 0 auto;
   margin-bottom: 5%; }
 
 .btn {
@@ -154,17 +179,36 @@
 .nav-button:hover {
   cursor: pointer; }
 
-.cookbook_details {
-  text-align: center; }
-
 .filter-recipe {
   margin: 20px 0; }
 
 .single-thumbnail:hover {
   cursor: pointer; }
 
+.thumbnail {
+  background: #333333; }
+
 .thumbnail img {
-  width: 200px; }
+  width: 100%; }
+
+.cookbook_details {
+  width: 98%;
+  margin: 0 auto;
+  padding: 1px;
+  padding-top: 2px;
+  border-radius: 2px;
+  text-align: center;
+  color: #fff;
+  background: rgba(51, 51, 51, 0.9);
+  transform: translateY(-73px); }
+  .cookbook_details h3 {
+    margin: 0;
+    font-size: 20px; }
+  .cookbook_details p {
+    font-size: 12px; }
+
+.all-recipes {
+  padding-left: 50px; }
 
 .recipe-search {
   text-align: center;
@@ -191,12 +235,18 @@
 * {
   box-sizing: border-box; }
 
+body {
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("https://images.unsplash.com/31/RpgvvtYAQeqAIs1knERU_vegetables.jpg");
+  background-size: cover;
+  font-family: 'Noto Sans', sans-serif; }
+
 img {
   width: 100%;
   display: block; }
 
 h2 {
-  font-size: 24px; }
+  font-size: 24px;
+  color: white; }
 
 .u_column-container {
   font-size: 0; }
@@ -208,13 +258,24 @@ h2 {
 
 .page-content {
   width: 80%;
-  padding-left: 25px;
-  background: #E7E7E7; }
+  padding-left: 25px; }
 
 .account-button {
   font-size: medium;
   vertical-align: top;
-  text-align: right; }
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 3px;
+  opacity: 0.92;
+  text-align: right;
+  background: #FDFCEF;
+  width: 90px; }
+  .account-button :hover {
+    cursor: pointer; }
+
+.no-user {
+  display: none; }
 
 .btn-filter {
   width: 20%;
@@ -224,11 +285,11 @@ h2 {
   clear: left; }
 
 .btn-normal {
-  background: #2D6470;
-  color: #fff; }
+  background: #fff;
+  color: #333333; }
 
 .btn-selected {
-  background: #2C8343;
+  background: #333333;
   color: #fff; }
 
 /*# sourceMappingURL=styles.css.map*/

@@ -1,41 +1,54 @@
 
+.signupTab-component {
+  border-radius: 10px;
+  margin-top: 80px;
+}
 .signup, .login{
-  width:100%;
-  background:#2c3e50;
+  margin: 0 auto;
+  background: #FAEDDC;
+  opacity: 0.92;
 }
 
 .signup{
   height: 400px;
+  width: 420px;
   }
 
 .login{
+  width: 420px;
   height: 400px;
 }
 
-.yellow{background-color:gold;}
+.yellow {
+  background-color: #3E0001;
+  color: #fff;
+}
 
 .tabs{
+  width: 420px;
+  margin: 0 auto;
   height:100px;
-  background:#2c3e50;
+  background:#FAEDDC;
+  opacity: 0.92
 }
 .tabs p{
   width:49.95%;
   float:left;
-  color:white;
+  color: #A8A7A4;
   text-align:center;
   padding-top:25px;
   height:75%;
   margin:0;
 }
 .tabs p:hover{
-  background:#f1c40f;
-  color:#2c3e50;
+  background:#3E0001;
+  color:#fff;
   cursor:pointer;
 }
 
 .form-control{
   width: 250px;
-  margin-left: 125px;
+  margin: 0 auto;
   margin-bottom: 5%;
 }
 

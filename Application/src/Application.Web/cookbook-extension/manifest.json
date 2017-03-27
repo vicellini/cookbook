@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+
+  "name": "CookBook Application Extenstion",
+  "description": "This extension adds recipes to your personal profile on CookBook",
+  "version": "1.0",
+  "icons": {
+    "48": "./images/cookbook-icon.png"
+  },
+  
+  "browser_action": {
+    "default_icon": "./images/cookbook-icon.png",
+    "default_popup": "popup.html",
+    "default_title": "Add Recipe To CookBook!"
+  },
+  "permissions": [
+    "activeTab",
+    "cookies",
+    "<all_urls>"
+  ]
+}

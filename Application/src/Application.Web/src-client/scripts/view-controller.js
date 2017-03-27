@@ -45,7 +45,7 @@ export const ViewController = React.createClass({
     return (
     <div className="app-window">
       <div className="app-components u_column-container">
-        <UserButton/>
+        <UserButton {...this.state}/>
         <Navbar navRoute={this.state.currentNavRoute}/>
         <div className="u_column page-content">
           {componentToRender}

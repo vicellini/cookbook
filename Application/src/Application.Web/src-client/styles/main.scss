@@ -4,11 +4,15 @@
 @import 'navbar';
 @import 'cookbook-home';
 
-
 * {
 	box-sizing: border-box;
 }
 
+body {
+	background: linear-gradient(rgba(255,255,255, 0.3), rgba(255,255,255, 0.3)), url('https://images.unsplash.com/31/RpgvvtYAQeqAIs1knERU_vegetables.jpg');
+	background-size: cover;
+	font-family: 'Noto Sans', sans-serif;
+}
 
 img {
 	width: 100%;
@@ -17,6 +21,7 @@ img {
 
 h2 {
 	font-size: 24px;
+	color: white;
 }
 
 .u_column-container {
@@ -32,14 +37,26 @@ h2 {
 .page-content {
 	width: 80%;
 	padding-left: 25px;
-	background: #E7E7E7;
-
 }
 
 .account-button {
 	font-size: medium;
 	vertical-align: top;
+	position: absolute;
+	top:0;
+	right:0;
+	border-radius: 3px;
+	opacity: 0.92;
 	text-align: right;
+	background: #FDFCEF;
+	width: 90px;
+	& :hover {
+		cursor: pointer;
+	}
+}
+
+.no-user {
+	display: none;
 }
 
 .btn-filter {
@@ -51,11 +68,12 @@ h2 {
     clear: left;
 }
 
+
 .btn-normal {
-	background: #2D6470;
-	color: #fff;
+	background: #fff;
+	color: #333333;
 }
 .btn-selected {
-	background: #2C8343;
+	background: #333333;
 	color: #fff;
 }

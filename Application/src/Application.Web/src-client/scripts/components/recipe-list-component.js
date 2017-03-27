@@ -35,7 +35,7 @@ export const RecipeListComponent = React.createClass({
         <h2>My CookBook</h2>
         <FilterMealComponent {...this.props}/>
         <RecipeSearchComponent/>
-        <div className="row">
+        <div className="row all-recipes">
           {this._makeRecipeComponents(theFilteredRecipes)}
         </div>
       </div>
@@ -58,10 +58,10 @@ export const RecipeItem = React.createClass({
         <div className="col-sm-6 single-thumbnail" data-recipe_id={id} onClick={this._handleSingleRecipe}>
           <div className="thumbnail">
             <img src={media1}/>
-            <div className="cookbook_details caption">
-              <h3>{name}</h3>
-              <p>{category}</p>
-            </div>
+          </div>
+          <div className="cookbook_details">
+            <h3>{name}</h3>
+            <p>{category}</p>
           </div>
         </div>
     )

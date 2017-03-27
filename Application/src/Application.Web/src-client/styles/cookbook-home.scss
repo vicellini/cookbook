@@ -1,6 +1,4 @@
-.cookbook_details {
-  text-align: center;
-}
+
 
 .filter-recipe {
   margin: 20px 0;
@@ -10,8 +8,36 @@
   cursor: pointer;
 }
 
+.thumbnail {
+  background: #333333;
+
+}
+
 .thumbnail img {
-  width: 200px;
+  width: 100%;
+}
+
+.cookbook_details {
+  width: 98%;
+  margin: 0 auto;
+  padding: 1px;
+  padding-top: 2px;
+  border-radius: 2px;
+  text-align: center;
+  color: #fff;
+  background: rgba(51,51,51, 0.9);
+  transform: translateY(-73px);
+  & h3 {
+    margin: 0;
+    font-size: 20px;
+  }
+  & p{
+    font-size: 12px;
+  }
+}
+
+.all-recipes {
+  padding-left: 50px;
 }
 
 .recipe-search {
