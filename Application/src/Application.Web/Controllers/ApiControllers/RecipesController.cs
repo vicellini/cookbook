@@ -99,6 +99,8 @@ namespace CookBook.Controllers.ApiControllers
         [HttpPut("~/api/recipe/{id}")]
         public async Task<IActionResult> PutRecipe(int id, [FromBody] Recipe recipe)
         {
+            recipe.Id = id;
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -108,13 +110,17 @@ namespace CookBook.Controllers.ApiControllers
             {
                 return BadRequest();
             }
-            var user = _userManager.GetUserAsync(User);
-            recipe.ApplicationUser = await user;
+        
             _context.Entry(recipe).State = EntityState.Modified;
+
+            var existingRecipe = _context.Recipes.FirstOrDefault(q=>q.Id==id);
+            existingRecipe = recipe;
+         
 
             try
             {
                 await _context.SaveChangesAsync();
+               
             }
 
             catch (DbUpdateConcurrencyException)
@@ -128,14 +134,17 @@ namespace CookBook.Controllers.ApiControllers
                     throw;
                 }
             }
-            return NoContent();
+            return Ok();
         }
 
 
         // DELETE api/recipes/5
         [HttpDelete("~/api/recipe/{id}")]
-        public async Task<IActionResult> DeleteRecipe(int id)
+        public async Task<IActionResult> DeleteRecipe(int id, [FromBody] Recipe recipe)
         {
+            recipe.Id = id;
+
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -143,7 +152,7 @@ namespace CookBook.Controllers.ApiControllers
 
             var userId = _userManager.GetUserId(User);
 
-            Recipe recipe = await _context.Recipes
+            recipe = await _context.Recipes
                 .Where(q => q.ApplicationUser.Id == userId)
                 .SingleOrDefaultAsync(m => m.Id == id);
 
@@ -153,9 +162,9 @@ namespace CookBook.Controllers.ApiControllers
             }
 
             _context.Recipes.Remove(recipe);
-            await _context.SaveChangesAsync();
+         
 
-            return Ok(recipe);
+            return Ok();
         }
 
         private bool RecipeExists(int id)
