@@ -1,3 +1,4 @@
+
 let addRecipeEl = document.querySelector("#add-recipe");
 let toSiteEl = document.querySelector('#to-cookbook');
 
@@ -14,7 +15,12 @@ _sendPostRequest = function(someObj){
 	$.post("http://localhost:5000/api/bookmarks");
 
 	$.ajax({
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
 	    type: "POST",
+      data: JSON.stringify(someObj),
 	    dataType: "JSON",
 	    url: "http://localhost:5000/api/bookmarks"
 	});
@@ -38,22 +44,21 @@ addRecipeEl.addEventListener('click', function(evt){
     }
 
     chrome.tabs.query(queryInfo, function(tabs){
-			console.log('hello???')
-			let dataObj = {
-				
-			}
 		  activeTab = tabs[0]
-		  let url = activeTab.url
-		  let title = activeTab.title
-		  console.log(url, title)
-		  console.assert(typeof url == 'string', 'tab.url should be a string');
+      let dataObj = {
+        bookmarkname: activeTab.title,
+        link: activeTab.url
+      }
+		  console.log(dataObj)
+      _sendPostRequest(dataObj)
 		})
 
     let cookieQuery = {
       domain: 'localhost'
     }
-
     chrome.cookies.getAll(cookieQuery, function(cookies){
-      console.log(cookies)
+      console.log(cookies[0].value)
     })
+
+
 })

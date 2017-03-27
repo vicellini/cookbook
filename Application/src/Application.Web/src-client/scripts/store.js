@@ -56,12 +56,11 @@
 export const STORE = {
  _data: {
     recipeList: [],
+    singleRecipe: {},
     currentNavRoute: '',
     shownMealType: 'ALL',
-    loggedIn: false,
-    routeParams: {}
  },
- 
+
  getStoreData: function(){
   return this._data
  },

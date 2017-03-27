@@ -38,17 +38,25 @@ export const SingleRecipeComponent = React.createClass({
 
 
   render: function(){
+    let recipeObj = this.props.singleRecipe
+
+    let ingredientsJsx
+    let directionJsx
+
+    if( recipeObj.ingredients ) ingredientsJsx = this._createIngredientJSX(recipeObj.ingredients)
+    if( recipeObj.steps ) directionJsx = this._createDirectionJSX(recipeObj.steps)
+
     return(
       <div className="single-recipe">
         <div className="recipe-card-top u_column-container">
           <img className="u_column" src={recipeObj.media1}/>
           <ul className="single-recipe_ingredients u_column">
-            {this._createIngredientJSX(recipeObj.ingredients)}
+            { ingredientsJsx }
           </ul>
         </div>
         <div className="recipe-card-bottom">
           <ol className="single-recipe_directions">
-            {this._createDirectionJSX(recipeObj.steps)}
+            {directionJsx}
           </ol>
         </div>
         <button className="recipe-delete" data-id={recipeObj.id} onClick={this._handleDeleteAlert}>Delete This Recipe</button>
@@ -60,7 +68,7 @@ export const SingleRecipeComponent = React.createClass({
 const SingleIngredient = React.createClass({
   render: function(){
     return(
-      <li className="u_column-container">
+      <li className="ingredient-sum u_column-container">
         <p className="ingredient-list-quantity u_column">{this.props.data.quantity}</p>
         <p className="ingredient-list-name u_column">{this.props.data.name}</p>
       </li>
@@ -94,7 +102,7 @@ const SingleDirection = React.createClass({
     }
     return (
       <li className={completeStatus}>
-        <input type="checkbox" onClick={this._handleComplete}/><span className="direction-text">{this.props.data.direction}</span>
+        <input type="checkbox" onClick={this._handleComplete}/><span className="direction-text">{this.props.data.description}</span>
       </li>
     )
   }

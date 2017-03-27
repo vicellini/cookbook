@@ -26,11 +26,11 @@ const AppRouter = Backbone.Router.extend({
 	},
 
 	showNewRecipeComponent: function(){
-		ReactDOM.render(<ViewController fromRoute={'NEWRECIPE'}/>, document.querySelector('#app-container'))
+		ReactDOM.render(<ViewController fromRoute={'NEWRECIPE'} />, document.querySelector('#app-container'))
 	},
 
   showSingleRecipeComponent: function(id){
-    ReactDOM.render(<ViewController fromRoute={'SINGLERECIPE'}/>, document.querySelector('#app-container'))
+    ReactDOM.render(<ViewController fromRoute={'SINGLERECIPE'} routeParams={{recipeId: id}}/>, document.querySelector('#app-container'))
   },
 
   showCookbookComponent: function(){
