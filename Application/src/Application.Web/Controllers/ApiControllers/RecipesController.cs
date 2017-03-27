@@ -163,10 +163,6 @@ namespace CookBook.Controllers.ApiControllers
             var userId = _userManager.GetUserId(User);
             return _context.Recipes.Any(e => e.ApplicationUser.Id == userId && e.Id == id);
         }
-        private bool LinkExists(int id)
-        {
-            var userId = _userManager.GetUserId(User);
-            return _context.BookMarkedLinks.Any(e => e.ApplicationUser.Id == userId && e.Id == id);
-        }
+
     }
 }

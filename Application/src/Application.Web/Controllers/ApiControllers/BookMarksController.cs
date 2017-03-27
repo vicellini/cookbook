@@ -17,6 +17,8 @@ namespace CookBook.Controllers.ApiControllers
     [Produces("application/json")]
 
     [Authorize(ActiveAuthenticationSchemes = "Identity.Application")]
+
+  
     public class CookBooksController : Controller
     {
         private readonly CookBookContext _context;
@@ -32,22 +34,18 @@ namespace CookBook.Controllers.ApiControllers
 
         }
 
-
-
-        //[HttpGet("~/api/bookmarks")]
-        //public  IEnumerable<BookMarkedLink> GetBookmarks()
-        //{
-        //    var user = _userManager.GetUserAsync(User);
-        //    var userId = user.Id;
-
-        //    List<BookMarkedLink> links = _context.BookMarkedLinks.Where(q => q.ApplicationUser.Id == userId).ToList();
-        //     return links;
-        //}
+        [HttpGet("~/bookmarks")]
+        public IEnumerable<BookMarkedLink> AllBookmarks()
+        {
+            var userId = _userManager.GetUserId(User);
+            var links = _context.BookMarkedLinks.Where(q => q.ApplicationUser.Id == userId).ToList();
+            return links;
+        }
 
 
 
         // GET api/bookmark/5
-        [HttpGet("~/api/bookmarks/{id}")]
+        [HttpGet("~/api/bookmark/{id}")]
         public async Task<IActionResult> GetBookMark(int id)
         {
 
@@ -75,7 +73,7 @@ namespace CookBook.Controllers.ApiControllers
                 return BadRequest(ModelState);
             }
             var user = await _userManager.GetUserAsync(User);
-            link.ApplicationUser =  user;
+            link.ApplicationUser = user;
             _context.BookMarkedLinks.Add(link);
             try
             {
