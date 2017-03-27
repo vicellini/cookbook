@@ -5,6 +5,10 @@ import {ACTIONS} from '../actions.js';
 
 export const RecipeListComponent = React.createClass({
 
+  componentDidMount: function(){
+    let component = this;
+    ACTIONS.fetchAllRecipies()
+  },
 
   _makeRecipeComponents: function(recipeList){
     let recipeComponentsJSX = recipeList.map(function(recipeObj, i){

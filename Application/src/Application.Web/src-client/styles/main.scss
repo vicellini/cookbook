@@ -50,9 +50,10 @@ h2 {
 	text-align: right;
 	background: #FDFCEF;
 	width: 90px;
-	& :hover {
+}
+
+.account-button:hover {
 		cursor: pointer;
-	}
 }
 
 .no-user {

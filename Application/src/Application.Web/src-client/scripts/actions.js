@@ -9,7 +9,6 @@ export const ACTIONS = {
     let newRecipeInstance = new RecipeModel()
     newRecipeInstance.set(recipeObject)
     newRecipeInstance.save().then(function(){
-      ACTIONS.fetchAllRecipies()
     })
   },
 
