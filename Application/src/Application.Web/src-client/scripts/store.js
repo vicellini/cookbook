@@ -1,4 +1,4 @@
-// 
+//
 // const recipeData = [
 //     { id: 1,
 //       name: "cheese",
@@ -59,8 +59,9 @@ export const STORE = {
     currentNavRoute: '',
     shownMealType: 'ALL',
     loggedIn: false,
-    singleRecipe: {}
+    routeParams: {}
  },
+ 
  getStoreData: function(){
   return this._data
  },

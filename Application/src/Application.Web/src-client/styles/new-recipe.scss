@@ -2,13 +2,14 @@
 .new-recipe_form {
   & input {
     outline: none;
+    border-radius: 2px;
   }
   & button {
     outline: none;
     border-radius: 2px;
-  }
-  & input {
-    border-radius: 2px;
+    background: #333333;
+    color: #fff;
+    border: 1px solid #424242;
   }
 }
 
@@ -24,6 +25,7 @@
   vertical-align: top;
   width: 50%;
   & h2 {
+    color: #333333;
     margin-top: 10px;
   }
 }
@@ -38,10 +40,14 @@
   border: 1px solid #000;
   height: 250px;
   overflow-y: scroll;
+  background: #fff;
 }
 
 .field_recipe-image {
   width: 200px;
+  & img {
+    border: 1px solid #000;
+  }
 }
 
 .ingredient-single {
@@ -60,6 +66,7 @@
 }
 
 .single-direction {
+  margin-bottom: 5px;
   & .direction-text {
     width: 90%;
     padding-left: 10px;
@@ -68,4 +75,13 @@
     width: 10%;
     text-align: center;
   }
+}
+
+.preview-delete {
+  margin-top: 5px;
+  border-radius: 3px;
+  background: #333333;
+  color: #fff;
+  border: 1px solid #424242;
+  outline: none;
 }

@@ -1,9 +1,14 @@
 import React from 'react';
 import {FilterMealComponent} from './filter-meal-component.js';
+import {RecipeSearchComponent} from './search-bar-component.js';
 import {ACTIONS} from '../actions.js';
 
 export const RecipeListComponent = React.createClass({
 
+  componentDidMount: function(){
+    let component = this;
+    ACTIONS.fetchAllRecipies()
+  },
 
   _makeRecipeComponents: function(recipeList){
     let recipeComponentsJSX = recipeList.map(function(recipeObj, i){
@@ -33,7 +38,8 @@ export const RecipeListComponent = React.createClass({
       <div className="cookBook-recipes">
         <h2>My CookBook</h2>
         <FilterMealComponent {...this.props}/>
-        <div className="row">
+        <RecipeSearchComponent/>
+        <div className="row all-recipes">
           {this._makeRecipeComponents(theFilteredRecipes)}
         </div>
       </div>
@@ -46,7 +52,7 @@ export const RecipeItem = React.createClass({
   _handleSingleRecipe: function(evt){
     let recipeIdEl = evt.currentTarget.dataset.recipe_id
     let hashRoute = 'recipe/' + recipeIdEl
-    ACTIONS.navChange('SINGLERECIPE', hashRoute )
+    ACTIONS.navChange('SINGLERECIPE', hashRoute)
   },
 
   render: function(){
@@ -56,10 +62,10 @@ export const RecipeItem = React.createClass({
         <div className="col-sm-6 single-thumbnail" data-recipe_id={id} onClick={this._handleSingleRecipe}>
           <div className="thumbnail">
             <img src={media1}/>
-            <div className="cookbook_details caption">
-              <h3>{name}</h3>
-              <p>{category}</p>
-            </div>
+          </div>
+          <div className="cookbook_details">
+            <h3>{name}</h3>
+            <p>{category}</p>
           </div>
         </div>
     )

@@ -20,8 +20,17 @@ export const ACTIONS = {
     })
   },
 
+  fetchSingleRecipe: function(id){
+    let singleRecipeInstance = new RecipeModel()
+    singleRecipeInstance.set({_id: id})
+    singleRecipeInstance.fetch().then(function(serverRes){
+      console.log(serverRes)
+      STORE.setStore('routeParams', serverRes)
+    })
+  },
+
   deleteCurrentRecipe: function(id){
-    let newRecipeInstance = new RecipeModel
+    let newRecipeInstance = new RecipeModel()
     newRecipeInstance.set({_id: id})
     newRecipeInstance.destroy().then(function(){
       console.log('recipe deleted', newRecipeInstance)

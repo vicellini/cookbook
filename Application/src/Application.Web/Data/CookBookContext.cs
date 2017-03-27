@@ -1,4 +1,5 @@
-﻿using CookBook.Data;
+﻿using Application.Web.Models;
+using CookBook.Data;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -15,6 +16,7 @@ namespace CookBook.Models
         public DbSet<Step> Steps { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<BookMarkedLink> BookMarkedLinks{get;set;}
 
 
         public CookBookContext()

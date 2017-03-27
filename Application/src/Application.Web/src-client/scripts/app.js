@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import React from 'react'
 import {ViewController} from './view-controller.js'
 
-if(window.location.hostname === 'localhost'){
+if(window.location.hostname === 'localhost' && window.location.port === "5000" ){
     let headEl = document.querySelector('head')
     let linkEl = document.querySelector('link[href="./css/styles.css"]')
     headEl.removeChild(linkEl)
@@ -30,7 +30,7 @@ const AppRouter = Backbone.Router.extend({
 	},
 
   showSingleRecipeComponent: function(id){
-    ReactDOM.render(<ViewController fromRoute={'SINGLERECIPE'} recipeId={id} />, document.querySelector('#app-container'))
+    ReactDOM.render(<ViewController fromRoute={'SINGLERECIPE'}/>, document.querySelector('#app-container'))
   },
 
   showCookbookComponent: function(){

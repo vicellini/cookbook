@@ -10,8 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using CookBook.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
-
-
+using Application.Web.Models;
 
 namespace CookBook.Controllers.ApiControllers
 {
@@ -25,15 +24,13 @@ namespace CookBook.Controllers.ApiControllers
         private UserManager<ApplicationUser> _userManager { get; set; }
         public CookBookContext Context { get; set; }
 
+
         public RecipesController(UserManager<ApplicationUser> userManager, CookBookContext context)
         {
             _userManager = userManager;
             _context = context;
-
         }
-
-
-
+        
         [HttpGet("~/api/recipe")]
         public IEnumerable<Recipe> GetRecipes()
         {
@@ -44,14 +41,11 @@ namespace CookBook.Controllers.ApiControllers
               .Include(q => q.Steps)
               .Include(q => q.Tags)
               .ToList();
-     
-       
+
 
             return recipes;
         }
-
-
-
+                
         // GET api/recipes/5
         [HttpGet("~/api/recipe/{id}")]
         public async Task<IActionResult> GetRecipe(int id)
@@ -72,9 +66,7 @@ namespace CookBook.Controllers.ApiControllers
 
             return Ok(recipe);
         }
-
-
-
+        
         // POST api/recipes
         [HttpPost("~/api/recipe")]
         public async Task<IActionResult> PostRecipe([FromBody]Recipe recipe)
@@ -171,5 +163,6 @@ namespace CookBook.Controllers.ApiControllers
             var userId = _userManager.GetUserId(User);
             return _context.Recipes.Any(e => e.ApplicationUser.Id == userId && e.Id == id);
         }
+
     }
 }

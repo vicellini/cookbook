@@ -11,10 +11,10 @@ import {ACTIONS} from './actions.js';
 export const ViewController = React.createClass({
   getInitialState: function(){
     ACTIONS.navChange(this.props.fromRoute, window.location.hash)
-    ACTIONS.fetchAllRecipies()
     let storeObject = STORE.getStoreData()
     return storeObject
   },
+
 
   componentDidMount: function(){
   let component = this;
@@ -38,14 +38,14 @@ export const ViewController = React.createClass({
         componentToRender = <NewRecipeView/>
       break;
       case "SINGLERECIPE":
-        componentToRender = <SingleRecipeView selectedRecipe={this.props.recipeId}/>
+        componentToRender = <SingleRecipeView/>
       break;
     }
 
     return (
     <div className="app-window">
       <div className="app-components u_column-container">
-        <UserButton/>
+        <UserButton {...this.state}/>
         <Navbar navRoute={this.state.currentNavRoute}/>
         <div className="u_column page-content">
           {componentToRender}
