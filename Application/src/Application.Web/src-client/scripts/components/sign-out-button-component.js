@@ -12,7 +12,7 @@ export const UserButton = React.createClass({
     if(this.props.loggedIn === true){
       classList = "account-button"
     }else{
-      classList = "account-button no-user"
+      classList = "account-button"
     }
     return (
       <div className={classList}>

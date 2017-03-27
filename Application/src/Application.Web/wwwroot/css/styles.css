@@ -275,9 +275,6 @@ h2 {
 .account-button:hover {
   cursor: pointer; }
 
-.no-user {
-  display: none; }
-
 .btn-filter {
   width: 20%;
   outline: none; }
