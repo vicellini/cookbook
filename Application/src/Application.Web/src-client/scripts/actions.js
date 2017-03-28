@@ -1,6 +1,7 @@
 import Backbone from 'backbone';
 import {UserModel} from './models/model-user.js';
-import {RecipeModel, RecipeCollection} from './models/model-recipe.js'
+import {RecipeModel, RecipeCollection} from './models/model-recipe.js';
+import {BookmarkModel, BookmarkCollection} from './models/model-bookmark.js';
 import {STORE} from './store.js';
 
 
@@ -17,6 +18,12 @@ export const ACTIONS = {
     let newRecipeCollInstance = new RecipeCollection()
     newRecipeCollInstance.fetch().then(function(serverRes){
     STORE.setStore('recipeList', serverRes)
+    })
+  },
+  fetchAllBookmarks: function(){
+    let newBookmarkCollInstance = new BookmarkCollection()
+    newBookmarkCollInstance.fetch().then(function(serverRes){
+      STORE.setStore('bookmarks', serverRes)
     })
   },
 
@@ -47,31 +54,21 @@ export const ACTIONS = {
   },
 
   registerNewUser: function(newUserInfoObj){
-    UserModel.register(newUserInfoObj).then(function(serverRes){
-      console.log(serverRes)
+    UserModel.register(newUserInfoObj).then(function(){
       ACTIONS.navChange('COOKBOOK', 'cookbook')
     })
   },
 
   logInUser: function(usr, pw){
     UserModel.logIn(usr, pw).then(function(serverRes){
-      STORE.setStore('loggedIn', serverRes)
       ACTIONS.navChange('COOKBOOK', 'cookbook')
     })
   },
 
   logOutUser: function(){
     UserModel.logOut().then(function(){
-      STORE.setStore('loggedIn', false)
       ACTIONS.navChange('ACCOUNT', '')
     })
-  },
-
-  fetchCurrentUser: function(){
-    UserModel.getCurrentUser().then(function(serverRes){
-      if(serverRes.user !== null){
-        STORE.setStore('currentUser', serverRes.user)
-      }
-    })
   }
+
 }

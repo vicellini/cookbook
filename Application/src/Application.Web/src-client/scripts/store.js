@@ -57,6 +57,7 @@ export const STORE = {
  _data: {
     recipeList: [],
     singleRecipe: {},
+    bookmarks: [],
     currentNavRoute: '',
     shownMealType: 'ALL',
  },
