@@ -110,7 +110,7 @@
 
 .signupTab-component {
   border-radius: 10px;
-  margin-top: 100px; }
+  margin-top: 120px; }
 
 .signup, .login {
   margin: 0 auto;
@@ -125,17 +125,14 @@
   width: 420px;
   height: 400px; }
 
-.background {
-  position: absolute; }
-
-.yellow {
+.selected {
   background-color: #333333;
   color: #fff; }
 
 .tabs {
   width: 420px;
   margin: 0 auto;
-  height: 100px;
+  height: 80px;
   background: #FAEDDC;
   opacity: 0.90; }
 
@@ -173,14 +170,54 @@
     display: inline-block; }
 
 .nav-button {
-  background: #fff;
-  padding: 15px;
-  color: #2C8343;
-  border: 1px solid #2C8343;
-  width: 100px; }
+  display: block;
+  width: 120px;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+  color: transparent;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
 
 .nav-button:hover {
   cursor: pointer; }
+
+.nav-button:hover {
+  border-bottom: 0px;
+  color: black; }
+
+.nav-button:nth-child(2) {
+  border-left: 15px solid #ffd071; }
+
+.nav-button:nth-child(3) {
+  border-left: 15px solid #f0776c; }
+
+.nav-button:last-child {
+  border-left: 15px solid #1abc9c; }
+
+.nav-button:after {
+  content: "";
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 0px;
+  position: absolute;
+  transition: all 0.2s ease 0s;
+  -webkit-transition: all 0.2s ease 0s;
+  z-index: -1; }
+
+.nav-button:hover:after {
+  width: 100%; }
+
+.nav-button:nth-child(2):after {
+  background: #ffd071; }
+
+.nav-button:nth-child(3):after {
+  background: #f0776c; }
+
+.nav-button:last-child:after {
+  background: #1abc9c; }
 
 .filter-recipe {
   margin: 20px 0; }
