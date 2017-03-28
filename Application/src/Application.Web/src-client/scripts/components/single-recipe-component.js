@@ -39,10 +39,8 @@ export const SingleRecipeComponent = React.createClass({
 
   render: function(){
     let recipeObj = this.props.singleRecipe
-
     let ingredientsJsx
     let directionJsx
-
     if( recipeObj.ingredients ) ingredientsJsx = this._createIngredientJSX(recipeObj.ingredients)
     if( recipeObj.steps ) directionJsx = this._createDirectionJSX(recipeObj.steps)
 

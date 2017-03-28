@@ -6,6 +6,6 @@ export const BookmarkModel = Backbone.Model.extend({
 })
 
 export const BookmarkCollection = Backbone.Collection.extend({
-	model: RecipeModel,
+	model: BookmarkModel,
 	url: '/api/bookmarks'
 })

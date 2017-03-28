@@ -20,6 +20,7 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   transition: background 300ms;
+  cursor: pointer;
 }
 .button.outline {
   color: white;

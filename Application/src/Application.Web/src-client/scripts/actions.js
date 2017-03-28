@@ -43,6 +43,15 @@ export const ACTIONS = {
     })
   },
 
+  deleteCurrentBookmark: function(id){
+    let newBookmarkModInstance = new BookmarkModel()
+    newBookmarkModInstance.set({id: id})
+    newBookmarkModInstance.destroy().then(function(){
+      console.log('terminated')
+      ACTIONS.fetchAllBookmarks()
+    })
+  },
+
   changeShownMeal: function(mealType){
     STORE.setStore('shownMealType', mealType)
   },
