@@ -30,7 +30,7 @@ namespace CookBook.Controllers.ApiControllers
             _userManager = userManager;
             _context = context;
         }
-        
+
         [HttpGet("~/api/recipe")]
         public IEnumerable<Recipe> GetRecipes()
         {
@@ -45,7 +45,7 @@ namespace CookBook.Controllers.ApiControllers
 
             return recipes;
         }
-                
+
         // GET api/recipes/5
         [HttpGet("~/api/recipe/{id}")]
         public async Task<IActionResult> GetRecipe(int id)
@@ -66,7 +66,7 @@ namespace CookBook.Controllers.ApiControllers
 
             return Ok(recipe);
         }
-        
+
         // POST api/recipes
         [HttpPost("~/api/recipe")]
         public async Task<IActionResult> PostRecipe([FromBody]Recipe recipe)
@@ -110,17 +110,17 @@ namespace CookBook.Controllers.ApiControllers
             {
                 return BadRequest();
             }
-        
+
             _context.Entry(recipe).State = EntityState.Modified;
 
-            var existingRecipe = _context.Recipes.FirstOrDefault(q=>q.Id==id);
+            var existingRecipe = _context.Recipes.FirstOrDefault(q => q.Id == id);
             existingRecipe = recipe;
-         
+
 
             try
             {
                 await _context.SaveChangesAsync();
-               
+
             }
 
             catch (DbUpdateConcurrencyException)
@@ -140,9 +140,9 @@ namespace CookBook.Controllers.ApiControllers
 
         // DELETE api/recipes/5
         [HttpDelete("~/api/recipe/{id}")]
-        public async Task<IActionResult> DeleteRecipe(int id, [FromBody] Recipe recipe)
+        public async Task<IActionResult> DeleteRecipe(int id)
         {
-            recipe.Id = id;
+
 
 
             if (!ModelState.IsValid)
@@ -151,10 +151,12 @@ namespace CookBook.Controllers.ApiControllers
             }
 
             var userId = _userManager.GetUserId(User);
-
-            recipe = await _context.Recipes
-                .Where(q => q.ApplicationUser.Id == userId)
-                .SingleOrDefaultAsync(m => m.Id == id);
+            var recipe = await _context.Recipes
+      .Where(q => q.ApplicationUser.Id == userId)
+        .Include(q => q.Ingredients)
+          .Include(q => q.Steps)
+        .Include(q => q.Tags)
+      .SingleOrDefaultAsync(m => m.Id == id);
 
             if (recipe == null)
             {
@@ -162,7 +164,8 @@ namespace CookBook.Controllers.ApiControllers
             }
 
             _context.Recipes.Remove(recipe);
-         
+
+            _context.SaveChanges();
 
             return Ok();
         }

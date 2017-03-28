@@ -15,6 +15,7 @@ const AppRouter = Backbone.Router.extend({
 	},
 
 	routes: {
+    'recipe/bookmarks' : 'showAllBookmarksComponent',
     'recipe/create' : 'showNewRecipeComponent',
     'recipe/:id' : 'showSingleRecipeComponent',
 		'cookbook' : 'showCookbookComponent',
@@ -35,6 +36,10 @@ const AppRouter = Backbone.Router.extend({
 
   showCookbookComponent: function(){
     ReactDOM.render(<ViewController fromRoute={'COOKBOOK'}/>, document.querySelector('#app-container'))
+  },
+
+  showAllBookmarksComponent: function(){
+    ReactDOM.render(<ViewController fromRoute={'BOOKMARKS'}/>, document.querySelector('#app-container'))
   }
 
 })
