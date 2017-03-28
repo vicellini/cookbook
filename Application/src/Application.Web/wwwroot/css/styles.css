@@ -127,7 +127,7 @@
 
 .signupTab-component {
   border-radius: 10px;
-  margin-top: 100px; }
+  margin-top: 120px; }
 
 .signup, .login {
   margin: 0 auto;
@@ -142,14 +142,10 @@
   width: 420px;
   height: 400px; }
 
-.yellow {
-  background-color: #333333;
-  color: #fff; }
-
 .tabs {
   width: 420px;
   margin: 0 auto;
-  height: 100px;
+  height: 80px;
   background: #FAEDDC;
   opacity: 0.90; }
 
