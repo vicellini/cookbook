@@ -44,7 +44,8 @@ namespace CookBook.Controllers.Authentication
 
                 if (result.Succeeded)
                 {
-                    return Ok(result.Succeeded);
+                   var userId = user.Id;
+                    return Ok(userId);
                 }
                 else if (result.IsLockedOut)
                 {
@@ -82,7 +83,8 @@ namespace CookBook.Controllers.Authentication
             if (result.Succeeded)
             {
                 await SignInManager.PasswordSignInAsync(user, model.Password, false, false);
-                return Ok(result.Succeeded);
+                var userId = user.Id;
+                return Ok(userId); ;
             }
             else
             {
