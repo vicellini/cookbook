@@ -28,8 +28,8 @@ export const LoginForm  = React.createClass({
         return (
               <div className="signupTab-component">
                   <div className="tabs">
-                      <p id="signupButton" onClick={self.switchTab.bind(null,"signup")} className={self.state.signup ? "yellow":"blue"}>Register</p>
-                      <p id="loginButton" onClick={self.switchTab.bind(null,"login")} className={self.state.login ? "yellow":"blue"}>Login</p>
+                      <p id="signupButton" onClick={self.switchTab.bind(null,"signup")} className={self.state.signup ? "selected":"highlight"}>Register</p>
+                      <p id="loginButton" onClick={self.switchTab.bind(null,"login")} className={self.state.login ? "selected":"highlight"}>Login</p>
                   </div>
                    {self.state.signup?<Signup/> : null}
                    {self.state.login? <Login/> : null}
@@ -46,7 +46,7 @@ let Signup = React.createClass({
             return (
             <div className="signup_input">
               <form className="signup" onSubmit={this._handleSignup}>
-                    <input type="text" className="form-control" name="usernameField" placeholder="Username"/>
+                    {/* <input type="text" className="form-control" name="usernameField" placeholder="Username"/> */}
                     <input type="email" className="form-control" name="emailField" placeholder="Email"/>
                     <input type="password" className="form-control" name="passwordField" placeholder="Password"/>
                     <input type="password" className="form-control" name="confirmField" placeholder="Confirm Password"/>
