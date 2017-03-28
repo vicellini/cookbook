@@ -1,6 +1,7 @@
 .new-recipe_form input {
   outline: none;
-  border-radius: 2px; }
+  border-radius: 2px;
+  color: #333; }
 
 .new-recipe_form button {
   outline: none;
@@ -10,7 +11,8 @@
   border: 1px solid #424242; }
 
 .category-option {
-  background: #424242; }
+  background: #424242;
+  color: #fff; }
 
 .new-recipe_input {
   font-size: 0;
@@ -18,6 +20,8 @@
 
 .new-recipe_form,
 .new-recipe_preview {
+  color: #333;
+  text-shadow: none;
   display: inline-block;
   font-size: medium;
   vertical-align: top;
@@ -287,6 +291,28 @@
     height: 24px;
     padding: none;
     transform: translateX(-27px); }
+
+.bookmarks {
+  margin-top: 100px; }
+
+.bookmark-list {
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 3px; }
+
+.bookmark-single {
+  color: #333;
+  cursor: pointer;
+  padding: 8px 0;
+  text-shadow: none; }
+  .bookmark-single a {
+    text-decoration: none; }
+  .bookmark-single .bookmark-link {
+    width: 90%; }
+  .bookmark-single .fa {
+    text-align: right;
+    width: 10%;
+    padding-right: 5px; }
 
 * {
   box-sizing: border-box; }

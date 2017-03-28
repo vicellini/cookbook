@@ -5,13 +5,17 @@ import {BookmarkModel, BookmarkCollection} from './models/model-bookmark.js';
 import {STORE} from './store.js';
 
 
+// ACTIONS.fetchAllRecipies().when(()=>{
+//   console.log('second hey')
+//   ACTIONS.routeTo('COOKBOOK', 'cookbook')
+
 export const ACTIONS = {
   saveNewRecipe: function(recipeObject){
     let newRecipeInstance = new RecipeModel()
     newRecipeInstance.set(recipeObject)
-    newRecipeInstance.save().then(function(){
-      ACTIONS.fetchAllRecipies()
-    })
+    console.log(newRecipeInstance.save)
+    newRecipeInstance.save()
+    ACTIONS.routeTo('cookbook')
   },
 
   fetchAllRecipies: function(){
@@ -38,45 +42,46 @@ export const ACTIONS = {
   deleteCurrentRecipe: function(id){
     let newRecipeInstance = new RecipeModel()
     newRecipeInstance.set({id: id})
-    newRecipeInstance.destroy().then(function(){
-      console.log('recipe deleted', newRecipeInstance)
-    })
+    newRecipeInstance.destroy()
+    ACTIONS.routeTo('cookbook')
   },
 
   deleteCurrentBookmark: function(id){
     let newBookmarkModInstance = new BookmarkModel()
     newBookmarkModInstance.set({id: id})
-    newBookmarkModInstance.destroy().then(function(){
-      console.log('terminated')
-      ACTIONS.fetchAllBookmarks()
-    })
+    newBookmarkModInstance.destroy()
   },
 
   changeShownMeal: function(mealType){
     STORE.setStore('shownMealType', mealType)
   },
 
+  setView: function(viewType, routeParamsObj){
+    if(typeof routeParamsObj === 'object'){
+      STORE.setStore('routeParams', routeParamsObj)
+    }
+    STORE.setStore('currentNavRoute', viewType)
+  },
 
-  navChange: function(selectedAppRoute, urlRoute){
-    STORE.setStore('currentNavRoute', selectedAppRoute)
-    window.location.hash = urlRoute
+  routeTo: function(path){
+    window.location.hash = path
   },
 
   registerNewUser: function(newUserInfoObj){
     UserModel.register(newUserInfoObj).then(function(){
-      ACTIONS.navChange('COOKBOOK', 'cookbook')
+      ACTIONS.routeTo('cookbook')
     })
   },
 
   logInUser: function(usr, pw){
     UserModel.logIn(usr, pw).then(function(serverRes){
-      ACTIONS.navChange('COOKBOOK', 'cookbook')
+      ACTIONS.routeTo('cookbook')
     })
   },
 
   logOutUser: function(){
     UserModel.logOut().then(function(){
-      ACTIONS.navChange('ACCOUNT', '')
+      ACTIONS.routeTo('ACCOUNT', '')
     })
   }
 

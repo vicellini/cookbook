@@ -3,7 +3,7 @@ import {ACTIONS} from '../actions.js'
 
 export const SingleRoute = React.createClass({
   _handleNavClick: function(){
-    ACTIONS.navChange(this.props.appRoute, this.props.hashRoute)
+    ACTIONS.routeTo(this.props.hashRoute)
   },
 
   render: function(){

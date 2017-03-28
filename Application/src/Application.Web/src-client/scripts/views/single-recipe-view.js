@@ -7,11 +7,10 @@ import {ACTIONS} from '../actions.js';
 export const SingleRecipeView = React.createClass({
 
   componentDidMount: function(){
-    ACTIONS.fetchSingleRecipe(this.props.recipeIdInRoute)
+    ACTIONS.fetchSingleRecipe(this.props.routeParams.recipeId)
   },
 
   render: function(){
-    console.log(this.props.singleRecipe)
       return <SingleRecipeComponent {...this.props}/>
   }
 })

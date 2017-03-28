@@ -1,0 +1,27 @@
+.bookmarks {
+  margin-top: 100px;
+}
+
+.bookmark-list {
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 3px;
+}
+
+.bookmark-single {
+  color: #333;
+  cursor: pointer;
+  padding: 8px 0;
+  & a {
+    text-decoration: none;
+  }
+  text-shadow: none;
+  & .bookmark-link {
+    width: 90%;
+  }
+  & .fa {
+    text-align: right;
+    width: 10%;
+    padding-right: 5px;
+}
+}

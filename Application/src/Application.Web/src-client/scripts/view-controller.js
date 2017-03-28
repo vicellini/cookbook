@@ -11,7 +11,6 @@ import {ACTIONS} from './actions.js';
 
 export const ViewController = React.createClass({
   getInitialState: function(){
-    ACTIONS.navChange(this.props.fromRoute, window.location.hash)
     let storeObject = STORE.getStoreData()
     return storeObject
   },
@@ -41,7 +40,6 @@ export const ViewController = React.createClass({
       case "SINGLERECIPE":
         componentToRender = <SingleRecipeView
                              {...this.state}
-                             recipeIdInRoute={this.props.routeParams.recipeId}
                              />
       break;
       case "BOOKMARKS":
