@@ -12,6 +12,8 @@ body {
 	background: linear-gradient(rgba(255,255,255, 0.3), rgba(255,255,255, 0.3)), url('https://images.unsplash.com/31/RpgvvtYAQeqAIs1knERU_vegetables.jpg');
 	background-size: cover;
 	font-family: 'Noto Sans', sans-serif;
+	color: #fff;
+	text-shadow: 1.5px 1.5px #333;
 }
 
 img {
@@ -20,8 +22,10 @@ img {
 }
 
 h2 {
-	font-size: 24px;
+	font-family: 'Abel', sans-serif;
+	font-size: 28px;
 	color: white;
+	text-shadow: 1px 1px #333;
 }
 
 .u_column-container {
@@ -36,7 +40,6 @@ h2 {
 
 .page-content {
 	width: 80%;
-	padding-left: 25px;
 }
 
 .account-button {
@@ -45,10 +48,13 @@ h2 {
 	position: absolute;
 	top:0;
 	right:0;
+	color: #333;
+	text-shadow: none;
 	border-radius: 3px;
 	opacity: 0.92;
 	text-align: right;
-	background: #FDFCEF;
+	background: #fff;
+	border: 1px solid #333;
 	width: 90px;
 }
 

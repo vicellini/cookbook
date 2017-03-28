@@ -1,50 +1,66 @@
+
 .navbar {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 80px;
+  width: 15%;
   & img {
-    padding: 0;
-    width: 120px;
-    display: inline-block;
+    width: 100px;
   }
 }
-.nav-button {
-    display: block;
-    width: 120px;
-    padding: 20px;
-    position: relative;
-    z-index: 2;
-    color: transparent;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
+
+.nav-buttons {
+  margin-top: 30px;
 }
 
-.nav-button:hover {
-  cursor:pointer;
+//thank you Clay Larson from http://codepen.io/cjl750/pen/mOROYd?editors=1010 ///
+
+#sidebar a {
+  display: block;
+  width: 150px;
+  padding: 10px 5px 0;
+  text-decoration: none;
 }
-.nav-button:hover{ border-bottom: 0px; color: black;}
-.nav-button:nth-child(2){ border-left: 15px solid #ffd071; }
-.nav-button:nth-child(3){ border-left: 15px solid #f0776c; }
-.nav-button:last-child{ border-left: 15px solid #1abc9c; }
 
-.nav-button:after {
-  content: "";
-  height: 100%;
-  left: 0;
-  top: 0;
-  width: 0px;
-  position: absolute;
-  transition: all 0.2s ease 0s;
-  -webkit-transition: all 0.2s ease 0s;
-  z-index: -1;
+.tab.inner {
+  position: relative;
+  border: 1px solid #333;
+  border-radius: 3px;
 }
-.nav-button:hover:after{ width: 100%; }
-.nav-button:nth-child(2):after{ background: #ffd071;}
-.nav-button:nth-child(3):after{ background: #f0776c;}
-.nav-button:last-child:after{ background: #1abc9c;}
 
-
-.nav-button-selected {
+.tab.inner img {
+  margin: 0;
+  padding-left: 8px;
+  width: 28px;
+  opacity: 1;
+  transition: visibility, opacity 0.5;
+}
+.tab.inner span {
+  text-align: center;
+  position: relative;
+  min-width: 28px;
+  left: 22px;
+  top: 7px;
+  font-size: 10px;
+}
+.tab.inner {
+  display: flex;
+  box-sizing: border-box;
+  padding: 5px;
+  background-color:  #fff;
+  width: 55px;
+  transition: width 0.5s, background-color 1s linear;
+  overflow: hidden;
+  color: #333;
+  text-shadow: none;
+}
+.tab.inner:hover {
+  width: 170px;
+  color: 308145;
+  cursor: pointer;
+}
+.js-show {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+.js-hide {
+  visibility: hidden !important;
+  opacity: 0 !important;
 }

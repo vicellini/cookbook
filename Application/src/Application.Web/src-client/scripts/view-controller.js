@@ -38,7 +38,10 @@ export const ViewController = React.createClass({
         componentToRender = <NewRecipeView/>
       break;
       case "SINGLERECIPE":
-        componentToRender = <SingleRecipeView/>
+        componentToRender = <SingleRecipeView
+                             {...this.state}
+                             recipeIdInRoute={this.props.routeParams.recipeId}
+                             />
       break;
     }
 

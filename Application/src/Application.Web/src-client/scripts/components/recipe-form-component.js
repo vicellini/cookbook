@@ -132,7 +132,7 @@ export const RecipeForm = React.createClass({
           <input type="text" name="recipeName" placeholder="Enter Name"/>
           <p className="flash-msg"></p>
         </div>
-        <select name="category">
+        <select className="category-option" name="category">
           <option value="Breakfast">Breakfast</option>
           <option value="Lunch">Lunch</option>
           <option value="Dinner">Dinner</option>

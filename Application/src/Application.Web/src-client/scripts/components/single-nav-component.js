@@ -7,14 +7,21 @@ export const SingleRoute = React.createClass({
   },
 
   render: function(){
-
-    let navOptionClassName = 'nav-button'
-      if(this.props.appRoute === this.props._currentRoute){
-         navOptionClassName = 'nav-button nav-button-selected'
-      }
-      return <div className={navOptionClassName} onClick={this._handleNavClick}>
-              {this.props.displayText}
-            </div>
+      return (
+        <a target="_blank" onClick={this._handleNavClick}>
+          <div className="tab inner">
+              <img src={this.props.img}/>
+              <span>{this.props.displayText}</span>
+          </div>
+        </a>
+      )
     },
 
 })
+
+
+
+// old:
+// <div className={navOptionClassName} onClick={this._handleNavClick}>
+//         {this.props.displayText}
+//       </div>

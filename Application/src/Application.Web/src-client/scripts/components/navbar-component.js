@@ -6,9 +6,8 @@ export const Navbar = React.createClass({
 
  _createNavJSX: function(currentNavRoute){
     let routeList = [
-      {appRoute : 'COOKBOOK', displayText : 'My CookBook', hashRoute: 'cookbook' },
-      {appRoute : 'NEWRECIPE', displayText : 'Add Your Own Recipe!', hashRoute: 'recipe/create' },
-      {appRoute : 'IMPORT', displayText : 'Import Recipe', hashRoute: 'recipe/import'}
+      {appRoute : 'COOKBOOK', displayText : 'My CookBook', hashRoute: 'cookbook', img: 'http://www.simpleimageresizer.com/_uploads/photos/0a5daa06/cookbook-icon_28x28.png'},
+      {appRoute : 'NEWRECIPE', displayText : 'Add Recipe!', hashRoute: 'recipe/create', img: 'http://www.simpleimageresizer.com/_uploads/photos/0a5daa06/add-recipe_28x28.png' },
     ]
 
     let navComponents = routeList.map(function(eachObj, i){
@@ -21,9 +20,11 @@ export const Navbar = React.createClass({
 
   render: function(){
     return(
-      <nav className="navbar u_column">
+      <nav id="sidebar" className="navbar u_column">
         <img className="logo" src="../../images/cookbook-logo.png"/>
-        {this._createNavJSX(this.props.navRoute)}
+        <div className="nav-buttons">
+          {this._createNavJSX(this.props.navRoute)}
+        </div>
       </nav>
     )
   }
