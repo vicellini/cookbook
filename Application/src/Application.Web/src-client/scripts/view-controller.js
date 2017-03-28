@@ -3,6 +3,7 @@ import {Navbar} from './components/navbar-component.js'
 import {LoginFormView} from './views/register-view.js';
 import {RecipeListComponent} from './components/recipe-list-component.js';
 import {SingleRecipeView} from './views/single-recipe-view.js';
+import {BookmarkView} from './views/bookmark-view.js';
 import {NewRecipeView} from './views/add-new-recipe-view.js';
 import {UserButton} from './components/sign-out-button-component.js';
 import {STORE} from './store.js';
@@ -42,6 +43,9 @@ export const ViewController = React.createClass({
                              {...this.state}
                              recipeIdInRoute={this.props.routeParams.recipeId}
                              />
+      break;
+      case "BOOKMARKS":
+        componentToRender = <BookmarkView {...this.state}/>
       break;
     }
 
