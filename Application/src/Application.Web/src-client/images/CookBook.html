@@ -1,4 +1,13 @@
-.new-recipe_form input {
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:5000/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>CookBook</title>
+    <link rel="stylesheet" href="./CookBook_files/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="./CookBook_files/font-awesome.min.css">
+    <link href="./CookBook_files/css" rel="stylesheet">
+    
+  <style type="text/css">.new-recipe_form input {
   outline: none;
   border-radius: 2px; }
 
@@ -126,58 +135,56 @@
   color: #fff; }
 
 .signupTab-component {
-  display: block;
   position: relative;
-  border-radius: 10px;
   margin-top: 120px;
-  margin-right: 150px; }
+  margin-right: 100px; }
+
+.welcome {
+  color: black;
+  width: 200px;
+  font-style: 'Coming Soon';
+  position: absolute;
+  margin-left: 22%;
+  transform: translateY(100px);
+  z-index: 1;
+  text-shadow: none; }
 
 .signupTab-component img {
   position: absolute;
-  width: 150px;
-  height: 150px;
-  margin-top: 10px;
-  margin-left: 43%;
-  z-index: 1;
-  opacity: .75; }
+  width: 800px;
+  height: 550px;
+  margin-left: 10%; }
 
 .signup, .login {
-  margin: 0 auto;
-  background: #FAEDDC;
-  opacity: 0.92;
-  height: 450px;
-  position: relative; }
-
-.signup {
-  height: 450px;
-  width: 420px; }
-
-.login {
-  height: 450px;
-  width: 420px; }
-
-.selected {
-  background-color: #333333;
-  color: #fff; }
+  margin: 0 48%;
+  width: 380px; }
 
 .tabs {
-  width: 420px;
+  width: 300px;
   height: 50px;
-  margin: 0 auto;
-  background: #FAEDDC;
-  opacity: 0.90; }
+  margin-left: 51%;
+  transform: translateY(-36.5px);
+  opacity: .92; }
+
+#loginButton {
+  background: #ffd071;
+  width: 130px;
+  margin-left: 35px; }
+
+#signupButton {
+  width: 130px;
+  background: #f0776c; }
 
 .tabs p {
-  width: 49.95%;
   float: left;
   color: #fff;
   text-align: center;
-  padding-top: 10px;
-  height: 50px;
-  margin: 0; }
+  padding-top: 4%;
+  height: 50px; }
 
 .tabs p:hover {
-  background: #333333;
+  padding-top: 1%;
+  font-size: 24px;
   color: #fff;
   cursor: pointer; }
 
@@ -189,9 +196,11 @@
   transform: translateY(190px); }
 
 .btn {
+  background-color: #FFF;
+  color: #000024;
   position: relative;
   width: 100px;
-  margin-left: 40%;
+  margin-left: 39%;
   transform: translateY(190px); }
 
 .navbar {
@@ -369,5 +378,10 @@ h2 {
 .btn-selected {
   background: #333333;
   color: #fff; }
+</style></head>
+  <body>
+    <div id="app-container"><div data-reactroot="" class="app-window"><div class="app-components u_column-container"><div class="account-button"><span><!-- react-text: 5 -->Sign Out <!-- /react-text --><i class="fa fa-sign-out" aria-hidden="true"></i></span></div><nav id="sidebar" class="navbar u_column"><img class="logo" src="./CookBook_files/cookbook-logo.png"><div class="nav-buttons"><a target="_blank"><div class="tab inner"><img src="./CookBook_files/cookbook-icon_28x28.png"><span>My CookBook</span></div></a><a target="_blank"><div class="tab inner"><img src="./CookBook_files/add-recipe_28x28.png"><span>Add Recipe!</span></div></a></div></nav><div class="u_column page-content"><div class="signupTab-component"><p class="welcome">Welcome to Cookbook! Please login or signup!</p><img src="./CookBook_files/openBook2.png"><div class="tabs"><p id="signupButton" class="highlight">Register</p><p id="loginButton" class="selected">Login</p></div><div class="login_input"><form class="login"><input type="text" class="form-control" name="emailField" placeholder="Email"><input type="password" class="form-control" name="passwordField" placeholder="Password"><button class="btn btn-login" type="submit">Login</button></form></div></div></div></div></div></div>
+    <script src="./CookBook_files/bundle.js"></script>
+  
 
-/*# sourceMappingURL=styles.css.map*/
+</body></html>

@@ -27,12 +27,14 @@ export const LoginForm  = React.createClass({
         var self = this;
         return (
               <div className="signupTab-component">
+                <p className='welcomeInfo'>Welcome to Cookbook! <br/> Please login or signup!</p>
+                <img src='../../images/openBook2.png'/>
                   <div className="tabs">
                       <p id="signupButton" onClick={self.switchTab.bind(null,"signup")} className={self.state.signup ? "selected":"highlight"}>Register</p>
                       <p id="loginButton" onClick={self.switchTab.bind(null,"login")} className={self.state.login ? "selected":"highlight"}>Login</p>
                   </div>
-                   {self.state.signup?<Signup/> : null}
-                   {self.state.login? <Login/> : null}
+                  {self.state.signup?<Signup/> : null}
+                  {self.state.login? <Login/> : null}
               </div>
         )
   }
@@ -46,7 +48,6 @@ let Signup = React.createClass({
             return (
             <div className="signup_input">
               <form className="signup" onSubmit={this._handleSignup}>
-                    {/* <input type="text" className="form-control" name="usernameField" placeholder="Username"/> */}
                     <input type="email" className="form-control" name="emailField" placeholder="Email"/>
                     <input type="password" className="form-control" name="passwordField" placeholder="Password"/>
                     <input type="password" className="form-control" name="confirmField" placeholder="Confirm Password"/>
@@ -61,10 +62,8 @@ let Signup = React.createClass({
         evt.preventDefault();
         let formEl = evt.target
         let objToSave = {
-          // username: formEl.usernameField.value ,
           email: formEl.emailField.value ,
           password: formEl.passwordField.value
-          // confirmPassword: formEl.confirmField.value
         }
         console.log(objToSave)
         ACTIONS.registerNewUser(objToSave)
