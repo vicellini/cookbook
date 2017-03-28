@@ -32,7 +32,7 @@ _sendPostRequest = function(someObj){
 
 toSiteEl.addEventListener('click', function(evt){
     console.log('event heard')
-    var newURL = "http://localhost:5000";
+    var newURL = "http://localhost:5000/#cookbook";
     chrome.tabs.create({ url: newURL });
 })
 

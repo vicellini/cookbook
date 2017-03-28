@@ -4,7 +4,7 @@ import {ACTIONS} from '../actions.js';
 
 export const BookmarkView = React.createClass ({
 
-  componentDidMount: function(){
+  componentWillMount: function(){
     ACTIONS.fetchAllBookmarks()
   },
 

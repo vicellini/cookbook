@@ -3,6 +3,7 @@
   & input {
     outline: none;
     border-radius: 2px;
+    color: #333;
   }
   & button {
     outline: none;
@@ -15,6 +16,7 @@
 
 .category-option {
   background: #424242;
+  color: #fff;
 }
 .new-recipe_input {
   font-size: 0;
@@ -23,6 +25,8 @@
 
 .new-recipe_form,
 .new-recipe_preview {
+  color: #333;
+  text-shadow: none;
   display: inline-block;
   font-size: medium;
   vertical-align: top;

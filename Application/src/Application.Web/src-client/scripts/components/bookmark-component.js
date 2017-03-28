@@ -5,8 +5,12 @@ export const BookmarkComponent = React.createClass({
 
   _handleDeleteBookmark: function(evt){
     let bookmarkId = evt.target
-    console.log(bookmarkId.dataset.id)
-    ACTIONS.deleteCurrentBookmark(bookmarkId.dataset.id)
+    let result = confirm("Are you sure you want to delete this bookmark?")
+      if(result === true){
+        ACTIONS.deleteCurrentBookmark(bookmarkId.dataset.id)
+      }else{
+        alert("*phew*")
+      }
   },
 
 

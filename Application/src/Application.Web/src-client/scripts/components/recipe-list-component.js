@@ -5,10 +5,12 @@ import {ACTIONS} from '../actions.js';
 
 export const RecipeListComponent = React.createClass({
 
-  componentDidMount: function(){
+  componentWillMount: function(){
     let component = this;
     ACTIONS.fetchAllRecipies()
   },
+
+  // componentDidMount
 
   _makeRecipeComponents: function(recipeList){
     let recipeComponentsJSX = recipeList.map(function(recipeObj, i){
@@ -52,7 +54,7 @@ export const RecipeItem = React.createClass({
   _handleSingleRecipe: function(evt){
     let recipeIdEl = evt.currentTarget.dataset.recipe_id
     let hashRoute = 'recipe/' + recipeIdEl
-    ACTIONS.navChange('SINGLERECIPE', hashRoute)
+    ACTIONS.routeTo(hashRoute)
   },
 
   render: function(){

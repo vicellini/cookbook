@@ -2,6 +2,7 @@ import Backbone from 'backbone';
 import ReactDOM from 'react-dom'
 import React from 'react'
 import {ViewController} from './view-controller.js'
+import {ACTIONS} from './actions.js'
 
 if(window.location.hostname === 'localhost' && window.location.port === "5000" ){
     let headEl = document.querySelector('head')
@@ -9,8 +10,9 @@ if(window.location.hostname === 'localhost' && window.location.port === "5000" )
     headEl.removeChild(linkEl)
 }
 
-const AppRouter = Backbone.Router.extend({
+export const AppRouter = Backbone.Router.extend({
 	initialize: function(){
+    console.log('router firing')
 		Backbone.history.start()
 	},
 
@@ -23,25 +25,27 @@ const AppRouter = Backbone.Router.extend({
 	},
 
 	showAccountComponent: function(){
-		ReactDOM.render(<ViewController fromRoute={'ACCOUNT'}/>, document.querySelector('#app-container'))
+		ACTIONS.setView('ACCOUNT')
 	},
 
 	showNewRecipeComponent: function(){
-		ReactDOM.render(<ViewController fromRoute={'NEWRECIPE'} />, document.querySelector('#app-container'))
+		ACTIONS.setView('NEWRECIPE')
 	},
 
   showSingleRecipeComponent: function(id){
-    ReactDOM.render(<ViewController fromRoute={'SINGLERECIPE'} routeParams={{recipeId: id}}/>, document.querySelector('#app-container'))
+    ACTIONS.setView('SINGLERECIPE', {recipeId: id})
   },
 
   showCookbookComponent: function(){
-    ReactDOM.render(<ViewController fromRoute={'COOKBOOK'}/>, document.querySelector('#app-container'))
+    console.log('cookbook firing')
+    ACTIONS.setView('COOKBOOK')
   },
 
   showAllBookmarksComponent: function(){
-    ReactDOM.render(<ViewController fromRoute={'BOOKMARKS'}/>, document.querySelector('#app-container'))
+    ACTIONS.setView('BOOKMARKS')
   }
 
 })
 
 new AppRouter()
+ReactDOM.render(<ViewController/>, document.querySelector('#app-container'))

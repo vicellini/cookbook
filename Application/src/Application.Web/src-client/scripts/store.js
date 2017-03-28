@@ -60,6 +60,7 @@ export const STORE = {
     bookmarks: [],
     currentNavRoute: '',
     shownMealType: 'ALL',
+    routeParams: {}
  },
 
  getStoreData: function(){
