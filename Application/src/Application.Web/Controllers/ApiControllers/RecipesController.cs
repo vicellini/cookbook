@@ -140,9 +140,9 @@ namespace CookBook.Controllers.ApiControllers
 
         // DELETE api/recipes/5
         [HttpDelete("~/api/recipe/{id}")]
-        public async Task<IActionResult> DeleteRecipe(int id, [FromBody] Recipe recipe)
+        public async Task<IActionResult> DeleteRecipe(int id)
         {
-            recipe.Id = id;
+            
 
 
             if (!ModelState.IsValid)
@@ -152,8 +152,11 @@ namespace CookBook.Controllers.ApiControllers
 
             var userId = _userManager.GetUserId(User);
 
-            recipe = await _context.Recipes
+          var  recipe = await _context.Recipes
                 .Where(q => q.ApplicationUser.Id == userId)
+                  .Include(q => q.Ingredients)
+                    .Include(q => q.Steps)
+                  .Include(q => q.Tags)
                 .SingleOrDefaultAsync(m => m.Id == id);
 
             if (recipe == null)
@@ -162,7 +165,8 @@ namespace CookBook.Controllers.ApiControllers
             }
 
             _context.Recipes.Remove(recipe);
-         
+            
+            _context.SaveChanges();
 
             return Ok();
         }
