@@ -2,7 +2,7 @@
 .navbar {
   width: 15%;
   & img {
-    width: 100px;
+    width: 200px;
   }
 }
 
@@ -12,55 +12,44 @@
 
 //thank you Clay Larson from http://codepen.io/cjl750/pen/mOROYd?editors=1010 ///
 
-#sidebar a {
+#sidebar a{
   display: block;
-  width: 150px;
-  padding: 10px 5px 0;
+  padding: 10px 0px;
   text-decoration: none;
 }
 
-.tab.inner {
-  position: relative;
-  border: 1px solid #333;
-  border-radius: 3px;
-}
-
-.tab.inner img {
-  margin: 0;
-  padding-left: 8px;
-  width: 28px;
-  opacity: 1;
-  transition: visibility, opacity 0.5;
-}
 .tab.inner span {
   text-align: center;
-  position: relative;
-  min-width: 28px;
-  left: 22px;
-  top: 7px;
-  font-size: 10px;
+  font-size: 0px;
 }
+
 .tab.inner {
-  display: flex;
-  box-sizing: border-box;
-  padding: 5px;
-  background-color:  #fff;
-  width: 55px;
-  transition: width 0.5s, background-color 1s linear;
-  overflow: hidden;
+  // display: flex;
+  // background-color:  #fff;
+  width: 15px;
+  height: 50px;
+  transition: width 0.3s, background-color .3s linear;
+  // overflow: hidden;
   color: #333;
   text-shadow: none;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
+.tab.inner:first-child{
+  border-left: 15px solid #ffd071;
+}
+.tab.inner:nth-child(2n){
+  border-left: 15px solid black;
+}
+
 .tab.inner:hover {
-  width: 170px;
-  color: 308145;
+  width: 200px;
   cursor: pointer;
+  background-color: #ffd071;
+  text-align: center;
 }
-.js-show {
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-.js-hide {
-  visibility: hidden !important;
-  opacity: 0 !important;
+
+.tab.inner:hover span{
+  font-size: 20px;
 }

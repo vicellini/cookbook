@@ -10,7 +10,6 @@ export const SingleRoute = React.createClass({
       return (
         <a target="_blank" onClick={this._handleNavClick}>
           <div className="tab inner">
-              <img src={this.props.img}/>
               <span>{this.props.displayText}</span>
           </div>
         </a>
