@@ -7,9 +7,10 @@ export const SingleRoute = React.createClass({
   },
 
   render: function(){
+    let singleClassName = "tab inner " + this.props.appRoute
       return (
-        <a target="_blank" onClick={this._handleNavClick}>
-          <div className="tab inner">
+      <a target="" onClick={this._handleNavClick}>
+          <div className={singleClassName}>
               <span>{this.props.displayText}</span>
           </div>
         </a>

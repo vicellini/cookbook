@@ -220,38 +220,27 @@
 .tab.inner {
   width: 15px;
   height: 50px;
-  transition: width 0.3s, background-color .3s linear, font-size .4s;
+  transition: width 0.3s, background-color .3s linear;
   color: #333;
   text-shadow: none;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box; }
 
+.tab.inner:first-child {
+  border-left: 15px solid #ffd071; }
+
+.tab.inner:nth-child(2n) {
+  border-left: 15px solid black; }
+
 .tab.inner:hover {
   width: 200px;
   cursor: pointer;
+  background-color: #ffd071;
   text-align: center; }
 
 .tab.inner:hover span {
   font-size: 20px; }
-
-.COOKBOOK {
-  border-left: 15px solid #ffd071; }
-
-.COOKBOOK:hover {
-  background: #ffd071; }
-
-.NEWRECIPE {
-  border-left: 15px solid #f0776c; }
-
-.NEWRECIPE:hover {
-  background: #f0776c; }
-
-.BOOKMARKS {
-  border-left: 15px solid #1abc9c; }
-
-.BOOKMARKS:hover {
-  background: #1abc9c; }
 
 .filter-recipe {
   margin: 20px 0; }
