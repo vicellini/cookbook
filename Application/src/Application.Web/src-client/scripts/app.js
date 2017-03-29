@@ -17,6 +17,7 @@ export const AppRouter = Backbone.Router.extend({
 	},
 
 	routes: {
+    'recipe/search/:keyword': 'showSearchedComponent',
     'recipe/bookmarks' : 'showAllBookmarksComponent',
     'recipe/create' : 'showNewRecipeComponent',
     'recipe/:id' : 'showSingleRecipeComponent',

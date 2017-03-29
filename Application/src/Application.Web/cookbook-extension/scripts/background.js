@@ -1,6 +1,7 @@
 
 let addRecipeEl = document.querySelector("#add-recipe");
 let toSiteEl = document.querySelector('#to-cookbook');
+let buttonToReplaceEl = document.querySelector('.top')
 
 _getActiveTabInfo = function(tabs){
   console.log('hello???')
@@ -60,5 +61,6 @@ addRecipeEl.addEventListener('click', function(evt){
       console.log(cookies[0].value)
     })
 
+    addRecipeEl.innerHTML = '<p>Recipe Added!</p>'
 
 })
