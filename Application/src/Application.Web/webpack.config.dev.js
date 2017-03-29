@@ -11,7 +11,7 @@ module.exports = {
   context : `${__dirname}` ,
   module: {
     loaders: [
-		 { 
+		 {
           test: /\.js$/,
 			 exclude: /node_modules/,
 			 loader: 'babel-loader',
@@ -22,7 +22,11 @@ module.exports = {
 	    {
 		    test: /\.scss$/,
 		    loader: "style-loader!css-loader!sass-loader!resolve-url-loader"
-		 }
+		 },
+     {
+       test: /\.(jpe?g|png|gif|svg)/i,
+       loader: 'file-loader?name=[name].[ext]&outputPath=images&publicPath=../images&context=./src-client/images'
+     }
 	 ]
   },
   plugins: [
@@ -30,6 +34,9 @@ module.exports = {
 	  new webpack.DefinePlugin({
         'process.env': { NODE_ENV: JSON.stringify(nodeEnv) }
 	  }),
+    new CopyWebpackPlugin([
+      {from: 'src-client/images', to: 'images' }
+    ])
      //env plugin -- css
   ]
 }
