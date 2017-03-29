@@ -337,11 +337,21 @@
   box-sizing: border-box; }
 
 body {
-  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("https://images.unsplash.com/31/RpgvvtYAQeqAIs1knERU_vegetables.jpg");
-  background-size: cover;
   font-family: 'Noto Sans', sans-serif;
   color: #fff;
   text-shadow: 1.5px 1.5px #333; }
+
+.body_home {
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("https://images.unsplash.com/31/RpgvvtYAQeqAIs1knERU_vegetables.jpg");
+  background-size: cover; }
+
+.body_recipe {
+  background: url("https://static.pexels.com/photos/349609/pexels-photo-349609.jpeg");
+  background-size: cover; }
+
+.body_bookmark {
+  background: url("https://static.pexels.com/photos/3329/food-kitchen-cutting-board-cooking.jpg");
+  background-size: cover; }
 
 img {
   width: 100%;
