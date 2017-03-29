@@ -46,6 +46,7 @@ export const SingleRecipeComponent = React.createClass({
 
     return(
       <div className="single-recipe">
+        <h1>{recipeObj.name}</h1>
         <div className="recipe-card-top u_column-container">
           <img className="u_column" src={recipeObj.media1}/>
           <ul className="single-recipe_ingredients u_column">

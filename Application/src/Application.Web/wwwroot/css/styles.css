@@ -1,3 +1,6 @@
+body {
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("https://static.pexels.com/photos/349609/pexels-photo-349609.jpeg"); }
+
 .new-recipe_form input {
   outline: none;
   border-radius: 2px;
@@ -17,6 +20,9 @@
 .new-recipe_input {
   font-size: 0;
   padding: 20px; }
+
+.new-recipe_form {
+  margin-top: 20px; }
 
 .new-recipe_form,
 .new-recipe_preview {
@@ -343,6 +349,9 @@ img {
   width: 100%;
   display: block; }
 
+h1 {
+  font-family: 'Abel', sans-serif; }
+
 h2 {
   font-family: 'Abel', sans-serif;
   font-size: 28px;
@@ -385,10 +394,24 @@ h2 {
 .col-sm-6:nth-child(2n+1) {
   clear: left; }
 
-.thank-you-page {
+.thank-you-page,
+.recipe-delete-page {
+  color: #333;
+  width: 500px;
   text-align: center;
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 3px;
   margin: 0 auto;
-  padding-top: 200px; }
+  margin-top: 150px;
+  text-shadow: none; }
+  .thank-you-page img,
+  .recipe-delete-page img {
+    margin: 0 auto;
+    width: 200px; }
+
+.no-user {
+  display: none; }
 
 .btn-normal {
   background: #fff;

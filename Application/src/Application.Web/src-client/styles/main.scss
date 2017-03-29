@@ -22,6 +22,9 @@ img {
 	width: 100%;
 	display: block;
 }
+h1 {
+	font-family: 'Abel', sans-serif;
+}
 
 h2 {
 	font-family: 'Abel', sans-serif;
@@ -29,6 +32,7 @@ h2 {
 	color: white;
 	text-shadow: 1px 1px #333;
 }
+
 
 .u_column-container {
   font-size: 0;
@@ -73,10 +77,25 @@ h2 {
     clear: left;
 }
 
-.thank-you-page {
+.thank-you-page,
+.recipe-delete-page {
+	color: #333;
+	width: 500px;
 	text-align: center;
+	background: #fff;
+	border: 1px solid #333;
+	border-radius: 3px;
 	margin: 0 auto;
-	padding-top: 200px;
+	margin-top: 150px;
+	text-shadow: none;
+	& img {
+		margin: 0 auto;
+		width: 200px;
+	}
+}
+
+.no-user {
+	display: none;
 }
 
 

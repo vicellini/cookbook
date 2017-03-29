@@ -1,4 +1,6 @@
-
+body {
+  background: linear-gradient(rgba(255,255,255, 0.3), rgba(255,255,255, 0.3)), url('https://static.pexels.com/photos/349609/pexels-photo-349609.jpeg');
+}
 .new-recipe_form {
   & input {
     outline: none;
@@ -21,6 +23,10 @@
 .new-recipe_input {
   font-size: 0;
   padding: 20px;
+}
+
+.new-recipe_form {
+  margin-top: 20px;
 }
 
 .new-recipe_form,

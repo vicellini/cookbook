@@ -1,7 +1,7 @@
 import React from 'react';
 import {ACTIONS} from '../actions.js';
 
-export const UserButton = React.createClass({
+export const SignOutButton = React.createClass({
 
   _handleLogOutRoute: function(){
     ACTIONS.logOutUser()
@@ -9,8 +9,8 @@ export const UserButton = React.createClass({
 
   render: function(){
     let classList
-    if(this.props.loggedIn === true){
-      classList = "account-button"
+    if(this.props.currentNavRoute === 'ACCOUNT'){
+      classList = "account-button no-user"
     }else{
       classList = "account-button"
     }
