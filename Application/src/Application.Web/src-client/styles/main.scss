@@ -73,6 +73,11 @@ h2 {
 	outline: none;
 }
 
+.recipe-search {
+	color: #333;
+	text-shadow: none;
+}
+
 .col-sm-6:nth-child(2n+1){
     clear: left;
 }
@@ -88,10 +93,12 @@ h2 {
 	margin: 0 auto;
 	margin-top: 150px;
 	text-shadow: none;
-	& img {
+}
+
+.thank-you-page img,
+.recipe-delete-page img {
 		margin: 0 auto;
 		width: 200px;
-	}
 }
 
 .no-user {

@@ -34,7 +34,7 @@ export const RecipeListComponent = React.createClass({
       <div className="cookBook-recipes">
         <h2>My CookBook</h2>
         <FilterMealComponent {...this.props}/>
-        <RecipeSearchComponent/>
+        <RecipeSearchComponent {...this.props}/>
         <div className="row all-recipes">
           {this._makeRecipeComponents(theFilteredRecipes)}
         </div>

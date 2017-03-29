@@ -10,8 +10,6 @@
   margin-top: 30px;
 }
 
-//thank you Clay Larson from http://codepen.io/cjl750/pen/mOROYd?editors=1010 ///
-
 #sidebar a{
   display: block;
   padding: 10px 0px;
@@ -20,50 +18,53 @@
 
 .tab.inner span {
   text-align: center;
-  font-size: 0px;
 }
 
 .tab.inner {
-  width: 15px;
+  padding: 10px;
+  width: 200px;
   height: 50px;
-  transition: width 0.3s, background-color .3s linear, font-size .4s;
+  transition: all 0.4s, linear;
   color: #333;
   text-shadow: none;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  transform: translateX(-180px);
 }
 
 .tab.inner:hover {
-  width: 200px;
   cursor: pointer;
   text-align: center;
+  transform: translateX(0px);
+
 }
 
 .tab.inner:hover span{
-  font-size: 20px;
+  font-size: 18px;
+  // transform:translateY(10px);
 }
 
 .COOKBOOK {
-  border-left: 15px solid #ffd071
+  border-left: 25px solid #ffd071
 }
 
-.COOKBOOK:hover{
+.COOKBOOK{
   background: #ffd071
 }
 
 .NEWRECIPE{
-  border-left: 15px solid #f0776c;
+  border-left: 25px solid #f0776c;
 }
 
-.NEWRECIPE:hover{
+.NEWRECIPE{
   background: #f0776c;
 }
 
 .BOOKMARKS{
-  border-left: 15px solid #1abc9c;
+  border-left: 25px solid #1abc9c;
 }
 
-.BOOKMARKS:hover{
+.BOOKMARKS{
   background: #1abc9c;
 }
