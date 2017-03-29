@@ -2,7 +2,7 @@ import React from 'react';
 import {ACTIONS} from '../actions.js'
 
 
-export const SuccessView = React.createClass({
+export const ByeByeView = React.createClass({
 
   componentDidMount: function(){
     setTimeout(function(){
@@ -11,12 +11,11 @@ export const SuccessView = React.createClass({
   },
 
   render : function(){
-    console.log("i'm here")
     return(
-    <div className="thank-you-page">
-        <h1>Thank You!</h1>
-        <h3>Recipe Submitted</h3>
-        <img src="https://uncomelyandbroken.files.wordpress.com/2015/02/4474884936_0dea8212d2.jpg"/>
+    <div className="recipe-delete-page">
+        <h1>Bye Bye...</h1>
+        <h3>Recipe Deleted</h3>
+        <img src="https://pencils.com/wp-content/uploads/2014/10/Fotolia_40377656_Subscription_Monthly_M.jpg"/>
         <p>page will return to cookbook automatically</p>
     </div>
     )

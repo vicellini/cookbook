@@ -43,7 +43,7 @@ export const ACTIONS = {
     let newRecipeInstance = new RecipeModel()
     newRecipeInstance.set({id: id})
     newRecipeInstance.destroy()
-    ACTIONS.routeTo('cookbook')
+    ACTIONS.routeTo('byebye')
   },
 
   deleteCurrentBookmark: function(id){

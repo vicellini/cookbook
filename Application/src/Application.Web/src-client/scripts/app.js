@@ -21,6 +21,7 @@ export const AppRouter = Backbone.Router.extend({
     'recipe/bookmarks' : 'showAllBookmarksComponent',
     'recipe/create' : 'showNewRecipeComponent',
     'recipe/:id' : 'showSingleRecipeComponent',
+    'byebye': 'showByeByeComponent',
     'thankyou': 'showThanksComponent',
 		'cookbook' : 'showCookbookComponent',
     '' : 'showAccountComponent' ,
@@ -44,6 +45,10 @@ export const AppRouter = Backbone.Router.extend({
 
   showAllBookmarksComponent: function(){
     ACTIONS.setView('BOOKMARKS')
+  },
+
+  showByeByeComponent: function(){
+    ACTIONS.setView('BYEBYE')
   },
 
   showThanksComponent: function(){

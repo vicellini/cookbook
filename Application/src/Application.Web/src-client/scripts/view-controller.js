@@ -6,7 +6,8 @@ import {SingleRecipeView} from './views/single-recipe-view.js';
 import {BookmarkView} from './views/bookmark-view.js';
 import {NewRecipeView} from './views/add-new-recipe-view.js';
 import {SuccessView} from './views/thank-you-view.js';
-import {UserButton} from './components/sign-out-button-component.js';
+import {ByeByeView} from './views/recipe-delete-view.js'
+import {SignOutButton} from './components/sign-out-button-component.js';
 import {STORE} from './store.js';
 import {ACTIONS} from './actions.js';
 
@@ -53,6 +54,9 @@ export const ViewController = React.createClass({
                              {...this.state}
                              />
       break;
+      case "BYEBYE":
+        componentToRender = <ByeByeView/>
+      break;
       case "BOOKMARKS":
         selectBody.className = 'body_bookmark'
         componentToRender = <BookmarkView {...this.state}/>
@@ -62,7 +66,7 @@ export const ViewController = React.createClass({
     return (
     <div className="app-window">
       <div className="app-components u_column-container">
-        <UserButton {...this.state}/>
+        <SignOutButton {...this.state}/>
         <Navbar navRoute={this.state.currentNavRoute}/>
         <div className="u_column page-content">
           {componentToRender}
