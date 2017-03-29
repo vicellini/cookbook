@@ -214,43 +214,44 @@
   text-decoration: none; }
 
 .tab.inner span {
-  text-align: center;
-  font-size: 0px; }
+  text-align: center; }
 
 .tab.inner {
-  width: 15px;
+  padding: 10px;
+  width: 200px;
   height: 50px;
-  transition: width 0.3s, background-color .3s linear, font-size .4s;
+  transition: all 0.4s, linear;
   color: #333;
   text-shadow: none;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box; }
+  -webkit-box-sizing: border-box;
+  transform: translateX(-180px); }
 
 .tab.inner:hover {
-  width: 200px;
   cursor: pointer;
-  text-align: center; }
+  text-align: center;
+  transform: translateX(0px); }
 
 .tab.inner:hover span {
-  font-size: 20px; }
+  font-size: 18px; }
 
 .COOKBOOK {
-  border-left: 15px solid #ffd071; }
+  border-left: 25px solid #ffd071; }
 
-.COOKBOOK:hover {
+.COOKBOOK {
   background: #ffd071; }
 
 .NEWRECIPE {
-  border-left: 15px solid #f0776c; }
+  border-left: 25px solid #f0776c; }
 
-.NEWRECIPE:hover {
+.NEWRECIPE {
   background: #f0776c; }
 
 .BOOKMARKS {
-  border-left: 15px solid #1abc9c; }
+  border-left: 25px solid #1abc9c; }
 
-.BOOKMARKS:hover {
+.BOOKMARKS {
   background: #1abc9c; }
 
 .filter-recipe {
@@ -280,6 +281,9 @@
     font-size: 20px; }
   .cookbook_details p {
     font-size: 12px; }
+
+.cookbook_details:first-child {
+  background: black; }
 
 .all-recipes {
   padding-left: 50px; }
