@@ -140,7 +140,7 @@
   font-family: 'Kaushan Script', sans-serif;
   font-size: 36px;
   position: absolute;
-  margin-left: 15%;
+  margin-left: 150px;
   transform: translateY(150px);
   z-index: 1;
   text-shadow: none;
@@ -153,13 +153,13 @@
   margin-left: 10%; }
 
 .signup, .login {
-  margin: 0 48%;
+  margin: 0 500px;
   width: 380px; }
 
 .tabs {
   width: 300px;
   height: 50px;
-  margin-left: 51%;
+  margin-left: 530px;
   transform: translateY(-36.5px);
   opacity: .92; }
 
@@ -197,66 +197,50 @@
   color: #000024;
   position: relative;
   width: 100px;
-  margin-left: 39%;
+  margin-left: 150px;
   transform: translateY(190px); }
 
 .navbar {
   width: 15%; }
   .navbar img {
-    width: 100px; }
+    width: 200px; }
 
 .nav-buttons {
   margin-top: 30px; }
 
 #sidebar a {
   display: block;
-  width: 150px;
-  padding: 10px 5px 0;
+  padding: 10px 0px;
   text-decoration: none; }
-
-.tab.inner {
-  position: relative;
-  border: 1px solid #333;
-  border-radius: 3px; }
-
-.tab.inner img {
-  margin: 0;
-  padding-left: 8px;
-  width: 28px;
-  opacity: 1;
-  transition: visibility, opacity 0.5; }
 
 .tab.inner span {
   text-align: center;
-  position: relative;
-  min-width: 28px;
-  left: 22px;
-  top: 7px;
-  font-size: 10px; }
+  font-size: 0px; }
 
 .tab.inner {
-  display: flex;
-  box-sizing: border-box;
-  padding: 5px;
-  background-color: #fff;
-  width: 55px;
-  transition: width 0.5s, background-color 1s linear;
-  overflow: hidden;
+  width: 15px;
+  height: 50px;
+  transition: width 0.3s, background-color .3s linear;
   color: #333;
-  text-shadow: none; }
+  text-shadow: none;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
+
+.tab.inner:first-child {
+  border-left: 15px solid #ffd071; }
+
+.tab.inner:nth-child(2n) {
+  border-left: 15px solid black; }
 
 .tab.inner:hover {
-  width: 170px;
-  color: 308145;
-  cursor: pointer; }
+  width: 200px;
+  cursor: pointer;
+  background-color: #ffd071;
+  text-align: center; }
 
-.js-show {
-  visibility: visible !important;
-  opacity: 1 !important; }
-
-.js-hide {
-  visibility: hidden !important;
-  opacity: 0 !important; }
+.tab.inner:hover span {
+  font-size: 20px; }
 
 .filter-recipe {
   margin: 20px 0; }
@@ -389,6 +373,11 @@ h2 {
 
 .col-sm-6:nth-child(2n+1) {
   clear: left; }
+
+.thank-you-page {
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 200px; }
 
 .btn-normal {
   background: #fff;

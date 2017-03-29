@@ -6,10 +6,12 @@
     <link rel="stylesheet" href="./CookBook_files/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="./CookBook_files/font-awesome.min.css">
     <link href="./CookBook_files/css" rel="stylesheet">
+    <link href="./CookBook_files/css(1)" rel="stylesheet">
     
   <style type="text/css">.new-recipe_form input {
   outline: none;
-  border-radius: 2px; }
+  border-radius: 2px;
+  color: #333; }
 
 .new-recipe_form button {
   outline: none;
@@ -19,7 +21,8 @@
   border: 1px solid #424242; }
 
 .category-option {
-  background: #424242; }
+  background: #424242;
+  color: #fff; }
 
 .new-recipe_input {
   font-size: 0;
@@ -27,6 +30,8 @@
 
 .new-recipe_form,
 .new-recipe_preview {
+  color: #333;
+  text-shadow: none;
   display: inline-block;
   font-size: medium;
   vertical-align: top;
@@ -139,15 +144,17 @@
   margin-top: 120px;
   margin-right: 100px; }
 
-.welcome {
+.welcomeInfo {
   color: black;
-  width: 200px;
-  font-style: 'Coming Soon';
+  width: 300px;
+  font-family: 'Kaushan Script', sans-serif;
+  font-size: 36px;
   position: absolute;
-  margin-left: 22%;
-  transform: translateY(100px);
+  margin-left: 15%;
+  transform: translateY(150px);
   z-index: 1;
-  text-shadow: none; }
+  text-shadow: none;
+  text-align: center; }
 
 .signupTab-component img {
   position: absolute;
@@ -193,7 +200,7 @@
   width: 250px;
   margin: 0 auto;
   margin-bottom: 5%;
-  transform: translateY(190px); }
+  transform: translateY(150px); }
 
 .btn {
   background-color: #FFF;
@@ -206,60 +213,44 @@
 .navbar {
   width: 15%; }
   .navbar img {
-    width: 100px; }
+    width: 200px; }
 
 .nav-buttons {
   margin-top: 30px; }
 
 #sidebar a {
   display: block;
-  width: 150px;
-  padding: 10px 5px 0;
+  padding: 10px 0px;
   text-decoration: none; }
-
-.tab.inner {
-  position: relative;
-  border: 1px solid #333;
-  border-radius: 3px; }
-
-.tab.inner img {
-  margin: 0;
-  padding-left: 8px;
-  width: 28px;
-  opacity: 1;
-  transition: visibility, opacity 0.5; }
 
 .tab.inner span {
   text-align: center;
-  position: relative;
-  min-width: 28px;
-  left: 22px;
-  top: 7px;
-  font-size: 10px; }
+  font-size: 0px; }
 
 .tab.inner {
-  display: flex;
-  box-sizing: border-box;
-  padding: 5px;
-  background-color: #fff;
-  width: 55px;
-  transition: width 0.5s, background-color 1s linear;
-  overflow: hidden;
+  width: 15px;
+  height: 50px;
+  transition: width 0.3s, background-color .3s linear;
   color: #333;
-  text-shadow: none; }
+  text-shadow: none;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
+
+.tab.inner:first-child {
+  border-left: 15px solid #ffd071; }
+
+.tab.inner:nth-child(2n) {
+  border-left: 15px solid black; }
 
 .tab.inner:hover {
-  width: 170px;
-  color: 308145;
-  cursor: pointer; }
+  width: 200px;
+  cursor: pointer;
+  background-color: #ffd071;
+  text-align: center; }
 
-.js-show {
-  visibility: visible !important;
-  opacity: 1 !important; }
-
-.js-hide {
-  visibility: hidden !important;
-  opacity: 0 !important; }
+.tab.inner:hover span {
+  font-size: 20px; }
 
 .filter-recipe {
   margin: 20px 0; }
@@ -314,6 +305,28 @@
     height: 24px;
     padding: none;
     transform: translateX(-27px); }
+
+.bookmarks {
+  margin-top: 100px; }
+
+.bookmark-list {
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 3px; }
+
+.bookmark-single {
+  color: #333;
+  cursor: pointer;
+  padding: 8px 0;
+  text-shadow: none; }
+  .bookmark-single a {
+    text-decoration: none; }
+  .bookmark-single .bookmark-link {
+    width: 90%; }
+  .bookmark-single .fa {
+    text-align: right;
+    width: 10%;
+    padding-right: 5px; }
 
 * {
   box-sizing: border-box; }
@@ -380,7 +393,7 @@ h2 {
   color: #fff; }
 </style></head>
   <body>
-    <div id="app-container"><div data-reactroot="" class="app-window"><div class="app-components u_column-container"><div class="account-button"><span><!-- react-text: 5 -->Sign Out <!-- /react-text --><i class="fa fa-sign-out" aria-hidden="true"></i></span></div><nav id="sidebar" class="navbar u_column"><img class="logo" src="./CookBook_files/cookbook-logo.png"><div class="nav-buttons"><a target="_blank"><div class="tab inner"><img src="./CookBook_files/cookbook-icon_28x28.png"><span>My CookBook</span></div></a><a target="_blank"><div class="tab inner"><img src="./CookBook_files/add-recipe_28x28.png"><span>Add Recipe!</span></div></a></div></nav><div class="u_column page-content"><div class="signupTab-component"><p class="welcome">Welcome to Cookbook! Please login or signup!</p><img src="./CookBook_files/openBook2.png"><div class="tabs"><p id="signupButton" class="highlight">Register</p><p id="loginButton" class="selected">Login</p></div><div class="login_input"><form class="login"><input type="text" class="form-control" name="emailField" placeholder="Email"><input type="password" class="form-control" name="passwordField" placeholder="Password"><button class="btn btn-login" type="submit">Login</button></form></div></div></div></div></div></div>
+    <div id="app-container"><div data-reactroot="" class="app-window"><div class="app-components u_column-container"><div class="account-button"><span><!-- react-text: 5 -->Sign Out <!-- /react-text --><i class="fa fa-sign-out" aria-hidden="true"></i></span></div><nav id="sidebar" class="navbar u_column"><img class="logo" src="./CookBook_files/cookbook-logo.png"><div class="nav-buttons"><a target="_blank"><div class="tab inner"><span>My CookBook</span></div></a><a target="_blank"><div class="tab inner"><span>Add Recipe!</span></div></a><a target="_blank"><div class="tab inner"><span>My Bookmarks</span></div></a></div></nav><div class="u_column page-content"><div class="signupTab-component"><p class="welcomeInfo"><!-- react-text: 22 -->Welcome to Cookbook! <!-- /react-text --><br><!-- react-text: 24 --> Please login or signup!<!-- /react-text --></p><img src="./CookBook_files/openBook2.png"><div class="tabs"><p id="signupButton" class="highlight">Register</p><p id="loginButton" class="selected">Login</p></div><div class="login_input"><form class="login"><input type="text" class="form-control" name="emailField" placeholder="Email"><input type="password" class="form-control" name="passwordField" placeholder="Password"><button class="btn btn-login" type="submit">Login</button></form></div></div></div></div></div></div>
     <script src="./CookBook_files/bundle.js"></script>
   
 

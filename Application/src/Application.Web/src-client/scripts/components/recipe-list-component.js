@@ -5,12 +5,6 @@ import {ACTIONS} from '../actions.js';
 
 export const RecipeListComponent = React.createClass({
 
-  componentWillMount: function(){
-    let component = this;
-    ACTIONS.fetchAllRecipies()
-  },
-
-  // componentDidMount
 
   _makeRecipeComponents: function(recipeList){
     let recipeComponentsJSX = recipeList.map(function(recipeObj, i){

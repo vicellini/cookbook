@@ -62,6 +62,7 @@ const SingleIngredient = React.createClass({
 
   _handleDelete: function(){
     let singleIngred = this.props.data
+    console.log(singleIngred)
     this.props._updateIngredientList(singleIngred)
     },
 

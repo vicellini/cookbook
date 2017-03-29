@@ -13,9 +13,9 @@ export const ACTIONS = {
   saveNewRecipe: function(recipeObject){
     let newRecipeInstance = new RecipeModel()
     newRecipeInstance.set(recipeObject)
-    console.log(newRecipeInstance.save)
-    newRecipeInstance.save()
-    ACTIONS.routeTo('cookbook')
+    newRecipeInstance.save().then(function(){
+    })
+    ACTIONS.routeTo('thankyou')
   },
 
   fetchAllRecipies: function(){
@@ -68,15 +68,13 @@ export const ACTIONS = {
   },
 
   registerNewUser: function(newUserInfoObj){
-    UserModel.register(newUserInfoObj).then(function(){
-      ACTIONS.routeTo('cookbook')
-    })
+    UserModel.register(newUserInfoObj).then(function(){})
+    ACTIONS.routeTo('cookbook')
   },
 
   logInUser: function(usr, pw){
-    UserModel.logIn(usr, pw).then(function(serverRes){
-      ACTIONS.routeTo('cookbook')
-    })
+    UserModel.logIn(usr, pw).then(function(serverRes){})
+    ACTIONS.routeTo('cookbook')
   },
 
   logOutUser: function(){

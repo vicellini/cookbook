@@ -29,7 +29,7 @@ export const RecipeForm = React.createClass({
   _updateIngredientList: function(singleIngred){
     let copyOfItems = this.state.ingredientList.map(function(copy){return copy})
       let copyOfItemsMinus = copyOfItems.filter(function(ingredientObj){
-            if(singleIngred.nameOfIngredient !== ingredientObj.nameOfIngredient || singleIngred.qty !== ingredientObj.qty){
+            if(singleIngred.name !== ingredientObj.name || singleIngred.quantity !== ingredientObj.quantity){
               return true
             } else {
               return false
