@@ -15,7 +15,7 @@ export const RecipeListComponent = React.createClass({
     return recipeComponentsJSX
   },
 
-  _filterRecipeByCategory: function(recipeArr, category ){
+  _filterRecipeByCategory: function(recipeArr, category){
      let filteredList = recipeArr.filter(function(recipeObj){
         if(category === recipeObj.category || category === "ALL" ){
            return true
@@ -25,6 +25,17 @@ export const RecipeListComponent = React.createClass({
      })
      return filteredList
   },
+
+  _filterSearchRecipe: function(recipeArr, searchTerm){
+    let filteredList = recipeArr.filter(function(recipeObj){
+      if(recipeObj.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1){
+        return true
+      }
+      return filteredList
+        // if(singleIngred.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1){}
+  })
+},
+
 
   render: function(){
     let allRecipes = this.props.recipeList

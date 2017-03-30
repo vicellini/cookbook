@@ -58,6 +58,7 @@ export const STORE = {
     recipeList: [],
     singleRecipe: {},
     bookmarks: [],
+    search: '',
     currentNavRoute: '',
     shownMealType: 'ALL',
     routeParams: {}

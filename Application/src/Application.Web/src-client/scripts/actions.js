@@ -81,6 +81,7 @@ export const ACTIONS = {
     UserModel.logOut().then(function(){
       ACTIONS.routeTo('')
     })
-  }
+  },
+
 
 }
