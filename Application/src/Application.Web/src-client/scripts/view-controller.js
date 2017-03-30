@@ -11,6 +11,8 @@ import {SignOutButton} from './components/sign-out-button-component.js';
 import {STORE} from './store.js';
 import {ACTIONS} from './actions.js';
 
+
+var selectBody = document.querySelector('body')
 export const ViewController = React.createClass({
   getInitialState: function(){
     let storeObject = STORE.getStoreData()
@@ -31,18 +33,23 @@ export const ViewController = React.createClass({
     let componentToRender
     switch(this.state.currentNavRoute){
       case "ACCOUNT":
+        selectBody.className = 'body_home'
         componentToRender = <LoginFormView/>
       break;
       case "COOKBOOK":
+        selectBody.className = 'body_home'
         componentToRender = <CookbookView {...this.state}/>
       break;
       case "NEWRECIPE":
+        selectBody.className = 'body_recipe'
         componentToRender = <NewRecipeView/>
       break;
       case "THANKS":
+        selectBody.className = 'body_recipe'
         componentToRender = <SuccessView/>
       break;
       case "SINGLERECIPE":
+        selectBody.className = 'body_recipe'
         componentToRender = <SingleRecipeView
                              {...this.state}
                              />
@@ -51,6 +58,7 @@ export const ViewController = React.createClass({
         componentToRender = <ByeByeView/>
       break;
       case "BOOKMARKS":
+        selectBody.className = 'body_bookmark'
         componentToRender = <BookmarkView {...this.state}/>
       break;
     }
