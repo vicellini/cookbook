@@ -158,13 +158,15 @@ namespace CookBook.Controllers.ApiControllers
         .Include(q => q.Tags)
       .SingleOrDefaultAsync(m => m.Id == id);
 
+            var steps = recipe.Steps.ToList();
+            var ingredients = recipe.Ingredients.ToList();
+            var tags = recipe.Tags.ToList(); ;
+
             if (recipe == null)
             {
                 return NotFound();
             }
-
             _context.Recipes.Remove(recipe);
-
             _context.SaveChanges();
 
             return Ok();
