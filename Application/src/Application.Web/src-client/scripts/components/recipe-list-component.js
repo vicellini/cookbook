@@ -26,20 +26,33 @@ export const RecipeListComponent = React.createClass({
      return filteredList
   },
 
-  _filterSearchRecipe: function(recipeArr, searchTerm){
-    let filteredList = recipeArr.filter(function(recipeObj){
-      if(recipeObj.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1){
+  _matchSearchTerm: function(ingredArr, searchTerm){
+    for(var i = 0; i < ingredArr.length; i++){
+      let ingredient = ingredArr[i].name
+      if(ingredient.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1){
         return true
       }
-      return filteredList
-        // if(singleIngred.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1){}
-  })
-},
+    }
+  },
+
+
+  _filterSearchRecipe: function(recipeArr, searchTerm){
+    console.log(recipeArr, 'all')
+    let component = this
+    let filteredList = recipeArr.filter(function(recipeObj){
+        if(component._matchSearchTerm(recipeObj.ingredients, searchTerm) === true){
+          return true
+        }
+      })
+      console.log(filteredList, 'filter')
+    return filteredList
+  },
 
 
   render: function(){
     let allRecipes = this.props.recipeList
-    let theFilteredRecipes = this._filterRecipeByCategory(allRecipes, this.props.shownMealType)
+    let searchTerms = this._filterSearchRecipe(allRecipes, this.props.search)
+    let theFilteredRecipes = this._filterRecipeByCategory(searchTerms, this.props.shownMealType)
 
     return (
       <div className="cookBook-recipes">

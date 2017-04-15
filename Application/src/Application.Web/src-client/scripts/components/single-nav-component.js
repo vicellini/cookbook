@@ -2,6 +2,7 @@ import React from 'react'
 import {ACTIONS} from '../actions.js'
 
 export const SingleRoute = React.createClass({
+
   _handleNavClick: function(){
     ACTIONS.routeTo(this.props.hashRoute)
   },
